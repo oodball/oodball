@@ -5,7 +5,7 @@ function Home() {
     <div className="home">
       <section className="hero">
         <h1>Oodball</h1>
-        <p className="subtitle">Part-time farmer, full-time rotter</p>
+        <p className="subtitle">Professional Dilly-dallyer</p>
       </section>
 
       <section className="about">
@@ -20,7 +20,7 @@ function Home() {
               <li>Farming</li>
               <li>Selling</li>
               <li>Harvesting</li>
-              <li>Movies</li>
+              <li>Brawling</li>
               <li>Embroidery</li>
               <li>Gardening</li>
               <li>Crafting</li>

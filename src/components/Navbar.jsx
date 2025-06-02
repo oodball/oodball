@@ -6,16 +6,13 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="navbar-brand">
-        <Link to="/">oodball</Link>
-      </div>
       <div className="navbar-links">
         <div className="dropdown">
           <button 
             className="dropdown-button"
             onClick={() => setIsOpen(!isOpen)}
           >
-            Menu ▼
+            ▼
           </button>
           {isOpen && (
             <div className="dropdown-content">

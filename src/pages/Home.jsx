@@ -12,20 +12,26 @@ function Home() {
         <h2>About Me</h2>
         <div className="card">
           <p>
-            Farming sims have me in a chokehold.
+            <h3>Achievements</h3>
+            <ul>
+              <li>Level 44 in Hay Day</li>
+              <li>114 hours in Stardew Valley</li>
+              <li>Pro Shark Catcher in Animal Crossing</li>
+              <li>200+ Hours in Breath of the Wild</li>
+              <li>9391 trophies in Brawl Stars</li>
+              <li>Instant replier to texts when I feel like it</li>
+            </ul>
+              
           </p>
           <div className="skills">
             <h3>Skills</h3>
             <ul>
-              <li>Farming</li>
-              <li>Selling</li>
-              <li>Harvesting</li>
+              <li>Devious</li>
+              <li>Silly lil guy</li>
+              <li>Farming Sims</li>
               <li>Brawling</li>
               <li>Embroidery</li>
-              <li>Gardening</li>
-              <li>Crafting</li>
-              <li>Building</li>
-              <li>Repairing</li>
+              <li>Tomfoolery</li>
             </ul>
           </div>
         </div>

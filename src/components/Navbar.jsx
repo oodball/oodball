@@ -20,7 +20,7 @@ function Navbar() {
           {isOpen && (
             <div className="dropdown-content">
               <Link to="/">Main Menu</Link>
-              <Link to="/Foodball">Foodball</Link>
+              <Link to="/foodball">Foodball</Link>
               <Link to="/Filmball">Filmball</Link>
               <Link to="/Embroodball">Embroodball</Link>
             </div>

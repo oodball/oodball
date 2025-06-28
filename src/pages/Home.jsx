@@ -20,6 +20,7 @@ function Home() {
               <li>200+ Hours in Breath of the Wild</li>
               <li>9391 trophies in Brawl Stars</li>
               <li>Instant replier to texts when I feel like it</li>
+              <li>Speedrunner in Super Paper Mario: Origami King</li>
             </ul>
               
           </p>

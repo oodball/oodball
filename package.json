@@ -2,6 +2,7 @@
   "name": "portfolio-website",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://oodball.com",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -31,5 +32,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  },
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
 }

@@ -23,6 +23,7 @@ function Navbar() {
               <Link to="/foodball">Foodball</Link>
               <Link to="/Filmball">Filmball</Link>
               <Link to="/Embroodball">Embroodball</Link>
+              <Link to="/digiball">Digiball</Link>
             </div>
           )}
         </div>

@@ -16,8 +16,7 @@ function Foodball() {
   return (
     <div className="foodball">
       <div className="foodball-header">
-        <h1>🍽️ Foodball Journal</h1>
-        <p>Document your culinary adventures and food thoughts</p>
+        <h1>🍽️ Foodball</h1>
       </div>
 
       <div className="entries-section">

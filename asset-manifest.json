@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/oodball/static/css/main.129ee659.css",
-    "main.js": "/oodball/static/js/main.eae7728a.js",
+    "main.js": "/oodball/static/js/main.f0766652.js",
     "index.html": "/oodball/index.html",
     "main.129ee659.css.map": "/oodball/static/css/main.129ee659.css.map",
-    "main.eae7728a.js.map": "/oodball/static/js/main.eae7728a.js.map"
+    "main.f0766652.js.map": "/oodball/static/js/main.f0766652.js.map"
   },
   "entrypoints": [
     "static/css/main.129ee659.css",
-    "static/js/main.eae7728a.js"
+    "static/js/main.f0766652.js"
   ]
 }

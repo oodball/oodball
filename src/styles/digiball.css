@@ -1,0 +1,44 @@
+/* Digiball Page - 8-bit Style */
+.digiball {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(315deg, #d4c4a8 0%, #e8dcc0 50%, #f5f1e8 100%);
+  padding: 2rem;
+}
+
+.wip-image {
+  text-align: center;
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
+.wip-image img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 3px solid #5d2e0a;
+  border-bottom: 4px solid #3d1f06;
+  border-right: 4px solid #3d1f06;
+}
+
+@media (max-width: 600px) {
+  .digiball {
+    padding: 0.5rem;
+  }
+  .wip-container {
+    padding: 1.2rem;
+    max-width: 95vw;
+  }
+  .wip-container h1 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .wip-message {
+    font-size: 0.9rem;
+  }
+} 

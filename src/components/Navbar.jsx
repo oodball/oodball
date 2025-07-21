@@ -21,8 +21,8 @@ function Navbar() {
             <div className="dropdown-content">
               <Link to="/">Main Menu</Link>
               <Link to="/foodball">Foodball</Link>
-              <Link to="/Filmball">Filmball</Link>
-              <Link to="/Embroodball">Embroodball</Link>
+              <Link to="/filmball">Filmball</Link>
+              <Link to="/embroodball">Embroodball</Link>
               <Link to="/digiball">Digiball</Link>
             </div>
           )}

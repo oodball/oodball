@@ -1,7 +1,26 @@
-# Portfolio Website
+# Oodball's Website!
 
-A simple portfolio website built with React.
+This is my website to dump out parts of my life that I don't usually share because I'm not a huge yapper. Instead of me yapping at you, you can come willingly to my page and read my stuff so I don't feel guilty for overloading you with information.
 
+For anybody who actually goes to my github and read my README file, either you're a recruiter (hi) or Himesama (hi)(me)
+
+Currently there are 4 main components too oodball.com:
+-  Foodball
+    * where I share all of my food adventures plus a restraurant review
+- Filmball
+    * A WIP: Supposed to show my movie reviews, when I watch them
+- Embroodball
+    * A digital log of all my embroidery activities
+- Digiball
+    * A picture gallery composed of shots I'm proud of taking on my digicam
+
+Now you may wonder "Oodball how do you have so much time to update all of these things?"
+
+I don't.
+
+I think I'll be updating the Foodball page the most since I like trying new food places. Maybe digiball too since I'll be taking pics, but I need to commit to creating a project for embroidery and that takes willpower and time. 
+
+As for filmball, I usually take a while to watch something, so I'll update it when I have time.
 ## Project Structure
 
 ```
@@ -17,31 +36,4 @@ project-root/
 └── README.md           # Project documentation
 ```
 
-## Getting Started
-
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Start the development server: `npm start`
-
-## Development
-
-- Add new components in the `components/` directory
-- Add styles in the `styles/` directory
-- Place static assets in the `assets/` directory
-
-## Hi there 👋
-
-<!--
-**oodball/oodball** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I'm currently working on ...
-- 🌱 I'm currently learning ...
-- 👯 I'm looking to collaborate on ...
-- 🤔 I'm looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+i

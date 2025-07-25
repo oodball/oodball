@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 async function signUpWithUsername({ email, password, username, from }) {
   // Log the redirect URL for debugging
-  const redirectUrl = "https://oodball.com/auth/callback?from=/";
+  const redirectUrl = `https://oodball.com/auth/callback?from=${encodeURIComponent(from || '/')}`;
   console.log('Signup emailRedirectTo:', redirectUrl);
   const { data, error } = await supabase.auth.signUp({
     email,

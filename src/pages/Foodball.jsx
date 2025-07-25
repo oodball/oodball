@@ -69,17 +69,20 @@ function Foodball() {
                 Clear Filter
               </button>
             )}
-            <select 
-              value={sortBy} 
-              onChange={handleSortChange}
-              className="sort-dropdown"
-            >
-              <option value="date-high">Newest</option>
-              <option value="date-low">Oldest</option>
-              <option value="rating-high">Best Rated</option>
-              <option value="rating-low">Lowest Rated</option>
-              <option value="location">Location</option>
-            </select>
+            <div className="sort-container">
+              <span className="sort-label">Sort by:</span>
+              <select 
+                value={sortBy} 
+                onChange={handleSortChange}
+                className="sort-dropdown eightbit-dropdown"
+              >
+                <option value="date-high">Newest</option>
+                <option value="date-low">Oldest</option>
+                <option value="rating-high">Best Rated</option>
+                <option value="rating-low">Lowest Rated</option>
+                <option value="location">Location</option>
+              </select>
+            </div>
           </div>
         </div>
 

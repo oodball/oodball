@@ -585,6 +585,56 @@
   min-height: 200px;
 }
 
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-left: 1rem;
+}
+
+.sort-label {
+  font-family: 'Courier New', monospace;
+  color: #8b4513;
+  font-size: 0.95rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.eightbit-dropdown {
+  background: #8b4513;
+  color: #f7fafc;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0;
+  font-size: 0.75rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  border: 3px solid #a0522d;
+  border-bottom: 4px solid #5d2e0a;
+  border-right: 4px solid #5d2e0a;
+  cursor: pointer;
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+  min-width: 0;
+  width: auto;
+  flex: 1 1 auto;
+}
+
+.eightbit-dropdown:focus {
+  border-color: #a0522d;
+  box-shadow: 0 0 0 2px #e8dcc0;
+}
+
+.eightbit-dropdown option {
+  background: #8b4513;
+  color: #f7fafc;
+  font-family: 'Courier New', monospace;
+}
 
 
 @media (max-width: 768px) {

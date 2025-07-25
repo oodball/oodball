@@ -21,7 +21,7 @@ function Home() {
               <li>9391 trophies in Brawl Stars</li>
               <li>Instant replier to texts when I feel like it</li>
               <li>Speedrunner in Super Paper Mario: Origami King</li>
-              <li>28,104 hours on dating HimeTsai (as of 7/6/2025)</li>
+              <li>28,541 hours on dating HimeTsai (as of 7/6/2025)</li>
             </ul>
           </div>
           {/* <div className="skills">

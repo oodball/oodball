@@ -19,11 +19,11 @@ function Navbar() {
           </button>
           {isOpen && (
             <div className="dropdown-content">
-              <Link to="/">Main Menu</Link>
-              <Link to="/foodball">Foodball</Link>
-              <Link to="/filmball">Filmball</Link>
-              <Link to="/embroodball">Embroodball</Link>
-              <Link to="/digiball">Digiball</Link>
+              <Link to="/" onClick={() => setIsOpen(false)}>Main Menu</Link>
+              <Link to="/foodball" onClick={() => setIsOpen(false)}>Foodball</Link>
+              <Link to="/filmball" onClick={() => setIsOpen(false)}>Filmball</Link>
+              <Link to="/embroodball" onClick={() => setIsOpen(false)}>Embroodball</Link>
+              <Link to="/digiball" onClick={() => setIsOpen(false)}>Digiball</Link>
             </div>
           )}
         </div>

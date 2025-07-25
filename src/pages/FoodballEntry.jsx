@@ -7,7 +7,7 @@ import CommentSection from '../components/CommentSection';
 import { allEntries } from '../entries';
 import '../styles/foodball.css';
 
-function FoodballEntry() {
+function FoodballEntry({user}) {
   const { id } = useParams();
   const navigate = useNavigate();
   
@@ -91,7 +91,7 @@ function FoodballEntry() {
       </div>
 
       {/* Comment Section */}
-      <CommentSection entryId={entry.id} />
+      <CommentSection entryId={entry.id} user={user} />
     </div>
   );
 }

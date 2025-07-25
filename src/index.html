@@ -1,0 +1,10 @@
+<body>
+  <script>
+    if (window.location.hash.startsWith('#/access_token=')) {
+      console.log('Supabase hash patch running:', window.location.hash);
+      window.location.hash = '#/auth/callback' + window.location.hash.replace('#', '?');
+    }
+  </script>
+  <div id="root"></div>
+  <!-- ...other scripts... -->
+</body>

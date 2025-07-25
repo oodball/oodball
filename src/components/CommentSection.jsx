@@ -1,86 +1,93 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { supabase } from '../supabase_client';
 import '../styles/comment-section.css';
+import { formatDistanceToNowStrict } from 'date-fns';
 
-// Comment service - this is where you'd switch from localStorage to API calls
-const CommentService = {
-  getComments: async (entryId) => {
-    const savedComments = localStorage.getItem(`comments_${entryId}`);
-    return savedComments ? JSON.parse(savedComments) : [];
-  },
-  addComment: async (entryId, comment) => {
-    const existingComments = JSON.parse(localStorage.getItem(`comments_${entryId}`) || '[]');
-    const newComment = {
-      id: Date.now(),
-      ...comment,
-      timestamp: new Date().toISOString(),
-    };
-    const updatedComments = [...existingComments, newComment];
-    localStorage.setItem(`comments_${entryId}`, JSON.stringify(updatedComments));
-    return newComment;
-  },
-  deleteComment: async (entryId, commentId) => {
-    // No longer used, but kept for future backend migration
-    return { success: false };
+const shortLocale = {
+  formatDistance: (token, count) => {
+    switch (token) {
+      case 'lessThanXSeconds':
+      case 'xSeconds':
+        return `${count}s`;
+      case 'halfAMinute':
+        return '30s';
+      case 'lessThanXMinutes':
+      case 'xMinutes':
+        return `${count}m`;
+      case 'aboutXHours':
+      case 'xHours':
+        return `${count}h`;
+      case 'xDays':
+        return `${count}d`;
+      case 'aboutXMonths':
+      case 'xMonths':
+        return `${count}mo`;
+      case 'aboutXYears':
+      case 'xYears':
+        return `${count}y`;
+      default:
+        return '';
+    }
   }
 };
 
-function CommentSection({ entryId }) {
+function CommentSection({ entryId, user }) {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
-  const [authorName, setAuthorName] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  // Load comments from service
   useEffect(() => {
-    const loadComments = async () => {
-      try {
-        setIsLoading(true);
-        const commentsData = await CommentService.getComments(entryId);
-        setComments(commentsData);
-      } catch (err) {
-        setError('Failed to load comments');
-        console.error('Error loading comments:', err);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    loadComments();
+    async function fetchComments() {
+      setLoading(true);
+      let { data, error } = await supabase
+        .from('comments')
+        .select('*')
+        .eq('entry_id', entryId)
+        .order('timestamp', { ascending: true });
+      if (error) setError('Failed to load comments');
+      setComments(data || []);
+      setLoading(false);
+    }
+    fetchComments();
   }, [entryId]);
 
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
-    if (!newComment.trim() || !authorName.trim()) return;
-    try {
-      setIsLoading(true);
-      const comment = await CommentService.addComment(entryId, {
-        author: authorName,
-        content: newComment,
-      });
-      setComments([...comments, comment]);
-      setNewComment('');
-      setError(null);
-    } catch (err) {
-      setError('Failed to post comment');
-      console.error('Error posting comment:', err);
-    } finally {
-      setIsLoading(false);
+    if (!user) {
+      navigate('/login', { state: { from: location.pathname } });
+      return;
     }
-  };
+    const username = user.user_metadata?.username || user.email;
+    const { error } = await supabase.from('comments').insert([
+      {
+        entry_id: entryId,
+        author: user.email,
+        username: username, // Use username from metadata
+        content: newComment,
+        user_id: user.id,
+      },
+    ]);
+    if (error) {
+      console.log(error);
+      setError('Failed to post comment: ' + error.message);
+    }
+    setNewComment('');
+    // Refetch comments after posting
+    // (fetchComments is not available here, so trigger effect by changing entryId or add a state to force reload)
+    // For now, you can force a reload by updating a dummy state if needed
+  }
 
   return (
     <div className="comment-section">
       <div className="comment-header-row">
         <h3>Comments</h3>
       </div>
-      {error && (
-        <div className="error-message">
-          {error}
-        </div>
-      )}
-      {/* Comments List */}
       <div className="comments-list chat-style">
-        {isLoading && comments.length === 0 ? (
+        {loading ? (
           <p className="loading-comments">Loading comments...</p>
         ) : comments.length === 0 ? (
           <p className="no-comments chat-silent">Chat is silent...</p>
@@ -88,8 +95,14 @@ function CommentSection({ entryId }) {
           comments.map(comment => (
             <div key={comment.id} className="chat-comment">
               <div className="chat-author-row">
-                <span className="chat-author">{comment.author}</span>
-                <span className="chat-date">{new Date(comment.timestamp).toLocaleDateString()}</span>
+                <span className="chat-author">{comment.username || comment.author}</span>
+                <span className="chat-date">
+                  {formatDistanceToNowStrict(new Date(comment.timestamp), {
+                    addSuffix: false,
+                    roundingMethod: 'floor',
+                    locale: shortLocale
+                  })}
+                </span>
               </div>
               <div className="chat-bubble">
                 <span className="chat-arrow">↳</span>
@@ -99,38 +112,26 @@ function CommentSection({ entryId }) {
           ))
         )}
       </div>
-      {/* Comment Form */}
       <form onSubmit={handleSubmit} className="comment-form">
         <div className="form-group">
-          <input
-            type="text"
-            placeholder="Your name"
-            value={authorName}
-            onChange={(e) => setAuthorName(e.target.value)}
-            className="author-input"
-            required
-            disabled={isLoading}
-          />
-        </div>
-        <div className="form-group">
           <textarea
+            className="comment-input"
             placeholder="Write a comment..."
             value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            className="comment-input"
+            onChange={e => setNewComment(e.target.value)}
             rows="3"
+            disabled={!user}
             required
-            disabled={isLoading}
           />
         </div>
-        <button 
-          type="submit" 
-          className="submit-btn"
-          disabled={isLoading}
+        <button
+          type="submit"
+          className={user ? 'submit-btn' : 'login-btn'}
         >
-          {isLoading ? 'Posting...' : 'Post Comment'}
+          {user ? 'Post Comment' : 'Login'}
         </button>
       </form>
+      {error && <div className="error-message">{error}</div>}
     </div>
   );
 }

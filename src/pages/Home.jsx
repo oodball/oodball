@@ -11,7 +11,7 @@ function Home() {
       <section className="about">
         <h2>About Me</h2>
         <div className="card">
-          <p>
+          <div>
             <h3>Achievements</h3>
             <ul>
               <li>Level 44 in Hay Day</li>
@@ -23,8 +23,7 @@ function Home() {
               <li>Speedrunner in Super Paper Mario: Origami King</li>
               <li>28,104 hours on dating HimeTsai (as of 7/6/2025)</li>
             </ul>
-              
-          </p>
+          </div>
           {/* <div className="skills">
             <h3>Skills</h3>
             <ul>

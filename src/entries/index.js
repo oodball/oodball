@@ -3,7 +3,9 @@ import { mitchs_seafood } from './2_mitchs_seafood.js';
 import { cesarina } from './3_cesarina.js';
 // import { shank_and_bone } from './6_shank_and_bone.js';
 import { chez_lionel } from './5_chez_lionel.js';
+import { fromagerie_lemaire } from './6_fromagerie_lemaire.js';
 import { template_entry } from './template.js';
+
 
 export const allEntries = [
   inglorious_bagels,
@@ -11,6 +13,7 @@ export const allEntries = [
   cesarina,
   // shank_and_bone,
   chez_lionel,
+  fromagerie_lemaire,
 ];
 
 export const templateEntry = template_entry;

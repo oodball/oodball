@@ -36,6 +36,7 @@ function CommentSection({ entryId, user }) {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -61,24 +62,43 @@ function CommentSection({ entryId, user }) {
       navigate('/login', { state: { from: location.pathname } });
       return;
     }
+
+    if (!newComment.trim()) return;
+
+    setSubmitting(true);
+    setError(null);
+
     const username = user.user_metadata?.username || user.email;
-    const { error } = await supabase.from('comments').insert([
-      {
-        entry_id: entryId,
-        author: user.email,
-        username: username, // Use username from metadata
-        content: newComment,
-        user_id: user.id,
-      },
-    ]);
-    if (error) {
-      console.log(error);
-      setError('Failed to post comment: ' + error.message);
+    const newCommentData = {
+      entry_id: entryId,
+      author: user.email,
+      username: username,
+      content: newComment.trim(),
+      user_id: user.id,
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      const { data, error } = await supabase
+        .from('comments')
+        .insert([newCommentData])
+        .select();
+
+      if (error) {
+        console.error('Error posting comment:', error);
+        setError('Failed to post comment: ' + error.message);
+      } else {
+        // Add the new comment to the state immediately
+        const postedComment = data[0];
+        setComments(prevComments => [...prevComments, postedComment]);
+        setNewComment('');
+      }
+    } catch (err) {
+      console.error('Error posting comment:', err);
+      setError('Failed to post comment. Please try again.');
+    } finally {
+      setSubmitting(false);
     }
-    setNewComment('');
-    // Refetch comments after posting
-    // (fetchComments is not available here, so trigger effect by changing entryId or add a state to force reload)
-    // For now, you can force a reload by updating a dummy state if needed
   }
 
   return (
@@ -120,15 +140,16 @@ function CommentSection({ entryId, user }) {
             value={newComment}
             onChange={e => setNewComment(e.target.value)}
             rows="3"
-            disabled={!user}
+            disabled={!user || submitting}
             required
           />
         </div>
         <button
           type="submit"
           className={user ? 'submit-btn' : 'login-btn'}
+          disabled={submitting}
         >
-          {user ? 'Post Comment' : 'Login'}
+          {submitting ? 'Posting...' : user ? 'Post Comment' : 'Login'}
         </button>
       </form>
       {error && <div className="error-message">{error}</div>}

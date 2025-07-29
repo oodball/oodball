@@ -16,7 +16,7 @@ export const cesarina = {
 
   ## FOOD
 
-  ![Cesarina Main Dishes](./images/Foodball/cesarina/cesarina_main.jpg)
+  ![Cesarina Main Dishes](/images/Foodball/cesarina/cesarina_main.jpg)
 
   Rooster Pitcher was the Best Part of This Experience
 
@@ -49,13 +49,13 @@ export const cesarina = {
 
   3.5/5
 
-  ![Gemelli Pasta](./images/Foodball/cesarina/gemelli_pasta.jpg)
+  ![Gemelli Pasta](/images/Foodball/cesarina/gemelli_pasta.jpg)
 
   My Expectations of Gemelli Pasta
 
   ***Tiramisu***
 
-  ![Tiramisu](./images/Foodball/cesarina/cesarina_tiramisu.jpg)
+  ![Tiramisu](/images/Foodball/cesarina/cesarina_tiramisu.jpg)
 
   Whole Foods Tiramisu Doesn't Look Like This
 

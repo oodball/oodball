@@ -24,12 +24,12 @@ The atmosphere of the restaurant felt very much classic French fine dining. Most
 
 ## FOOD
 
-![Chez Lionel Main Dishes](./images/Foodball/chez_lionel/chez_lionel_spread.JPG)
+![Chez Lionel Main Dishes](/images/Foodball/chez_lionel/chez_lionel_spread.JPG)
 
 Cheaper Than You Think
 
 ***Bread Basket and Pickles***
-![Chez Lionel Bread](./images/Foodball/chez_lionel/chez_lionel_bread.JPG)
+![Chez Lionel Bread](/images/Foodball/chez_lionel/chez_lionel_bread.JPG)
 
 Regular Bread, Fancier Basket
 
@@ -37,7 +37,7 @@ There isn't much to say about the bread. It didn't stand out to me, which can be
 
 3/5
 
-![Chez Lionel Pickles](./images/Foodball/chez_lionel/chez_lionel_pickles.JPG)
+![Chez Lionel Pickles](/images/Foodball/chez_lionel/chez_lionel_pickles.JPG)
 
 Above Average-Sized Pickles
 
@@ -49,7 +49,7 @@ I wonder what happens to all the uneaten pickles...
 
 3/5
 ***Escargot***
-![Chez Lionel Escargot](./images/Foodball/chez_lionel/chez_lionel_escargot.JPG)
+![Chez Lionel Escargot](/images/Foodball/chez_lionel/chez_lionel_escargot.JPG)
 
 Bop or Flop: We'll Find Out
 
@@ -85,7 +85,7 @@ I think also there were too many bacon bits, and it ruined the texture a little.
 4/5
 
 ***Ricotta Ravioli***
-![Chez Lionel Ricotta Ravioli](./images/Foodball/chez_lionel/chez_lionel_ricotta_ravioli.JPG)
+![Chez Lionel Ricotta Ravioli](/images/Foodball/chez_lionel/chez_lionel_ricotta_ravioli.JPG)
 
 Looks Like a Pile of Shit
 
@@ -99,7 +99,7 @@ I tried this after eating the duck confit, so I really thought it'd be just as g
 
 ***Chicken Basque***
 
-![Chez Lionel Chicken Basque](./images/Foodball/chez_lionel/chez_lionel_chicken_basque.JPG)
+![Chez Lionel Chicken Basque](/images/Foodball/chez_lionel/chez_lionel_chicken_basque.JPG)
 
 Are Those Really Mashed Potatoes?
 

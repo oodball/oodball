@@ -6,6 +6,8 @@ async function signUpWithUsername({ email, password, username, from }) {
   // Log the redirect URL for debugging
   const redirectUrl = `https://oodball.com/auth/callback?from=${encodeURIComponent(from || '/')}`;
   console.log('Signup emailRedirectTo:', redirectUrl);
+  
+  // First, sign up the user
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -14,6 +16,33 @@ async function signUpWithUsername({ email, password, username, from }) {
       emailRedirectTo: redirectUrl
     }
   });
+
+  if (error) {
+    return { data, error };
+  }
+
+  // If signup successful, store username in a separate table for easy lookup
+  if (data.user) {
+    try {
+      const { error: insertError } = await supabase
+        .from('user_usernames')
+        .insert([
+          {
+            user_id: data.user.id,
+            username: username,
+            email: email
+          }
+        ]);
+
+      if (insertError) {
+        console.error('Error storing username:', insertError);
+        // Don't fail the signup if username storage fails
+      }
+    } catch (err) {
+      console.error('Error storing username:', err);
+    }
+  }
+
   return { data, error };
 }
 
@@ -44,20 +73,37 @@ function Login() {
 
     // If the input is not an email, treat it as a username and look up the email
     if (mode === 'login' && email && !email.includes('@')) {
-      // Look up the most recent comment by this username to get the email
-      const { data, error: lookupError } = await supabase
-        .from('comments')
-        .select('author')
-        .eq('username', email)
-        .order('timestamp', { ascending: false })
-        .limit(1)
-        .single();
+      try {
+        // First try to look up from the user_usernames table
+        const { data: userData, error: userError } = await supabase
+          .from('user_usernames')
+          .select('email')
+          .eq('username', email)
+          .single();
 
-      if (lookupError || !data) {
+        if (!userError && userData) {
+          loginEmail = userData.email;
+        } else {
+          // Fallback: try to find the email from comments table
+          const { data: commentData, error: commentError } = await supabase
+            .from('comments')
+            .select('author')
+            .eq('username', email)
+            .order('timestamp', { ascending: false })
+            .limit(1)
+            .single();
+
+          if (commentError || !commentData) {
+            setError('Username not found. Please use your email or sign up.');
+            return;
+          }
+          loginEmail = commentData.author;
+        }
+      } catch (error) {
+        console.error('Error looking up username:', error);
         setError('Username not found. Please use your email or sign up.');
         return;
       }
-      loginEmail = data.author;
     }
 
     if (mode === 'login') {

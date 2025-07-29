@@ -15,7 +15,7 @@
  *    - Keep the same filename (just change extension)
  * 
  * 4. Update your entry files to reference the new JPEG files:
- *    Before: ![My Food](./images/Foodball/my_photo.HEIC)
+ *    Before: ![My Food](/images/Foodball/my_photo.HEIC)
  *    After:  ![My Food](/images/Foodball/my_photo.jpg)
  * 
  * 5. Optional: Delete the original HEIC files after confirming JPEGs work

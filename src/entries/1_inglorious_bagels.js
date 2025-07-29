@@ -15,6 +15,8 @@ export const inglorious_bagels = {
   
   What was a bigger shock was that someone from my high school worked there. 
 
+  More to follow on that.
+
 
   ## FOOD
 
@@ -24,7 +26,7 @@ export const inglorious_bagels = {
 
   I Made a Rookie Mistake
 
-  To be honest, I forgot to take pictures because I was too busy yapping and getting over the fact that I knew the person working there. 
+  To be honest, I forgot to take pictures because I was too busy yapping after meeting up with my friends again
 
   The hellfire bagel really raised hell for my lips afterwards. 
 

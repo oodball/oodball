@@ -1,16 +1,12 @@
-// import { inglorious_bagels } from './1_inglorious_bagels.js';
-// import {tacos_el_gordo } from './2_tacos_el_gordo.js';
-// import { ellens_house } from './3_ellens_house.js';
-import { mitchs_seafood } from './4_mitchs_seafood.js';
-import { cesarina } from './5_cesarina.js';
+import { inglorious_bagels } from './1_inglorious_bagels.js';
+import { mitchs_seafood } from './2_mitchs_seafood.js';
+import { cesarina } from './3_cesarina.js';
 // import { shank_and_bone } from './6_shank_and_bone.js';
-import { chez_lionel } from './7_chez_lionel.js';
+import { chez_lionel } from './5_chez_lionel.js';
 import { template_entry } from './template.js';
 
 export const allEntries = [
-  // inglorious_bagels,
-  // tacos_el_gordo,
-  // ellens_house,
+  inglorious_bagels,
   mitchs_seafood,
   cesarina,
   // shank_and_bone,

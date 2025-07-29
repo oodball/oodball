@@ -6,13 +6,15 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.52.0",
     "date-fns": "^4.1.0",
+    "heic-convert": "^2.1.0",
     "heic2any": "^0.0.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.7.0",
     "react-scripts": "^5.0.1",
-    "rehype-raw": "^7.0.0"
+    "rehype-raw": "^7.0.0",
+    "sharp": "^0.34.3"
   },
   "scripts": {
     "start": "react-scripts start",

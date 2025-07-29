@@ -22,7 +22,7 @@ function FoodballEntry({user}) {
   // Custom components for ReactMarkdown
   const components = {
     img: ({ src, alt }) => (
-      <div className="entry-image-container">
+      <span className="entry-image-container">
         <HeicImage 
           src={src} 
           alt={alt}
@@ -31,7 +31,7 @@ function FoodballEntry({user}) {
             e.target.style.display = 'none';
           }}
         />
-      </div>
+      </span>
     ),
     video: ({ children, ...props }) => (
       <video {...props}>

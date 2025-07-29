@@ -24,17 +24,6 @@ function Home() {
               <li>28,541 hours on dating HimeTsai (as of 7/6/2025)</li>
             </ul>
           </div>
-          {/* <div className="skills">
-            <h3>Skills</h3>
-            <ul>
-              <li>Devious</li>
-              <li>Silly lil guy</li>
-              <li>Farming Sims</li>
-              <li>Brawling</li>
-              <li>Embroidery</li>
-              <li>Tomfoolery</li>
-            </ul>
-          </div> */}
         </div>
       </section>
     </div>

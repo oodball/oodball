@@ -1,8 +1,5 @@
-// Template for creating new journal entries
-// Copy this file and rename it to entry3.js, entry4.js, etc.
-
 export const mitchs_seafood = {
-  id: 4, 
+  id: 2, 
   title: "Mitch's Seafood",
   content: `## INTRODUCTION
 
@@ -20,13 +17,13 @@ export const mitchs_seafood = {
   
   ## FOOD
 
-  ![Spread](./images/Foodball/fish_sandwich_soup.HEIC)
+  ![Spread](/images/Foodball/fish_sandwich_soup.jpg)
 
   It Would Have Come Faster If I Caught the Seafood Myself
 
 
   ***Clam Chowder***
-  ![Clam Chowder](./images/Foodball/clam_chowder.HEIC)
+  ![Clam Chowder](/images/Foodball/clam_chowder.jpg)
 
   Li̶c̶k̶e̶d̶ t̶h̶e̶ Bo̶w̶l̶ Cl̶e̶a̶n̶ It Was Mid 
 

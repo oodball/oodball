@@ -6,7 +6,7 @@ import { chez_lionel } from './5_chez_lionel.js';
 import { template_entry } from './template.js';
 
 export const allEntries = [
-  // inglorious_bagels,
+  inglorious_bagels,
   mitchs_seafood,
   cesarina,
   // shank_and_bone,

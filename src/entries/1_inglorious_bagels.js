@@ -26,15 +26,40 @@ export const inglorious_bagels = {
 
   I Made a Rookie Mistake
 
-  To be honest, I forgot to take pictures because I was too busy yapping after meeting up with my friends again
+  To be honest, I forgot to take pictures because I was too busy yapping at the excitement of seeing Charlotte and Therese again. My bad everyone. I'll be more careful next time. Probably.
 
-  The hellfire bagel really raised hell for my lips afterwards. 
+  I felt anxious making a decision on what to get because I was scared of making the cashier wait when he was already talking to me so in a panic I picked up a bag of bagels that were made yesterday and pointed at the most interesting one.
 
-  
+  It turns out that was the Hellfire Bagel. After hearing it, I was too shy to change my mind because they already started pulling it out so I said it was fine. 
+
+  I was going to get the rest of the bagels in the bag too to take home, but I think that he just assumed I wanted the one bagel with cream cheese, and I was too distracted to correct him until after I paid.
+
+  I guess we made good impressions on him during high school, because he ended up giving us the rest of the bagels for free. The three of us got to split a dozen bagels that we only paid $4 for.
+
+  It's good to have connections in high places. 
+
+  The hellfire bagel is supposed to be made with ghost pepper and three other peppers, so I was busy preparing potential bathrooms in case it all went to ... shit ... 
+
+  I didn't really have to worry though, because the bagel wasn't spicy, except for the residual pepper oil. That was the real hellfire.
+
+  The bagel itself was pretty large, and it came with a generous amount of cream cheese. I don't remember too much about the taste of the bagel itself, but I remember feeling happy while eating it so it can't have been that bad. 
+
+  Or maybe I was biased eating it with friends.
+
+
+  However, after trying the free bagels at home, I realized that the bagels were very dense and chewy and the onion bagel I tried had a strange aftertaste. I prefer my bagels a little bit lighter, and to not have to work as hard to eat the bagel, especially in the morning.
+
+  3/5
+
+  ## OVERALL THOUGHTS
+
+  To be honest, Inglorious Bagels wasn't as good as P.L. Bagels, but for the price (even without the discount), it was still a good deal. At least it curbed the bagel craving for a little bit. However, I'd still choose this place over P.L. Bagels simply out of convenience.
+
+  Given proximity, location, and service, I would recommend going here if you're in North County. Maybe next time I'll try out the fresh bagels or bagel sandwiches and see if there's a difference. 
   `,
   date: "6/30/2025",
   timestamp: "2025-06-30T00:00:00.000Z",
-  rating: 4,
+  rating: 3/5,
   location: "San Diego",
   tags: ["bagels", "breakfast", "carlsbad"],
 }; 

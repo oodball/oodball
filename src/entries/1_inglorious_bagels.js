@@ -59,7 +59,7 @@ export const inglorious_bagels = {
   `,
   date: "6/30/2025",
   timestamp: "2025-06-30T00:00:00.000Z",
-  rating: 3/5,
+  rating: 3,
   location: "San Diego",
   tags: ["bagels", "breakfast", "carlsbad"],
 }; 

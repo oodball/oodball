@@ -13,7 +13,7 @@ export const allEntries = [
   cesarina,
   // shank_and_bone,
   chez_lionel,
-  // fromagerie_lemaire,
+  fromagerie_lemaire,
 ];
 
 export const templateEntry = template_entry;

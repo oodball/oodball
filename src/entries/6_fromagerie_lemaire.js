@@ -56,5 +56,5 @@ export const fromagerie_lemaire = {
   timestamp: "2025-07-09T13:09:00.000Z",
   rating: 2.3,
   location: "Saint-Germain-de-Grantham",
-  tags: ["Italian", "Tiramisu", "Pasta", "Ocean Beach"] 
+  tags: ["Canadian", "Poutine"] 
 };

@@ -688,6 +688,16 @@
   .entry-content h2 {
     font-size: 1.1rem;
   }
+
+  /* Responsive image box for tablets */
+  .entry-image-box img,
+  .entry-image-box .entry-image {
+    max-width: 80%;
+  }
+
+  .entry-image-caption {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -705,6 +715,16 @@
 
   .entry-content iframe {
     min-height: 150px;
+  }
+
+  /* Responsive image box for mobile */
+  .entry-image-box img,
+  .entry-image-box .entry-image {
+    max-width: 90%;
+  }
+
+  .entry-image-caption {
+    font-size: 0.75rem;
   }
 } 
 
@@ -763,6 +783,16 @@
   }
   .entry-content h2 {
     font-size: 0.9rem;
+  }
+
+  /* Responsive image box for small mobile */
+  .entry-image-box img,
+  .entry-image-box .entry-image {
+    max-width: 95%;
+  }
+
+  .entry-image-caption {
+    font-size: 0.7rem;
   }
 }
 

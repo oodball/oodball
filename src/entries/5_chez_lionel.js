@@ -24,22 +24,16 @@ The atmosphere of the restaurant felt very much classic French fine dining. Most
 
 ## FOOD
 
-![Chez Lionel Main Dishes](/images/Foodball/chez_lionel/chez_lionel_spread.JPG)
-
-Cheaper Than You Think
+![Chez Lionel Main Dishes](/images/Foodball/chez_lionel/chez_lionel_spread.JPG "Cheaper Than You Think")
 
 ***Bread Basket and Pickles***
-![Chez Lionel Bread](/images/Foodball/chez_lionel/chez_lionel_bread.JPG)
-
-Regular Bread, Fancier Basket
+![Chez Lionel Bread](/images/Foodball/chez_lionel/chez_lionel_bread.JPG "Regular Bread, Fancier Basket")
 
 There isn't much to say about the bread. It didn't stand out to me, which can be taken as good or bad. It was served in a fancier than normal basket with some butter, but both of them were just there to fill the table while our food was being prepared. At least it was unlimited.
 
 3/5
 
-![Chez Lionel Pickles](/images/Foodball/chez_lionel/chez_lionel_pickles.JPG)
-
-Above Average-Sized Pickles
+![Chez Lionel Pickles](/images/Foodball/chez_lionel/chez_lionel_pickles.JPG "Above Average-Sized Pickles")
 
 What really suprised me was that every table got their own jar of pickles. You know how much I love pickles. This immediately improved my rating of this restaurant. The pickles were good, but it was just an ordinary pickle. 
 
@@ -49,9 +43,7 @@ I wonder what happens to all the uneaten pickles...
 
 3/5
 ***Escargot***
-![Chez Lionel Escargot](/images/Foodball/chez_lionel/chez_lionel_escargot.JPG)
-
-Bop or Flop: We'll Find Out
+![Chez Lionel Escargot](/images/Foodball/chez_lionel/chez_lionel_escargot.JPG "Bop or Flop: We'll Find Out")
 
 There's three possible things that happen when you ask a waiter for their recommendations:
 <ul>
@@ -85,9 +77,7 @@ I think also there were too many bacon bits, and it ruined the texture a little.
 4/5
 
 ***Ricotta Ravioli***
-![Chez Lionel Ricotta Ravioli](/images/Foodball/chez_lionel/chez_lionel_ricotta_ravioli.JPG)
-
-Looks Like a Pile of Shit
+![Chez Lionel Ricotta Ravioli](/images/Foodball/chez_lionel/chez_lionel_ricotta_ravioli.JPG "Looks Like a Pile of Shit")
 
 I had high hopes for this dish. Ricotta Ravioli with duck confit and a mushroom sauce on top. It sounded like everything I already liked. It's hard to mess up cheese, mushrooms, and ravioli.
 
@@ -98,10 +88,7 @@ I tried this after eating the duck confit, so I really thought it'd be just as g
 1/5
 
 ***Chicken Basque***
-
-![Chez Lionel Chicken Basque](/images/Foodball/chez_lionel/chez_lionel_chicken_basque.JPG)
-
-Are Those Really Mashed Potatoes?
+![Chez Lionel Chicken Basque](/images/Foodball/chez_lionel/chez_lionel_chicken_basque.JPG "Are Those Really Mashed Potatoes?")
 
 The chicken basque didn't stand out to me. I think the entire dish lacked flavor as a whole, but I was able to finish the dish. The chicken was cooked and seasoned nicely, but the mashed potatoes were a bit too fine for my taste. I prefer my mashed potatoes to have have texture rather than be mashed into baby food. There was too much butter mixed into the potatoes, so it felt like everything was melting immediately, which made the dish blander because of how many potatoes there were.  
 

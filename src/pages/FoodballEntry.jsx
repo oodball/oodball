@@ -19,20 +19,46 @@ function FoodballEntry({user}) {
     return null;
   }
 
+  // Process content to convert custom image syntax to HTML
+  const processContent = (content) => {
+    // Convert ![alt](image.jpg "caption") to entry-image-box HTML
+    return content.replace(
+      /!\[([^\]]*)\]\(([^)]+)\s+"([^"]+)"\)/g,
+      '<div class="entry-image-box"><img src="$2" alt="$1" class="entry-image" /><div class="entry-image-caption">$3</div></div>'
+    );
+  };
+
   // Custom components for ReactMarkdown
   const components = {
-    img: ({ src, alt }) => (
-      <span className="entry-image-container">
-        <HeicImage 
-          src={src} 
-          alt={alt}
-          className="entry-image"
-          onError={(e) => {
-            e.target.style.display = 'none';
-          }}
-        />
-      </span>
-    ),
+    // Only apply custom img component to markdown images, not HTML images
+    img: ({ src, alt, className }) => {
+      // If this is part of our entry-image-box structure, don't wrap it
+      if (className && className.includes('entry-image')) {
+        return (
+          <HeicImage 
+            src={src} 
+            alt={alt}
+            className={className}
+            onError={(e) => {
+              e.target.style.display = 'none';
+            }}
+          />
+        );
+      }
+      // For regular markdown images, wrap in container
+      return (
+        <span className="entry-image-container">
+          <HeicImage 
+            src={src} 
+            alt={alt}
+            className="entry-image"
+            onError={(e) => {
+              e.target.style.display = 'none';
+            }}
+          />
+        </span>
+      );
+    },
     video: ({ children, ...props }) => (
       <video {...props}>
         {children}
@@ -85,7 +111,7 @@ function FoodballEntry({user}) {
             remarkPlugins={[]} 
             rehypePlugins={[rehypeRaw]}
           >
-            {entry.content}
+            {processContent(entry.content)}
           </ReactMarkdown>
         </div>
       </div>

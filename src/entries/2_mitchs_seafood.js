@@ -17,15 +17,10 @@ export const mitchs_seafood = {
   
   ## FOOD
 
-  ![Spread](/images/Foodball/fish_sandwich_soup.jpg)
-
-  It Would Have Come Faster If I Caught the Seafood Myself
-
+  ![Spread](/images/Foodball/fish_sandwich_soup.jpg "It Would Have Come Faster If I Caught the Seafood Myself")
 
   ***Clam Chowder***
-  ![Clam Chowder](/images/Foodball/clam_chowder.jpg)
-
-  Li̶c̶k̶e̶d̶ t̶h̶e̶ Bo̶w̶l̶ Cl̶e̶a̶n̶ It Was Mid 
+  ![Clam Chowder](/images/Foodball/clam_chowder.jpg "Li̶c̶k̶e̶d̶ t̶h̶e̶ Bo̶w̶l̶ Cl̶e̶a̶n̶ It Was Mid")
 
   This dish is the one thing we came to Mitch's for. Himetsai kept glazing the clam chowder that I had to go see if he was really telling the truth or not. We're both really picky about clam chowder. 
 
@@ -60,8 +55,6 @@ export const mitchs_seafood = {
   It helped with getting the fish sandwich down though.
 
   2.5/5
-
-  
 
   ## OVERALL THOUGHTS
 

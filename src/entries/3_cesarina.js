@@ -16,9 +16,7 @@ export const cesarina = {
 
   ## FOOD
 
-  ![Cesarina Main Dishes](/images/Foodball/cesarina/cesarina_main.jpg)
-
-  Rooster Pitcher was the Best Part of This Experience
+  ![Cesarina Main Dishes](/images/Foodball/cesarina/cesarina_main.jpg "Rooster Pitcher was the Best Part of This Experience")
 
   ***Bread Basket***
 
@@ -49,15 +47,11 @@ export const cesarina = {
 
   3.5/5
 
-  ![Gemelli Pasta](/images/Foodball/cesarina/gemelli_pasta.jpg)
-
-  My Expectations of Gemelli Pasta
+  ![Gemelli Pasta](/images/Foodball/cesarina/gemelli_pasta.jpg "My Expectations of Gemelli Pasta")
 
   ***Tiramisu***
 
-  ![Tiramisu](/images/Foodball/cesarina/cesarina_tiramisu.jpg)
-
-  Whole Foods Tiramisu Doesn't Look Like This
+  ![Tiramisu](/images/Foodball/cesarina/cesarina_tiramisu.jpg "Whole Foods Tiramisu Doesn't Look Like This")
 
   This was the most hyped-up item (source:Reddit) of the night.  I was looking forward to this bc you all know I fuck with a good tiramisu. 
 

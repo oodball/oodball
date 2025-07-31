@@ -8,7 +8,10 @@ function Foodball() {
   const [sortBy, setSortBy] = useState('date-high');
 
   const filteredEntries = selectedTag 
-    ? sortedEntries.filter(entry => entry.tags && entry.tags.includes(selectedTag))
+    ? sortedEntries.filter(entry => 
+        (entry.tags && entry.tags.includes(selectedTag)) || 
+        (entry.location && entry.location === selectedTag)
+      )
     : sortedEntries;
 
   const sortedAndFilteredEntries = [...filteredEntries].sort((a, b) => {

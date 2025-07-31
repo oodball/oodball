@@ -3,21 +3,21 @@ export const shank_and_bone = {
   title: "Shank and Bone",
   content: `## INTRODUCTION
 
-  To be honest, I debated on putting out this one because I had such negative thoughts going into the restaurant that I wonder if it affected my rating of this restaurant. However, my taste buds don't lie so I'm putting it out anyways. 
+To be honest, I debated on putting out this one because I had such negative thoughts going into the restaurant that I wonder if it affected my rating of this restaurant. However, my taste buds don't lie so I'm putting it out anyways. 
 
-  This place sucked to get to. I'm not a fan of driving around North Park, but Himetsai and I planned to go look for camcorders, and so we went to several different shops in the area. Who knew that camcorders are so obsolete. Not a single camera shop had them.
+This place sucked to get to. I'm not a fan of driving around North Park, but Himetsai and I planned to go look for camcorders, and so we went to several different shops in the area. Who knew that camcorders are so obsolete. Not a single camera shop had them.
 
-  Our last shop was George's Camera, and I was already feeling pretty annoyed for several reasons. The main one being that I got stuck in heavy traffic so it took me 40 min to get from La Jolla to North Park, which is ridiculous. And Himetsai was doing his best to annoy me the entire way there.
+Our last shop was George's Camera, and I was already feeling pretty annoyed for several reasons. The main one being that I got stuck in heavy traffic so it took me 40 min to get from La Jolla to North Park, which is ridiculous. And Himetsai was doing his best to annoy me the entire way there.
 
-  Shank and Bone sounds like a very poorly disguised innuendo honestly. But we remembered that it was just down the street of the camera shop, so we decided to try it out since I wanted Vietnamese food. 
+Shank and Bone sounds like a very poorly disguised innuendo honestly. But we remembered that it was just down the street of the camera shop, so we decided to try it out since I wanted Vietnamese food. 
 
-  Parking is shit. As it is everywhere in North Park.
+Parking is shit. As it is everywhere in North Park.
 
-  When we went in, the first red flag to me was that there was motorcycle decor everywhere. Why does a Vietnamese place have Arizona license plates and **multiple** motorbikes on display? Where's my classic glass fish tank with the bubbles?
+When we went in, the first red flag to me was that there was motorcycle decor everywhere. Why does a Vietnamese place have Arizona license plates and **multiple** motorbikes on display? Where's my classic glass fish tank with the bubbles?
 
-  # FOOD
+## FOOD
 
-  ![Shank and Bone Spread](/images/Foodball/shank_and_bone/shank_and_bone.jpg "Gentrified Banh Mi")
+![Shank and Bone Spread](/images/Foodball/shank_and_bone/shank_and_bone.jpg "Gentrified Banh Mi")
 
   ***Banh Mi with Pho Broth***
   
@@ -31,7 +31,7 @@ export const shank_and_bone = {
 
   The pho broth was sweet. Not like the umami-rich ones at other pho places, but it was mostly sweet. I'm not sure if this is a regional thing, or if it's a catering to a certain target demographic.
 
-  ![Owner Description](/images/Foodball/shank_and_bone/shank_description.png "Found the Answer")
+![Owner Description](/images/Foodball/shank_and_bone/shank_description.png "Found the Answer")
 
   1.5/5
 

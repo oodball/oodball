@@ -3,24 +3,25 @@ export const mitchs_seafood = {
   title: "Mitch's Seafood",
   content: `## INTRODUCTION
 
-  I've been meaning to try this place for a long long time. Ever since Himetsai wouldn't stop talking about how he wants to go to Mitch's seafood, I've had it on my mental checklist. It's too bad that it took us this long to get there.
+I've been meaning to try this place for a long long time. Ever since Himetsai wouldn't stop talking about how he wants to go to Mitch's seafood, I've had it on my mental checklist. It's too bad that it took us this long to get there.
 
-  The main problem with getting there is that it's far. Even with a car, I have to want to eat Mitch's enough to drive the 30 min from La Jolla it takes to get there. Not to mention the extra time it takes to get to La Jolla. San Diego sucks to commute around if you're like me and want good food close by.
+The main problem with getting there is that it's far. Even with a car, I have to want to eat Mitch's enough to drive the 30 min from La Jolla it takes to get there. Not to mention the extra time it takes to get to La Jolla. San Diego sucks to commute around if you're like me and want good food close by.
 
-  Since Himetsai is leaving soon, we decided to put together a food tour of all the places we wanted to try before he leaves, and this was on the list. We decided to drive there early, hoping to beat all the lines because we were starving. When we got there, I made the decision of skipping over a parking spot.
-  
-  Rookie mistake. 
+Since Himetsai is leaving soon, we decided to put together a food tour of all the places we wanted to try before he leaves, and this was on the list. We decided to drive there early, hoping to beat all the lines because we were starving. When we got there, I made the decision of skipping over a parking spot.
 
-  We spent the next half an hour circling the parking lot before I parked in a 20 min zone. The line at Mitch's was already lined up out the door and around a corner. 
+Rookie mistake. 
 
-  I got too anxious about getting ticketed so I circled another 15 min to find parking. Hime is lucky to be a passenger princess.
-  
-  ## FOOD
+We spent the next half an hour circling the parking lot before I parked in a 20 min zone. The line at Mitch's was already lined up out the door and around a corner. 
 
-  ![Spread](/images/Foodball/mitchs_seafood/fish_sandwich_soup.jpg "It Would Have Come Faster If I Caught the Seafood Myself")
+I got too anxious about getting ticketed so I circled another 15 min to find parking. Hime is lucky to be a passenger princess.
 
-  ***Clam Chowder***
-  ![Clam Chowder](/images/Foodball/mitchs_seafood/clam_chowder.jpg "Li̶c̶k̶e̶d̶ t̶h̶e̶ Bo̶w̶l̶ Cl̶e̶a̶n̶ It Was Mid")
+## FOOD
+
+![Spread](/images/Foodball/mitchs_seafood/fish_sandwich_soup.jpg "It Would Have Come Faster If I Caught the Seafood Myself")
+
+***Clam Chowder***
+
+![Clam Chowder](/images/Foodball/mitchs_seafood/clam_chowder.jpg "Li̶c̶k̶e̶d̶ t̶h̶e̶ Bo̶w̶l̶ Cl̶e̶a̶n̶ It Was Mid")
 
   This dish is the one thing we came to Mitch's for. Himetsai kept glazing the clam chowder that I had to go see if he was really telling the truth or not. We're both really picky about clam chowder. 
 

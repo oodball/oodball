@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from '../pages/Home';
 import Foodball from '../pages/Foodball';
 import FoodballEntry from '../pages/FoodballEntry';
@@ -15,6 +15,17 @@ import '../styles/filmball.css';
 import '../styles/embroodball.css';
 import '../styles/digiball.css';
 
+// ScrollToTop component to handle scrolling to top on route changes
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -29,6 +40,7 @@ function App() {
   return (
     <Router>
       <div className="app">
+        <ScrollToTop />
         <Navbar />
         <main className="main-content">
           <Routes>

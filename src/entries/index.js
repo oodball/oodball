@@ -5,7 +5,6 @@ import { shank_and_bone } from './4_shank_and_bone.js';
 import { chez_lionel } from './5_chez_lionel.js';
 import { fromagerie_lemaire } from './6_fromagerie_lemaire.js';
 import { portofino_brasserie_italienne } from './7_portofino_brasserie_italienne.js';
-import { template_entry } from './template.js';
 
 
 export const allEntries = [
@@ -18,7 +17,6 @@ export const allEntries = [
   portofino_brasserie_italienne,
 ];
 
-export const templateEntry = template_entry;
 
 export const sortedEntries = allEntries.sort((a, b) => 
   new Date(b.timestamp) - new Date(a.timestamp)

@@ -17,7 +17,7 @@ export const fromagerie_lemaire = {
   
   ## FOOD
 
-  ![Fromagerie Lemaire](/images/Foodball/fromagerie_lemaire.JPG "Peak Canadian Culture")
+  ![Fromagerie Lemaire](/images/Foodball/fromagerie_lemaire/fromagerie_lemaire.JPG "Peak Canadian Culture")
 
   ***Power Dog Poutine***
 

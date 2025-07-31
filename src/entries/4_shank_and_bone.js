@@ -17,7 +17,7 @@ export const shank_and_bone = {
 
   # FOOD
 
-  ![Shank and Bone Spread](/images/Foodball/shank_and_bone.jpg "Gentrified Banh Mi")
+  ![Shank and Bone Spread](/images/Foodball/shank_and_bone/shank_and_bone.jpg "Gentrified Banh Mi")
 
   ***Banh Mi with Pho Broth***
   
@@ -31,7 +31,7 @@ export const shank_and_bone = {
 
   The pho broth was sweet. Not like the umami-rich ones at other pho places, but it was mostly sweet. I'm not sure if this is a regional thing, or if it's a catering to a certain target demographic.
 
-  ![Owner Description](/images/Foodball/shank_description.png "Found the Answer")
+  ![Owner Description](/images/Foodball/shank_and_bone/shank_description.png "Found the Answer")
 
   1.5/5
 

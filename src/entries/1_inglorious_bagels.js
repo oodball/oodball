@@ -22,7 +22,7 @@ export const inglorious_bagels = {
 
   ***HellFire Bagel***
 
-  ![Bagels](/images/Foodball/inglorious_bagles.jpg "I Made a Rookie Mistake")
+  ![Bagels](/images/Foodball/inglorious_bagels/inglorious_bagles.jpg "I Made a Rookie Mistake")
 
   To be honest, I forgot to take pictures because I was too busy yapping at the excitement of seeing Charlotte and Therese again. My bad everyone. I'll be more careful next time. Probably.
 

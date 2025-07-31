@@ -51,19 +51,35 @@
 }
 
 .clear-filter-btn {
-  background: #e2e8f0;
-  color: #4a5568;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  background: #8b4513;
+  color: #f7fafc;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0;
+  font-size: 0.75rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  border: 3px solid #a0522d;
+  border-bottom: 4px solid #5d2e0a;
+  border-right: 4px solid #5d2e0a;
   cursor: pointer;
-  transition: all 0.3s ease;
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
 }
 
 .clear-filter-btn:hover {
-  background: #cbd5e0;
-  transform: translateY(-1px);
+  border-color: #a0522d;
+  box-shadow: 0 0 0 2px #e8dcc0;
+}
+
+.clear-filter-btn:focus {
+  outline: none;
+  border-color: #a0522d;
+  box-shadow: 0 0 0 2px #e8dcc0;
 }
 
 .sort-dropdown {
@@ -303,12 +319,12 @@
 }
 
 .clickable-tag.active {
-  background: #48bb78;
-  border-color: #38a169;
+  background: #f7fafc;
+  border-color: #8b4513;
   box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.3),
-    inset -1px -1px 0 rgba(0, 0, 0, 0.4);
-  color: #1a202c;
+    inset 1px 1px 0 rgba(0, 0, 0, 0.1),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.2);
+  color: #8b4513;
 }
 
 .read-more-link {

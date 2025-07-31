@@ -22,6 +22,7 @@ function Home() {
               <li>Instant replier to texts when I feel like it</li>
               <li>Speedrunner in Super Paper Mario: Origami King</li>
               <li>28,541 hours on dating HimeTsai (as of 7/6/2025)</li>
+              <li>16/31 achievements in Balatro</li>
             </ul>
           </div>
         </div>

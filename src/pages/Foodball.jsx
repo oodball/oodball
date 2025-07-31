@@ -66,7 +66,7 @@ function Foodball() {
           <div className="header-controls">
             {selectedTag && (
               <button onClick={clearFilter} className="clear-filter-btn">
-                Clear Filter
+                Clear
               </button>
             )}
             <div className="sort-container">

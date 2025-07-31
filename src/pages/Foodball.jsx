@@ -83,7 +83,7 @@ function Foodball() {
                 <option value="date-low">Oldest</option>
                 <option value="rating-high">Best Rated</option>
                 <option value="rating-low">Lowest Rated</option>
-                <option value="location">Location</option>
+                <option value="location-a-z">Location</option>
               </select>
             </div>
           </div>

@@ -7,19 +7,19 @@
  *    Example: cp ~/Downloads/my_photo.HEIC public/images/Foodball/
  * 
  * 2. Run the conversion script:
- *    node convert_heic.js
+ *    node convert_heic.js                    (keeps original HEIC files)
+ *    node convert_heic.js --delete           (deletes original HEIC files after conversion)
+ *    node convert_heic.js -d                 (short flag for delete)
  * 
  * 3. The script will automatically:
  *    - Find all .HEIC and .HEIF files in public/images/Foodball/
  *    - Convert them to .jpg format
  *    - Keep the same filename (just change extension)
+ *    - Optionally delete original HEIC files (with --delete flag)
  * 
  * 4. Update your entry files to reference the new JPEG files:
  *    Before: ![My Food](/images/Foodball/my_photo.HEIC)
  *    After:  ![My Food](/images/Foodball/my_photo.jpg)
- * 
- * 5. Optional: Delete the original HEIC files after confirming JPEGs work
- *    rm public/images/Foodball/*.HEIC
  * 
  * BENEFITS:
  * - Faster loading (no browser conversion needed)
@@ -38,7 +38,7 @@ const path = require('path');
 const heicConvert = require('heic-convert');
 
 // Function to convert HEIC to JPEG
-async function convertHeicToJpeg(inputPath, outputPath) {
+async function convertHeicToJpeg(inputPath, outputPath, deleteOriginal = false) {
   try {
     const inputBuffer = fs.readFileSync(inputPath);
     const outputBuffer = await heicConvert({
@@ -49,13 +49,18 @@ async function convertHeicToJpeg(inputPath, outputPath) {
     
     fs.writeFileSync(outputPath, outputBuffer);
     console.log(`✅ Converted: ${path.basename(inputPath)} → ${path.basename(outputPath)}`);
+    
+    if (deleteOriginal) {
+      fs.unlinkSync(inputPath);
+      console.log(`🗑️  Deleted original: ${path.basename(inputPath)}`);
+    }
   } catch (error) {
     console.error(`❌ Error converting ${path.basename(inputPath)}:`, error.message);
   }
 }
 
 // Function to process all HEIC files in a directory
-async function processDirectory(directoryPath) {
+async function processDirectory(directoryPath, deleteOriginal = false) {
   try {
     const files = fs.readdirSync(directoryPath);
     
@@ -65,11 +70,11 @@ async function processDirectory(directoryPath) {
       
       if (stat.isDirectory()) {
         // Recursively process subdirectories
-        await processDirectory(filePath);
+        await processDirectory(filePath, deleteOriginal);
       } else if (file.toLowerCase().endsWith('.heic') || file.toLowerCase().endsWith('.heif')) {
         // Convert HEIC file
         const outputPath = filePath.replace(/\.(heic|heif)$/i, '.jpg');
-        await convertHeicToJpeg(filePath, outputPath);
+        await convertHeicToJpeg(filePath, outputPath, deleteOriginal);
       }
     }
   } catch (error) {
@@ -86,13 +91,25 @@ async function main() {
     return;
   }
   
+  // Check command line arguments for delete flag
+  const shouldDelete = process.argv.includes('--delete') || process.argv.includes('-d');
+  
   console.log('🔄 Starting HEIC to JPEG conversion...');
   console.log('📁 Processing directory:', publicImagesPath);
   
-  await processDirectory(publicImagesPath);
+  if (shouldDelete) {
+    console.log('⚠️  Delete mode enabled - original HEIC files will be removed after conversion');
+  } else {
+    console.log('💡 Run with --delete flag to automatically remove original HEIC files');
+  }
+  
+  await processDirectory(publicImagesPath, shouldDelete);
   
   console.log('✅ Conversion complete!');
-  console.log('💡 You can now delete the original HEIC files if desired.');
+  
+  if (!shouldDelete) {
+    console.log('💡 Original HEIC files kept. Run with --delete to remove them automatically.');
+  }
 }
 
 // Run the script

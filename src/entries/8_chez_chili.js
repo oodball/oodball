@@ -41,7 +41,7 @@ The chicken had no flavor. And it was at this point that I noticed something cru
 
 ![Decor](/images/Foodball/chez_chili/decor.jpg "Sum Ting Wong")
 
-Which Chinese restaurant ever has decor of forks and knives. I should have paid more attention when I walked in. I was blinded by Reddit and desperation.
+What kind of Chinese restaurant uses forks and knives as decor???? I should have paid more attention when I walked in. I was blinded by Reddit and desperation.
 
 The chicken wasn't marinated in anything. It was in larger chunks than I'm normally used to, and each piece was dry. It was hard to finish this dish. 
 
@@ -59,7 +59,9 @@ I don't remember eating this one. It can't have been that good.
 
 ## OVERALL THOUGHTS
 
-Montreal Reddit does not know what they're yapping about. This place was pretty disappointing to be called one of the best Chinese food in the city. I don't recommend going here. At least the price was reasonable. 
+Montreal Reddit does not know what they're yapping about. This place was pretty disappointing. Come here only if you want cheap Chinese food. 
+
+I think another problem was that we accidentally ordered dishes that were super oily. It left a bad feeling in my stomach. 
 
 Find other places to eat than here.     
 

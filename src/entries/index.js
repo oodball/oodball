@@ -6,6 +6,8 @@ import { chez_lionel } from './5_chez_lionel.js';
 import { fromagerie_lemaire } from './6_fromagerie_lemaire.js';
 import { portofino_brasserie_italienne } from './7_portofino_brasserie_italienne.js';
 import { chez_chili } from './8_chez_chili.js';
+import { osmows_shawarma } from './9_osmows_shawarma.js';
+import { template_entry } from './template.js';
 
 export const allEntries = [
   inglorious_bagels,
@@ -16,6 +18,8 @@ export const allEntries = [
   fromagerie_lemaire,
   portofino_brasserie_italienne,
   chez_chili,
+  osmows_shawarma,
+  template_entry,
 ];
 
 

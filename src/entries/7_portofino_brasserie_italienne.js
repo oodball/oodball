@@ -10,7 +10,7 @@ export const portofino_brasserie_italienne = {
 
   This place wasn't one that I intended to go to in Quebec City. I was looking for some French food, but apparently the French food is $$$$. How pretentious.
 
-  While exploring Old Quebec, I went around looking for places that would look good on my new digicam. 
+  While exploring Old Quebec, I went around looking for places that would look good on my new digicam. It's a very pretty place with a lot of history. It's also probably my favorite place that I visited this trip. 
 
   Which leads us to our current predicament. I climbed a hill. And a bunch of stairs. I want to explore the hill. But I'm hungry. I don't want to go back down the hill to eat.
 

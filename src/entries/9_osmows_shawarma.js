@@ -6,7 +6,7 @@ Date I went: 7/11/2025
 
 Because I didn't do my research properly, I ended up consulting Ottawa Reddit for recommendations again for what to eat.
 
-I don't have a good impression of Ottawa. There were significantly more homeless people than I've ever seen in any other downtown. Most of them didn't do anything, but there were others that would come up to you. One guy just straight up pulled his pants down and peed right in front of me. I'd love to say it's not the first time that happened but it's not. Something something 2 nickels something not much but funny it happened twice or something. 
+I don't have a good impression of Ottawa. There were significantly more homeless people than I've ever seen in any other downtown. Most of them didn't do anything, but there were others that would come up to you. One guy just straight up pulled his pants down and peed right in front of me. I'd love to say it's the first time that's happened. But it's not. Something something 2 nickels something not much but funny it happened twice or something. 
 
 I think that Ottawa had the coolest buildings I've seen this trip though. We got to walk into the Notre Dame and the Art Museum and Parliament Hill. It felt like being in Europe.
 
@@ -46,7 +46,7 @@ Also, the food is pretty good value for what you're getting. The box was overflo
 
 If I lived in Ottawa, shawarma places would profit so much from me.
 
-Just like Chipotle.
+Just like Chipotle does right now.
 
 
 `,

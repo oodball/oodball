@@ -8,6 +8,7 @@ import { portofino_brasserie_italienne } from './7_portofino_brasserie_italienne
 import { chez_chili } from './8_chez_chili.js';
 import { osmows_shawarma } from './9_osmows_shawarma.js';
 import { khao_thai } from './10_khao_thai.js';
+import { ta_pies } from './11_ta_pies.js';
 
 export const allEntries = [
   inglorious_bagels,
@@ -20,6 +21,7 @@ export const allEntries = [
   chez_chili,
   osmows_shawarma,
   khao_thai,
+  ta_pies,
 ];
 
 

@@ -39,6 +39,8 @@ This was just a standard papaya salad. Nothing particularly stood out to me, so 
 
 ***Massaman Curry***
 
+![massaman curry](/images/Foodball/khao_thai/massaman_curry.JPG "Mid Image for a Great Dish")
+
 This was one dish that I requested before even going to the restaurant. I knew that I wanted curry, so when I took a look at the menu on Google, I knew that this had to be the one. I've never had it before, but it was only a choice between this curry dish and another one since my mom can't handle spice well. The reviews said that the massaman curry was a must try, and who am I to ignore the people?
 
 The people have taste. I thoroughly enjoyed this curry. I wasn't expecting it to be so watery, so I'm glad we had a side of rice to go along with it. The flavors mixed well together, but I think the chefs were too heavy-handed with the coconut milk. I know that it's a staple ingredient, but the coconut overpowered the rest of the dish. 

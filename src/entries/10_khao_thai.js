@@ -78,7 +78,7 @@ I think this trip was worth it purely because I found mango sticky rice for so c
 5/5
 ## OVERALL THOUGHTS
 
-I strongly recommend this place. The prices were extremely reasonable for what you're getting, and they're very generous with their portions. For a place with over 1000 reviews in a tourist area, they don't raise their prices above normal just to gain profit. 
+I strongly recommend this place. The prices were extremely reasonable for what you're getting, and they're very generous with their portions. For a place with over 1000 reviews in a tourist area, they don't raise their prices above normal just to gain profit. This is also the first place where the dishes were consistently flavorful. The dishes didn't significantly differ in taste or quality, and the score for this restaurant reflects that.
 
 The service was above standards, and it shows in the way that locals come in and interact with the staff. I felt very welcomed here. 
 

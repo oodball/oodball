@@ -87,6 +87,6 @@ I would endure Ottawa again just to eat here.
     date: "8/6/2025", 
     timestamp: "2025-08-06T22:33:00.000Z",
     rating: 3.5,
-    location: "San Diego",
+    location: "Ottawa",
     tags: ["Thai", "Massaman Curry", "Papaya Salad", "Mango Sticky Rice", "Byward Market"] 
     };

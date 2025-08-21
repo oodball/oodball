@@ -9,6 +9,7 @@ import { chez_chili } from './8_chez_chili.js';
 import { osmows_shawarma } from './9_osmows_shawarma.js';
 import { khao_thai } from './10_khao_thai.js';
 import { ta_pies } from './11_ta_pies.js';
+import { happy_valley_village } from './12_happy_valley_village.js';
 
 export const allEntries = [
   inglorious_bagels,
@@ -22,6 +23,7 @@ export const allEntries = [
   osmows_shawarma,
   khao_thai,
   ta_pies,
+  happy_valley_village,
 ];
 
 

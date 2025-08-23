@@ -10,6 +10,8 @@ import { osmows_shawarma } from './9_osmows_shawarma.js';
 import { khao_thai } from './10_khao_thai.js';
 import { ta_pies } from './11_ta_pies.js';
 import { happy_valley_village } from './12_happy_valley_village.js';
+import { pai } from './13_pai.js';
+// import { hongji_soy_milk } from './14_hongji_soy_milk.js';
 
 export const allEntries = [
   inglorious_bagels,
@@ -24,6 +26,8 @@ export const allEntries = [
   khao_thai,
   ta_pies,
   happy_valley_village,
+  pai,
+  // hongji_soy_milk
 ];
 
 

@@ -12,17 +12,21 @@ On Google Maps, this place is actually only called "Chinese Breakfast and Soy Mi
 
 ## FOOD
 
+![spread](/images/Foodball/hongji_soy_milk/spread.JPG "I Love Taiwan")
+
 ***Egg Pancake***
 
-An egg pancake is exactly what it sounds like. It's just egg on a thin dough rolled up. Sometimes it's a scallion pancake. I didn't pay much attention to whether ours had it or not. I was jet lagged. 
+An egg pancake is exactly what it sounds like. It's just egg on a thin dough rolled up. Sometimes it's a scallion pancake too, which I prefer more. This was just a regular dough.
 
-Even though it's so simple, this dish is my favorite thing to order so far.
+Even though it's so simple, this dish is my favorite thing to order.
 
 The pancake was very crispy and flaky, which I really liked. There was a slight crunch when biting down that I found very satisfying.
 
-To be honest, the dish was very salty, but that was probably our own faults because we added too much sauce to it. Sorry we're American.
+To be honest, the dish was very salty, but that was probably our own fault because we added too much sauce to it. We're American, we don't know these things.
 
 3.5/5
+
+![spreead](/images/Foodball/hongji_soy_milk/therese_soy_milk.JPG "I Paid Her After this Gig")
 
 ***Soy Milk***
 
@@ -42,8 +46,8 @@ I think that if we weren't jet-lagged, we could have gone further and found a fu
 
     
     `,
-    date: "8/24/2025", 
-    timestamp: "2025-08-24T09:54:00.000Z",
+    date: "8/28/2025", 
+    timestamp: "2025-08-28T23:19:00.000Z",
     rating: 3,
     location: "Taipei",
     tags: ["Soy Milk", "Dan Bing", "Radish Cake", "Egg Pancake", "Taiwanese"] 

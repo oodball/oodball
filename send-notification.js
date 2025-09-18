@@ -18,7 +18,7 @@ const http = require('http');
 const url = require('url');
 
 // Configuration
-const NOTIFICATION_SERVICE_URL = process.env.NOTIFICATION_SERVICE_URL || 'https://oodball.com';
+const NOTIFICATION_SERVICE_URL = process.env.NOTIFICATION_SERVICE_URL || 'https://www.oodball.com';
 const ADMIN_KEY = process.env.ADMIN_KEY || 'foodball-admin-2025';
 
 // Parse command line arguments
@@ -38,8 +38,8 @@ const notificationData = {
   title: `🍴 NEW FOOD ENTRY UNLOCKED! 🍴`,
   body: `${entryTitle} added to the menu!`,
   url: entryId 
-    ? `https://oodball.com/foodball/${entryId}`
-    : 'https://oodball.com/foodball',
+    ? `https://www.oodball.com/foodball/${entryId}`
+    : 'https://www.oodball.com/foodball',
   adminKey: ADMIN_KEY
 };
 

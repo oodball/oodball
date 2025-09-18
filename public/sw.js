@@ -30,7 +30,7 @@ self.addEventListener('push', (event) => {
     notificationData = {
       title: 'New Foodball Entry!',
       body: 'A new restaurant review has been posted',
-      url: 'https://oodball.com/foodball'
+      url: 'https://www.oodball.com/foodball'
     };
   }
 
@@ -39,7 +39,7 @@ self.addEventListener('push', (event) => {
     icon: notificationData.icon || 'https://oodball.com/notification-icon-192.png',
     badge: notificationData.badge || 'https://oodball.com/notification-badge-72.png',
     data: {
-      url: notificationData.url || 'https://oodball.com/foodball'
+      url: notificationData.url || 'https://www.oodball.com/foodball'
     },
     actions: [
       {
@@ -84,7 +84,7 @@ self.addEventListener('notificationclick', (event) => {
         // Check if there's already a window/tab open with the target URL
         for (let i = 0; i < clientList.length; i++) {
           const client = clientList[i];
-          if (client.url.includes('oodball.com') && 'focus' in client) {
+          if (client.url.includes('www.oodball.com') && 'focus' in client) {
             client.focus();
             client.navigate(urlToOpen);
             return;
@@ -118,7 +118,7 @@ self.addEventListener('pushsubscriptionchange', (event) => {
       applicationServerKey: 'BKEj54IqzhMP-3CazFJgkpc3ESbUP-zG7KXSyZvlapJGvn1_YYlX0XR5uSjjv3EGCiLBMOtRWK_zn9RTGA5pd04'
     }).then((newSubscription) => {
       // Send new subscription to server
-      return fetch('https://oodball.com/api/notifications/subscribe', {
+      return fetch('https://www.oodball.com/api/notifications/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

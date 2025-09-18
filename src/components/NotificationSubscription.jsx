@@ -44,8 +44,19 @@ function NotificationSubscription({ user }) {
 
       await notificationManager.subscribe(user.id);
       
+      // Update state immediately for better UX
+      setSubscriptionStatus(prev => ({
+        ...prev,
+        subscribed: true
+      }));
+      
       setSuccess('Successfully subscribed to notifications! You\'ll receive alerts when new food entries are posted.');
-      await checkSubscriptionStatus();
+      
+      // Double-check status after a short delay
+      setTimeout(async () => {
+        await checkSubscriptionStatus();
+      }, 1000);
+      
     } catch (error) {
       console.error('Subscription failed:', error);
       if (error.message.includes('permission')) {
@@ -71,8 +82,19 @@ function NotificationSubscription({ user }) {
 
       await notificationManager.unsubscribe(user.id);
       
+      // Update state immediately for better UX
+      setSubscriptionStatus(prev => ({
+        ...prev,
+        subscribed: false
+      }));
+      
       setSuccess('Successfully unsubscribed from notifications.');
-      await checkSubscriptionStatus();
+      
+      // Double-check status after a short delay
+      setTimeout(async () => {
+        await checkSubscriptionStatus();
+      }, 1000);
+      
     } catch (error) {
       console.error('Unsubscription failed:', error);
       setError('Failed to unsubscribe. Please try again.');

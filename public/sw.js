@@ -36,8 +36,8 @@ self.addEventListener('push', (event) => {
 
   const notificationOptions = {
     body: notificationData.body || 'A new restaurant review has been posted',
-    icon: notificationData.icon || '/images/foodball-icon.png',
-    badge: notificationData.badge || '/images/foodball-badge.png',
+    icon: notificationData.icon || 'https://oodball.com/notification-icon-192.png',
+    badge: notificationData.badge || 'https://oodball.com/notification-badge-72.png',
     data: {
       url: notificationData.url || 'https://oodball.com/foodball'
     },

@@ -65,8 +65,8 @@ module.exports = async function handler(req, res) {
           title: title || 'New Foodball Entry!',
           body: body || 'A new restaurant review has been posted',
           url: url || 'https://oodball.com/foodball',
-          icon: 'https://oodball.com/images/foodball-icon.png',
-          badge: 'https://oodball.com/images/foodball-badge.png'
+          icon: 'https://oodball.com/notification-icon-192.png',
+          badge: 'https://oodball.com/notification-badge-72.png'
         });
 
         await webpush.sendNotification(subscription, payload);

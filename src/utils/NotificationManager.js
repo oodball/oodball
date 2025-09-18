@@ -3,7 +3,7 @@ class NotificationManager {
   constructor() {
     this.vapidPublicKey = null;
     this.notificationServiceUrl = process.env.NODE_ENV === 'production' 
-      ? 'https://oodball.com/api' 
+      ? 'https://oodball.com' 
       : 'http://localhost:3001';
   }
 

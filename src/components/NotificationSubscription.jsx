@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import notificationManager from '../utils/NotificationManager';
 import '../styles/notification-subscription.css';
 
@@ -115,14 +116,37 @@ function NotificationSubscription({ user }) {
     }
   };
 
-  // Don't render if notifications aren't supported
+  // Show helpful message if notifications aren't supported
   if (!subscriptionStatus.supported) {
-    return null;
+    return (
+      <div className="notification-subscription">
+        <div className="notification-header">
+          <h3>🔔 Foodball Push Notifs</h3>
+          <p>Level up! Follow me!</p>
+        </div>
+        <div className="notification-error">
+          <span>⚠️ Push notifications aren't supported in this browser. Try Chrome, Safari, or Firefox!</span>
+        </div>
+      </div>
+    );
   }
 
-  // Don't render if user is not logged in
+  // Show login message if user is not logged in
   if (!user) {
-    return null;
+    return (
+      <div className="notification-subscription">
+        <div className="notification-header">
+          <h3>🔔 Foodball Push Notifs</h3>
+          <p>Level up! Follow me!</p>
+        </div>
+        <div className="notification-unsubscribed">
+          <p>Please log in to subscribe to notifications</p>
+          <Link to="/login" className="notification-btn subscribe-btn">
+            LOG IN
+          </Link>
+        </div>
+      </div>
+    );
   }
 
   const toggleCollapse = () => {

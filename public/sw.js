@@ -55,7 +55,11 @@ self.addEventListener('push', (event) => {
     ],
     tag: 'foodball-entry',
     requireInteraction: false,
-    vibrate: [200, 100, 200]
+    vibrate: [200, 100, 200, 100, 200],
+    silent: false,
+    renotify: true,
+    timestamp: Date.now(),
+    dir: 'ltr'
   };
 
   event.waitUntil(

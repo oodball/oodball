@@ -42,27 +42,37 @@ function NotificationSubscription({ user }) {
       setError(null);
       setSuccess(null);
 
-      await notificationManager.subscribe(user.id);
+      const result = await notificationManager.subscribe(user.id);
       
-      // Update state immediately for better UX
-      setSubscriptionStatus(prev => ({
-        ...prev,
-        subscribed: true
-      }));
-      
-      setSuccess('Successfully subscribed to notifications! You\'ll receive alerts when new food entries are posted.');
-      
-      // Double-check status after a short delay
-      setTimeout(async () => {
-        await checkSubscriptionStatus();
-      }, 1000);
+      // Only update state if subscription was successful
+      if (result) {
+        setSubscriptionStatus(prev => ({
+          ...prev,
+          subscribed: true
+        }));
+        
+        setSuccess('Successfully subscribed to notifications! You\'ll receive alerts when new food entries are posted.');
+        
+        // Double-check status after a short delay
+        setTimeout(async () => {
+          await checkSubscriptionStatus();
+        }, 1500);
+      }
       
     } catch (error) {
       console.error('Subscription failed:', error);
+      console.error('Error details:', {
+        message: error.message,
+        stack: error.stack,
+        name: error.name
+      });
+      
       if (error.message.includes('permission')) {
         setError('Please allow notifications in your browser settings to receive updates.');
+      } else if (error.message.includes('Failed to save subscription to server')) {
+        setError('Server error: Failed to save subscription. Please try again.');
       } else {
-        setError('Failed to subscribe to notifications. Please try again.');
+        setError(`Failed to subscribe: ${error.message}`);
       }
     } finally {
       setLoading(false);
@@ -80,20 +90,22 @@ function NotificationSubscription({ user }) {
       setError(null);
       setSuccess(null);
 
-      await notificationManager.unsubscribe(user.id);
+      const result = await notificationManager.unsubscribe(user.id);
       
-      // Update state immediately for better UX
-      setSubscriptionStatus(prev => ({
-        ...prev,
-        subscribed: false
-      }));
-      
-      setSuccess('Successfully unsubscribed from notifications.');
-      
-      // Double-check status after a short delay
-      setTimeout(async () => {
-        await checkSubscriptionStatus();
-      }, 1000);
+      // Only update state if unsubscription was successful
+      if (result) {
+        setSubscriptionStatus(prev => ({
+          ...prev,
+          subscribed: false
+        }));
+        
+        setSuccess('Successfully unsubscribed from notifications.');
+        
+        // Double-check status after a short delay
+        setTimeout(async () => {
+          await checkSubscriptionStatus();
+        }, 1500);
+      }
       
     } catch (error) {
       console.error('Unsubscription failed:', error);

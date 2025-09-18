@@ -1,5 +1,5 @@
 // Vercel function for subscription
-import { createClient } from '@supabase/supabase-js';
+const { createClient } = require('@supabase/supabase-js');
 
 const supabase = createClient(
   'https://mkusymfkgvqnzdjjznrq.supabase.co',
@@ -12,7 +12,7 @@ const supabase = createClient(
   }
 );
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');

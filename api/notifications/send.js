@@ -1,6 +1,6 @@
 // Vercel function for sending notifications
-import { createClient } from '@supabase/supabase-js';
-import webpush from 'web-push';
+const { createClient } = require('@supabase/supabase-js');
+const webpush = require('web-push');
 
 const supabase = createClient(
   'https://mkusymfkgvqnzdjjznrq.supabase.co',
@@ -20,7 +20,7 @@ webpush.setVapidDetails(
   process.env.VAPID_PRIVATE_KEY || 'GhaWL5GVlGXOLBaaApPK07FftlxWxfnAnBdihgtbqv0'
 );
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');

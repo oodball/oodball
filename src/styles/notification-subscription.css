@@ -292,6 +292,28 @@
     padding: 1.2rem;
     line-height: 1.4;
   }
+  
+  .notification-info {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+  }
+  
+  .notification-info summary {
+    font-size: 0.8rem;
+    padding: 0.8rem 0;
+    font-weight: bold;
+  }
+  
+  .notification-details {
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+  
+  .notification-details li {
+    font-size: 0.7rem;
+    margin: 0.8rem 0;
+    line-height: 1.5;
+  }
 }
 
 /* Dark mode support */

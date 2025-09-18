@@ -125,7 +125,20 @@ function NotificationSubscription({ user }) {
           <p>Level up! Follow me!</p>
         </div>
         <div className="notification-error">
-          <span>⚠️ Push notifications aren't supported. Check Upgrade Details!</span>
+          <span>⚠️ Push notifications aren't supported. Check below.</span>
+        </div>
+        <div className="notification-info">
+          <details>
+            <summary>How to Subscribe for IOS Mobile</summary>
+            <div className="notification-details">
+              <ul>
+                <li>Settings -> Apps -> Safari -> Turn off Block Popups</li>
+                <li>Go to oodball.com in Safari</li>
+                <li> more button -> Share Page -> add to Home Screen</li>
+                <li>Open app from the Home Screen -> login -> allow notifications</li>
+              </ul>
+            </div>
+          </details>
         </div>
       </div>
     );
@@ -144,6 +157,19 @@ function NotificationSubscription({ user }) {
           <Link to="/login?redirect=/foodball" className="notification-btn subscribe-btn">
             LOG IN
           </Link>
+        </div>
+        <div className="notification-info">
+          <details>
+            <summary>How to Subscribe for IOS Mobile</summary>
+            <div className="notification-details">
+              <ul>
+                <li>Settings -> Apps -> Safari -> Turn off Block Popups</li>
+                <li>Go to oodball.com in Safari</li>
+                <li> more button -> Share Page -> add to Home Screen</li>
+                <li>Open app from the Home Screen -> login -> allow notifications</li>
+              </ul>
+            </div>
+          </details>
         </div>
       </div>
     );

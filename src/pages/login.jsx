@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 async function signUpWithUsername({ email, password, username, from }) {
   // Log the redirect URL for debugging
-  const redirectUrl = `https://oodball.com/auth/callback?from=${encodeURIComponent(from || '/')}`;
+  const redirectUrl = `https://www.oodball.com/auth/callback?from=${encodeURIComponent(from || '/')}`;
   console.log('Signup emailRedirectTo:', redirectUrl);
   
   // First, sign up the user
@@ -56,8 +56,9 @@ function Login() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Robust 'from' logic: never redirect to /login, always prefer a real previous page or fallback to '/'
-  let from = location.state?.from;
+  // Robust 'from' logic: check URL params first, then state, never redirect to /login
+  const urlParams = new URLSearchParams(location.search);
+  let from = urlParams.get('redirect') || location.state?.from;
   if (!from || from === '/login') {
     from = window.location.pathname !== '/login' ? window.location.pathname : '/';
   }

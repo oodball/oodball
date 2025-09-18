@@ -1,0 +1,38 @@
+# Auto-notify users when new food entries are added
+name: Notify New Food Entry
+
+on:
+  push:
+    branches: [ main ]
+    paths: 
+      - 'src/entries/*.js'
+      - 'src/entries/index.js'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Check if new entry was added
+      id: check_entry
+      run: |
+        # Check if any new entry files were added
+        if git diff --name-only HEAD~1 HEAD | grep -q "src/entries/.*\.js$"; then
+          echo "new_entry=true" >> $GITHUB_OUTPUT
+        else
+          echo "new_entry=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Send notification
+      if: steps.check_entry.outputs.new_entry == 'true'
+      run: |
+        echo "🍽️ New food entry detected! Sending notifications..."
+        node auto-notify-production.js
+      env:
+        NODE_ENV: production

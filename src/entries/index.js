@@ -12,7 +12,7 @@ import { ta_pies } from './11_ta_pies.js';
 import { happy_valley_village } from './12_happy_valley_village.js';
 import { pai } from './13_pai.js';
 import { hongji_soy_milk } from './14_hongji_soy_milk.js';
-// import { kurry_curry } from './15_kurry_curry.js';
+import { kurry_curry } from './15_kurry_curry.js';
 import { fuhang } from './16_fuhang_soy_milk.js';
 
 export const allEntries = [
@@ -29,8 +29,9 @@ export const allEntries = [
   ta_pies,
   happy_valley_village,
   pai,
-  hongji_soy_milk
-  // kurry_curry
+  hongji_soy_milk,
+  kurry_curry,
+  fuhang
 ];
 
 

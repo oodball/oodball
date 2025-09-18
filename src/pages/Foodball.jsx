@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { sortedEntries } from '../entries';
+import NotificationSubscription from '../components/NotificationSubscription';
+import { supabase } from '../supabase_client';
 import '../styles/foodball.css';
 
 function Foodball() {
   const [selectedTag, setSelectedTag] = useState(null);
   const [sortBy, setSortBy] = useState('date-high');
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data: { user } }) => setUser(user));
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+    return () => listener.subscription.unsubscribe();
+  }, []);
 
   const filteredEntries = selectedTag 
     ? sortedEntries.filter(entry => 
@@ -59,6 +70,8 @@ function Foodball() {
       <div className="foodball-header">
         <h1>Foodball</h1>
       </div>
+
+      <NotificationSubscription user={user} />
 
       <div className="entries-section">
         <div className="section-header">

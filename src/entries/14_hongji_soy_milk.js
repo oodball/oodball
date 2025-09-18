@@ -26,7 +26,7 @@ To be honest, the dish was very salty, but that was probably our own fault becau
 
 3.5/5
 
-![spreead](/images/Foodball/hongji_soy_milk/therese_soy_milk.JPG "I Paid Her After this Gig")
+![spreead](/images/Foodball/hongji_soy_milk/therese_soy_milk.JPG "Cleared")
 
 ***Soy Milk***
 

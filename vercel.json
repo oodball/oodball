@@ -1,34 +1,18 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
+  "functions": {
+    "notification-service.js": {
+      "runtime": "nodejs18.x"
     }
-  ],
+  },
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/images/(.*)",
-      "dest": "/images/$1"
-    },
-    {
-      "src": "/favicon.ico",
-      "dest": "/favicon.ico"
-    },
-    {
-      "src": "/manifest.json",
-      "dest": "/manifest.json"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "src": "/api/(.*)",
+      "dest": "/notification-service.js"
     }
-  ]
-} 
+  ],
+  "env": {
+    "VAPID_PUBLIC_KEY": "BKEj54IqzhMP-3CazFJgkpc3ESbUP-zG7KXSyZvlapJGvn1_YYlX0XR5uSjjv3EGCiLBMOtRWK_zn9RTGA5pd04",
+    "VAPID_PRIVATE_KEY": "GhaWL5GVlGXOLBaaApPK07FftlxWxfnAnBdihgtbqv0",
+    "ADMIN_KEY": "foodball-admin-2025"
+  }
+}

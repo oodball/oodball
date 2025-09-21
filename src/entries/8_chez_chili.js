@@ -70,5 +70,6 @@ date: "8/1/2025",
 timestamp: "2025-08-01T11:14:00.000Z",
 rating: 2,
 location: "Montreal",
-tags: ["Chinese", "Dry Fried Beans", "Fried Chicken ", "Noodle Stir Fry", "Chinatown"] 
+tags: ["Chinese", "Dry Fried Beans", "Fried Chicken ", "Noodle Stir Fry", "Chinatown"],
+published: true
 };

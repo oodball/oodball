@@ -41,5 +41,6 @@ Hugh Jackman should stick to the film industry. (his taste probably isn't terrib
     timestamp: "2025-08-07T00:40:00.000Z",
     rating: 2.6,
     location: "Montreal",
-    tags: ["Meat Pies", "New Zealand", "Australian", "Montreal"] 
+    tags: ["Meat Pies", "New Zealand", "Australian", "Montreal"],
+    published: true
     };

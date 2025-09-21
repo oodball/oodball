@@ -50,5 +50,6 @@ I think that if we weren't jet-lagged, we could have gone further and found a fu
     timestamp: "2025-08-28T23:19:00.000Z",
     rating: 3,
     location: "Taipei",
-    tags: ["Soy Milk", "Dan Bing", "Radish Cake", "Egg Pancake", "Taiwanese"] 
+    tags: ["Soy Milk", "Dan Bing", "Radish Cake", "Egg Pancake", "Taiwanese"],
+    published: true
     };

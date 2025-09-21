@@ -88,5 +88,6 @@ I would endure Ottawa again just to eat here.
     timestamp: "2025-08-06T22:33:00.000Z",
     rating: 3.5,
     location: "Ottawa",
-    tags: ["Thai", "Massaman Curry", "Papaya Salad", "Mango Sticky Rice", "Byward Market"] 
+    tags: ["Thai", "Massaman Curry", "Papaya Salad", "Mango Sticky Rice", "Byward Market"],
+    published: true
     };

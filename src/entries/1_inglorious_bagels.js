@@ -60,4 +60,5 @@ More to follow on that.
   rating: 3,
   location: "San Diego",
   tags: ["bagels", "breakfast", "carlsbad"],
+  published: true
 }; 

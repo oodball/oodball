@@ -36,5 +36,6 @@ Maybe I'll have a different experience if I go back to dine in person.
     timestamp: "2025-09-17T03:15:00.000Z",
     rating: 2.5,
     location: "Taipei",
-    tags: ["Japanese Curry", "Butter Chicken Curry", "Scallion Pancake", "Zhongxiao Fuxing"] 
+    tags: ["Japanese Curry", "Butter Chicken Curry", "Scallion Pancake", "Zhongxiao Fuxing"],
+    published: true
     };

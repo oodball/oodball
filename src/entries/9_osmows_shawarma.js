@@ -54,5 +54,6 @@ date: "8/5/2025",
 timestamp: "2025-08-05T01:41:00.000Z",
 rating: 3,
 location: "Ottawa",
-tags: ["Shawarma", "Middle Eastern", "Byward Market"] 
+tags: ["Shawarma", "Middle Eastern", "Byward Market"],
+published: true
 };

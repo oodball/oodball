@@ -60,5 +60,6 @@ export const portofino_brasserie_italienne = {
     timestamp: "2025-07-30T20:45:00.000Z",
     rating: 2.8,
     location: "Quebec City",
-    tags: ["Italian", "Mushroom Risotto", "Shrimp Mango Salad", "Bruschetta"] 
+    tags: ["Italian", "Mushroom Risotto", "Shrimp Mango Salad", "Bruschetta"],
+  published: true
   };

@@ -1,5 +1,5 @@
 export const xu_le_izekaya = {
-    id: 0, 
+    id: 19, 
     title: "Xu Le Izekaya 緒樂酒場",
     content: `## INTRODUCTION
     
@@ -45,5 +45,6 @@ export const xu_le_izekaya = {
     timestamp: "2025-07-02T20:45:00.000Z",
     rating: 2.9,
     location: "Taipei",
-    tags: ["Japanese", "Izekaya", "Yakitori", "Skewers", "Mentaiko Pasta", "Watercress"] 
+    tags: ["Japanese", "Izekaya", "Yakitori", "Skewers", "Mentaiko Pasta", "Watercress"],
+    published: false
     };

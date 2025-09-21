@@ -69,5 +69,6 @@ I got too anxious about getting ticketed so I circled another 15 min to find par
   timestamp: "2025-06-29T20:45:00.000Z",
   rating: 2.7,
   location: "San Diego",
-  tags: ["Clam Chowder", "Fish Sandwich", "Fisherman's Stew", "Point Loma"] 
+  tags: ["Clam Chowder", "Fish Sandwich", "Fisherman's Stew", "Point Loma"],
+published: true
 };

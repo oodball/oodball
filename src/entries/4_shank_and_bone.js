@@ -60,5 +60,6 @@ When we went in, the first red flag to me was that there was motorcycle decor ev
   timestamp: "2025-07-03T00:00:00.000Z", 
   rating: 1.8,
   location: "San Diego",
-  tags: ["Vietnamese", "North Park", "Banh Mi", "Cá kho Tộ","Canh chua tôm"] 
+  tags: ["Vietnamese", "North Park", "Banh Mi", "Cá kho Tộ","Canh chua tôm"],
+published: true
 };

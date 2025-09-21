@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { sortedEntries } from '../entries';
+import { getSortedEntriesMetadata } from '../entries';
 import NotificationSubscription from '../components/NotificationSubscription';
 import { supabase } from '../supabase_client';
 import '../styles/foodball.css';
@@ -9,6 +9,8 @@ function Foodball() {
   const [selectedTag, setSelectedTag] = useState(null);
   const [sortBy, setSortBy] = useState('date-high');
   const [user, setUser] = useState(null);
+  const [entries, setEntries] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => setUser(user));
@@ -18,40 +20,29 @@ function Foodball() {
     return () => listener.subscription.unsubscribe();
   }, []);
 
-  const filteredEntries = selectedTag 
-    ? sortedEntries.filter(entry => 
+  useEffect(() => {
+    const loadEntries = async () => {
+      setLoading(true);
+      try {
+        const sortedEntries = await getSortedEntriesMetadata(sortBy, false); // false = only published entries
+        setEntries(sortedEntries);
+      } catch (error) {
+        console.error('Error loading entries:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadEntries();
+  }, [sortBy]);
+
+  // Filter entries based on selected tag
+  const sortedAndFilteredEntries = selectedTag 
+    ? entries.filter(entry => 
         (entry.tags && entry.tags.includes(selectedTag)) || 
         (entry.location && entry.location === selectedTag)
       )
-    : sortedEntries;
-
-  const sortedAndFilteredEntries = [...filteredEntries].sort((a, b) => {
-    let aValue, bValue;
-    
-    switch (sortBy) {
-      case 'rating-high':
-        aValue = a.rating || 0;
-        bValue = b.rating || 0;
-        return bValue - aValue;
-      case 'rating-low':
-        aValue = a.rating || 0;
-        bValue = b.rating || 0;
-        return aValue - bValue;
-      case 'location-a-z':
-        aValue = (a.location || '').toLowerCase();
-        bValue = (b.location || '').toLowerCase();
-        return aValue.localeCompare(bValue);
-      case 'date-low':
-        aValue = new Date(a.timestamp);
-        bValue = new Date(b.timestamp);
-        return aValue - bValue;
-      case 'date-high':
-      default:
-        aValue = new Date(a.timestamp);
-        bValue = new Date(b.timestamp);
-        return bValue - aValue;
-    }
-  });
+    : entries;
 
   const handleTagClick = (tag) => {
     setSelectedTag(selectedTag === tag ? null : tag);
@@ -102,7 +93,9 @@ function Foodball() {
           </div>
         </div>
 
-        {sortedAndFilteredEntries.length === 0 ? (
+        {loading ? (
+          <div className="loading">Loading entries...</div>
+        ) : sortedAndFilteredEntries.length === 0 ? (
           <div className="no-entries">
             <p>
               {selectedTag 

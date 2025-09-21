@@ -1,22 +1,75 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import HeicImage from '../components/HeicImage';
 import CommentSection from '../components/CommentSection';
-import { allEntries } from '../entries';
+import { getEntry } from '../entries';
 import '../styles/foodball.css';
 
 function FoodballEntry({user}) {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [entry, setEntry] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   
-  // Find the entry by ID
-  const entry = allEntries.find(e => e.id === parseInt(id));
+  useEffect(() => {
+    const loadEntry = async () => {
+      try {
+        setLoading(true);
+        
+        const loadedEntry = await getEntry(id);
+        
+        if (!loadedEntry) {
+          navigate('/foodball');
+          return;
+        }
+        
+        // Check if entry is published
+        if (loadedEntry.published === false) {
+          navigate('/foodball');
+          return;
+        }
+        
+        setEntry(loadedEntry);
+      } catch (err) {
+        console.error('Error loading entry:', err);
+        setError('Failed to load entry');
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  if (!entry) {
-    navigate('/foodball');
-    return null;
+    loadEntry();
+  }, [id, navigate]);
+
+  if (loading) {
+    return (
+      <div className="foodball-entry">
+        <div className="entry-navigation">
+          <Link to="/foodball" className="back-link">
+            ← Back to Journal
+          </Link>
+        </div>
+        <div className="loading">Loading entry...</div>
+      </div>
+    );
+  }
+
+  if (error || !entry) {
+    return (
+      <div className="foodball-entry">
+        <div className="entry-navigation">
+          <Link to="/foodball" className="back-link">
+            ← Back to Journal
+          </Link>
+        </div>
+        <div className="error">
+          {error || 'Entry not found'}
+        </div>
+      </div>
+    );
   }
 
   // Process content to convert custom image syntax to HTML

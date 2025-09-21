@@ -56,5 +56,6 @@ If there were a restaurant like this closer to me, I would go again.
     timestamp: "2025-08-07T12:08:00.000Z",
     rating: 3.0,
     location: "Scarborough",
-    tags: ["Iron Pot Stew", "Liang Pi", "Chinese"] 
+    tags: ["Iron Pot Stew", "Liang Pi", "Chinese"],
+    published: true
     };

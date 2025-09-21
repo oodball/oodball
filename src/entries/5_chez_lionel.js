@@ -109,5 +109,6 @@ Unfortunately, the score got lowered because of the ravioli, but I would go back
     timestamp: "2025-07-08T20:45:00.000Z",
     rating: 3.0,
     location: "Montreal",
-    tags: ["French", "Duck Confit", "Ricotta Ravioli", "Escargot", "Chicken Basque"] 
+    tags: ["French", "Duck Confit", "Ricotta Ravioli", "Escargot", "Chicken Basque"],
+  published: true
   };

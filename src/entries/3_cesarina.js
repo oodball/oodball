@@ -80,5 +80,6 @@ export const cesarina = {
   timestamp: "2025-07-02T20:45:00.000Z",
   rating: 2.9,
   location: "San Diego",
-  tags: ["Italian", "Tiramisu", "Pasta", "Ocean Beach"] 
+  tags: ["Italian", "Tiramisu", "Pasta", "Ocean Beach"],
+published: true
 };

@@ -1,6 +1,6 @@
 export const wanlong = {
     id: 17, 
-    title: "Template",
+    title: "Wanlong Fish Market",
     content: `## INTRODUCTION
     
     ## FOOD
@@ -37,5 +37,6 @@ export const wanlong = {
     timestamp: "2025-07-02T20:45:00.000Z",
     rating: 2.9,
     location: "Taipei",
-    tags: ["Japanese", "Sashimi", "Miso Soup"] 
+    tags: ["Japanese", "Sashimi", "Miso Soup"],
+    published: false
     };

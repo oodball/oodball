@@ -69,5 +69,6 @@ I think that Pai prioritized image over taste. All the dishes are so colorful an
     timestamp: "2025-08-21T10:36:00.000Z",
     rating: 2.5,
     location: "Toronto",
-    tags: ["Thai", "Khao Soi", "Mango Sticky Rice", "Panang Curry"] 
+    tags: ["Thai", "Khao Soi", "Mango Sticky Rice", "Panang Curry"],
+    published: true
     };

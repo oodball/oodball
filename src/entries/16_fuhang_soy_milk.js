@@ -11,7 +11,7 @@ When I got to this place, my first thought was "ain't no way this place is that 
 
 ## FOOD
 
-![fuhang spread](/images/Foodball/fuhang_soy_milk/fuhang.JPG "Don't Learn About the History of Salty Soy Milk")
+![fuhang spread](/images/Foodball/fuhang_soy_milk/fuhang.jpg "Don't Learn About the History of Salty Soy Milk")
 
 ***Sweet Soy Milk***
 

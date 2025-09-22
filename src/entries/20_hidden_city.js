@@ -45,7 +45,7 @@ The broth was very enjoyable as well. It was a good reset for me to enjoy the re
 
 ## OVERALL THOUGHTS
 
-I really enjoyed my time at Hidden City. I felt present, and connected. The bartenders were attentive to every small shift in attitude of their customers. It feels like they take great pride in their creations. When I stepped away for just a short moment, the bartender had already taken my drink and put it in the fridge to keep cool so the ice didn't dilute my drink. That type of attentiveness added to the entire experience as a whole.
+I really enjoyed my time at Hidden City. I felt present, and connected. The bartenders were attentive to every small shift in attitude of their customers. You can tell they take great pride in their creations. Even when I stepped away for just a short moment, the bartender had already taken my drink and put it in the fridge to keep cool so the ice didn't dilute my drink. That type of attentiveness added to the entire experience as a whole.
 
 Maybe I should become a bartender. 
     `,

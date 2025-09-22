@@ -210,6 +210,17 @@ export const entriesManifest = [
     rating: 2.9,
     location: 'Taipei',
     tags: ['Japanese', 'Izekaya', 'Yakitori', 'Skewers', 'Mentaiko Pasta', 'Watercress']
+  },
+  {
+    id: 20,
+    file: '20_hidden_city.js',
+    exportName: 'hidden_city',
+    title: 'Hidden City',
+    date: '9/22/2025',
+    timestamp: '2025-09-22T08:25:00.000Z',
+    rating: 2.9,
+    location: 'Taipei',
+    tags: ['Daan', 'Bar', 'Oden', 'Cocktail']
   }
 ];
 

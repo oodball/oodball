@@ -42,6 +42,8 @@ I'm not the best judge so don't take this rating at face value.
 
 ***Tang Yuan with Shaved Ice***
 
+![Tang Yuan](/images/Foodball/raohe/tang_yuan.jpg "Savior of the Summer")
+
 I'm very particular about my shaved ice.
 
 That doesn't mean I won't eat any shaved ice because I love it too much, but I really like the bowls with real crushed ice. Not the fluffy milky stuff. It's still good, but I just like the texture of pure ice.
@@ -72,5 +74,5 @@ Even though I didn't run into any other fellow celebrities, Raohe Night Market i
     rating: 3.7,
     location: "Taipei",
     tags: ["Night Market", "Oyster and Pork Intestine Noodles", "Rice Sausage","Sausage", "Tang Yuan", "Shaved Ice"],
-    published: false
+    published: true
     };

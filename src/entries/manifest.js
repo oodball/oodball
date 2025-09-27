@@ -196,9 +196,9 @@ export const entriesManifest = [
     title: 'Raohe Night Market',
     date: '7/2/2025',
     timestamp: '2025-07-02T20:45:00.000Z',
-    rating: 2.9,
+    rating: 3.3,
     location: 'Taipei',
-    tags: ['Oyster and Pork Intestine Noodles', 'Rice Sausage', 'Sausage', 'Tang Yuan', 'Shaved Ice']
+    tags: ['Night Market','Oyster and Pork Intestine Noodles', 'Rice Sausage', 'Sausage', 'Tang Yuan', 'Shaved Ice']
   },
   {
     id: 19,
@@ -218,7 +218,7 @@ export const entriesManifest = [
     title: 'Hidden City',
     date: '9/22/2025',
     timestamp: '2025-09-22T08:25:00.000Z',
-    rating: 2.9,
+    rating: 3.8,
     location: 'Taipei',
     tags: ['Daan', 'Bar', 'Oden', 'Cocktail']
   }

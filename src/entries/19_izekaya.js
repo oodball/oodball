@@ -64,7 +64,7 @@ These skewers were alright, but I've had better elsewhere.
 
 ## OVERALL THOUGHTS
 
-I recommend this place. The vibe in this izekaya was so cozy. There aren't many seats, so they have outdoor seating right next to the kitchen area. 
+I recommend this place. The vibe in this izekaya was so cozy. There aren't many seats, so they have outdoor seating right next to the kitchen area. I felt pretty comfortable here.
     
     `,
     date: "9/30/2025", 

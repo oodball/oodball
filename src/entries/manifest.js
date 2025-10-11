@@ -180,18 +180,7 @@ export const entriesManifest = [
   },
   {
     id: 17,
-    file: '17_wanlong_fish_market.js',
-    exportName: 'wanlong',
-    title: 'Wanlong Fish Market',
-    date: '7/2/2025',
-    timestamp: '2025-07-02T20:45:00.000Z',
-    rating: 2.9,
-    location: 'Taipei',
-    tags: ['Japanese', 'Sashimi', 'Miso Soup']
-  },
-  {
-    id: 18,
-    file: '18_raohe_night_market.js',
+    file: '17_raohe_night_market.js',
     exportName: 'raohe_night_market',
     title: 'Raohe Night Market',
     date: '7/2/2025',
@@ -201,8 +190,8 @@ export const entriesManifest = [
     tags: ['Night Market','Oyster and Pork Intestine Noodles', 'Rice Sausage', 'Sausage', 'Tang Yuan', 'Shaved Ice']
   },
   {
-    id: 19,
-    file: '19_izekaya.js',
+    id: 18,
+    file: '18_izekaya.js',
     exportName: 'xu_le_izekaya',
     title: 'Xu Le Izekaya 緒樂酒場',
     date: '7/2/2025',
@@ -212,8 +201,8 @@ export const entriesManifest = [
     tags: ['Japanese', 'Izekaya', 'Yakitori', 'Skewers', 'Mentaiko Pasta', 'Watercress']
   },
   {
-    id: 20,
-    file: '20_hidden_city.js',
+    id: 19,
+    file: '19_hidden_city.js',
     exportName: 'hidden_city',
     title: 'Hidden City',
     date: '9/22/2025',
@@ -221,6 +210,18 @@ export const entriesManifest = [
     rating: 3.8,
     location: 'Taipei',
     tags: ['Daan', 'Bar', 'Oden', 'Cocktail']
+  },
+
+  {
+    id: 20,
+    file: '20_teleferic_barcelona.js',
+    exportName: 'teleferic_barcelona',
+    title: 'Teleferic Barcelona',
+    date: "10/5/2025", 
+    timestamp: "2025-10-05T23:37:00.000Z",
+    rating: 2.9,
+    location: "Palo Alto",
+    tags: ["Spanish", "Paella", "Pasta", "Ocean Beach"]
   }
 ];
 

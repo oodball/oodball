@@ -1,3 +1,4 @@
+```
 # Oodball's Website!
 
 This is my website to dump out parts of my life that I don't usually share because I'm not a huge yapper. Instead of me yapping at you, you can come willingly to my page and read my stuff so I don't feel guilty for overloading you with information.
@@ -22,6 +23,7 @@ I think I'll be updating the Foodball page the most since I like trying new food
 
 As for filmball, I usually take a while to watch something, so I'll update it when I have time.
 ## Project Structure
+```
 
 ```
 project-root/

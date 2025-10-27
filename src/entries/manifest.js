@@ -217,11 +217,25 @@ export const entriesManifest = [
     file: '20_teleferic_barcelona.js',
     exportName: 'teleferic_barcelona',
     title: 'Teleferic Barcelona',
-    date: "10/5/2025", 
-    timestamp: "2025-10-05T23:37:00.000Z",
-    rating: 2.9,
+    date: "10/11/2025", 
+    timestamp: "2025-10-11T15:02:00.000Z",
+    rating: 2.7,
     location: "Palo Alto",
-    tags: ["Spanish", "Paella", "Pasta", "Ocean Beach"]
+    tags: ["Spanish", "Paella", "Tuna Carpaccio","Iberico Ham", "Tapas", "Oysters"], 
+    published: true
+  },
+  
+  {
+    id: 21,
+    file: '21_sulbing.js',
+    exportName: 'sulbing',
+    title: 'Sulbing',
+    date: "10/26/2025", 
+    timestamp: "2025-10-26T01:29:00.000Z",
+    rating: 2.9,
+    location: "Seoul",
+    tags: ["Shaved Ice", "Korean", "Bingsu"], 
+    published: true
   }
 ];
 

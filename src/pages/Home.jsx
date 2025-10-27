@@ -19,10 +19,11 @@ function Home() {
               <li>Pro Shark Catcher in Animal Crossing</li>
               <li>200+ Hours in Breath of the Wild</li>
               <li>9391 trophies in Brawl Stars</li>
+              <li>#1 in the world in Solitaire at some point on an app</li>
               <li>Instant replier to texts when I feel like it</li>
               <li>Speedrunner in Super Paper Mario: Origami King</li>
               <li>28,541 hours on dating HimeTsai (as of 7/6/2025)</li>
-              <li>16/31 achievements in Balatro</li>
+              <li>18/31 achievements in Balatro</li>
             </ul>
           </div>
         </div>

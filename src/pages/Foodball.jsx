@@ -64,6 +64,19 @@ function Foodball() {
 
       <NotificationSubscription user={user} />
 
+      <div className="ranking-notes-section">
+        <div className="ranking-notes-header">
+          <h3>Notes on Ranking System</h3>
+        </div>
+        <div className="ranking-notes-content">
+          <p>Every restaurant starts out at a 3/5 rating. For any positive reviews, I raise the rating, and for any negative reviews I'll lower it.
+            <br />
+          <br />
+          Any rating above 3 is a good restaurant.
+          </p>
+        </div>
+      </div>
+
       <div className="entries-section">
         <div className="section-header">
           <h2>

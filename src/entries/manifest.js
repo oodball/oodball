@@ -230,12 +230,12 @@ export const entriesManifest = [
     file: '21_sulbing.js',
     exportName: 'sulbing',
     title: 'Sulbing',
-    date: "10/26/2025", 
-    timestamp: "2025-10-26T01:29:00.000Z",
-    rating: 2.9,
+    date: "11/02/2025", 
+    timestamp: "2025-11-02T02:13:00.000Z",
+    rating: 2.7,
     location: "Seoul",
-    tags: ["Shaved Ice", "Korean", "Bingsu"], 
-    published: false
+    tags: ["Shaved Ice", "Korean", "Bingsu", "Injeolmi", "Tiramisu", "Hwachae"], 
+    published: true
   }
 ];
 

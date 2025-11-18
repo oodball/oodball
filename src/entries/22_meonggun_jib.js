@@ -15,8 +15,6 @@ Meonggun Jib is supposedly only a place that locals know. Figures since we got t
 
 When we walked in, it was clear that we (tourists) weren't supposed to be the target audience. The staff panicked trying to find someone to speak English, and the only menu was just handwritten letters on the wall. 
 
-We only ate one dish the entire night...
-
 ## FOOD
 
 Fortunately for us, we had exactly one person that could speak English well enough with us. He ended up cooking all of our meat for us because he said there's a specific way to cook it that makes the locals love this place so much.

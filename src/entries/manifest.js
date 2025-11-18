@@ -236,6 +236,18 @@ export const entriesManifest = [
     location: "Seoul",
     tags: ["Shaved Ice", "Korean", "Bingsu", "Injeolmi", "Tiramisu", "Hwachae"], 
     published: true
+  },
+  {
+    id: 22,
+    file: '22_meonggun_jib.js',
+    exportName: 'meonggun_jib',
+    title: 'Meonggun Jib',
+    date: "11/17/2025", 
+    timestamp: "2025-11-17T23:35:00.000Z",
+    rating: 2.7,
+    location: "Seoul",
+    tags: ["KBBQ", "Dongdaemun", "Pork Belly"], 
+    published: true
   }
 ];
 

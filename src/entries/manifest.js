@@ -248,6 +248,18 @@ export const entriesManifest = [
     location: "Seoul",
     tags: ["KBBQ", "Dongdaemun", "Pork Belly"], 
     published: true
+  },
+  {
+    id: 23,
+    file: '23_labora.js',
+    exportName: 'labora',
+    title: 'Labora',
+    date: "12/19/2025", 
+    timestamp: "2025-12-19T22:55:00.000Z",
+    rating: 3.5,
+    location: "San Diego",
+    tags: ["Matcha", "Convoy", "Cafe", "Study Spot"], 
+    published: true
   }
 ];
 

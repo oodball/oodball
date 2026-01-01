@@ -260,6 +260,18 @@ export const entriesManifest = [
     location: "San Diego",
     tags: ["Matcha", "Convoy", "Cafe", "Study Spot"], 
     published: true
+  },
+  {
+    id: 24,
+    file: '24_hongyuan_kebab.js',
+    exportName: 'hongyuan',
+    title: 'Hongyuan Kebab',
+    date: "12/21/2025", 
+    timestamp: "2025-12-21T22:18:00.000Z",
+    rating: 3.5,
+    location: "San Diego",
+    tags: ["Skewers", "Tangsuyuk", "Deep-fried Mushrooms", "Scallion Pancake", "Convoy"], 
+    published: true
   }
 ];
 

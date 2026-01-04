@@ -31,7 +31,7 @@ I can't say anything more. Everything, including plating and presentation, was p
 ***Torrijas- French Toast***
 
 
-![Torrijas](/images/Foodball/atelier_manna/torrijas.JPG "My Mom Took This")
+![Torrijas](/images/Foodball/atelier_manna/torrijas.JPG "My Mommy Thought Silverware was More Important")
 
 This was less than perfection.
 

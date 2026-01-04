@@ -1,20 +1,21 @@
-export const template_entry = {
-    id: 0, 
-    title: "Template",
-    content: `## INTRODUCTION
+export const template = {
+id: 0, 
+title: "Template",
+content: `
+## INTRODUCTION
     
-    ## FOOD
-    
-    
-    ## OVERALL THOUGHTS
+## FOOD
+
+
+## OVERALL THOUGHTS
     
     
     
     `,
-    date: "11/17/2025", 
-    timestamp: "2025-11-17T23:21:00.000Z",
+    date: "1/1/2026", 
+    timestamp: "2026-01-01T02:02:00.000Z",
     rating: 2.9,
-    location: "Seoul",
-    tags: ["Italian", "Tiramisu", "Pasta", "Ocean Beach"], 
-    published: false
+    location: "San Diego",
+    tags: ["Brunch", "Turkish Eggs", "Torrijas French Toast", "Encinitas"], 
+    published: true
     };

@@ -266,13 +266,38 @@ export const entriesManifest = [
     file: '24_hongyuan_kebab.js',
     exportName: 'hongyuan',
     title: 'Hongyuan Kebab',
-    date: "12/21/2025", 
-    timestamp: "2025-12-21T22:18:00.000Z",
+    date: "1/1/2026", 
+    timestamp: "2026-01-01T02:00:00.000Z",
     rating: 3.5,
     location: "San Diego",
     tags: ["Skewers", "Tangsuyuk", "Deep-fried Mushrooms", "Scallion Pancake", "Convoy"], 
     published: true
+  },
+  {
+    id: 25,
+    file: '25_atelier_manna.js',
+    exportName: 'atelier_manna',
+    title: 'Atelier Manna',
+    date: "1/1/2026", 
+    timestamp: "2026-01-01T02:02:00.000Z",
+    rating: 2.9,
+    location: "San Diego",
+    tags: ["Brunch", "Turkish Eggs", "Torrijas French Toast", "Encinitas"], 
+    published: true
+  },
+  {
+    id: 26,
+    file: '26_nectarine_grove.js',
+    exportName: 'nectarine_grove',
+    title: 'Nectarine Grove',
+    date: "1/1/2026", 
+    timestamp: "2026-01-01T02:22:00.000Z",
+    rating: 2.9,
+    location: "San Diego",
+    tags: ["Brunch", "Eggs Benedict","Leucadian Benedict", "Cherry Matchat", "Leucadia"], 
+    published: true
   }
+
 ];
 
 // Helper function to get entry metadata by ID

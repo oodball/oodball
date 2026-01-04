@@ -74,7 +74,7 @@ However it's definitely a place to keep in mind as a second-choice restaurant.
     
     `,
     date: "1/1/2026", 
-    timestamp: "2026-01-01T22:18:00.000Z",
+    timestamp: "2026-01-01T02:00:00.000Z",
     rating: 3.6,
     location: "San Diego",
     tags: ["Skewers", "Tangsuyuk", "Deep-fried Mushrooms", "Scallion Pancake", "Convoy"], 

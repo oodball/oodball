@@ -34,7 +34,7 @@ I don't recommend it. Personally it didn't have a strong matcha taste, and I did
 
 
 
-
+4/5
 
 
 
@@ -45,7 +45,7 @@ I don't recommend it. Personally it didn't have a strong matcha taste, and I did
         `,
         date: "1/1/2026", 
         timestamp: "2026-01-01T02:22:00.000Z",
-        rating: 2.9,
+        rating: 3.0,
         location: "San Diego",
         tags: ["Brunch", "Eggs Benedict","Leucadian Benedict", "Cherry Matchat", "Leucadia"], 
         published: false

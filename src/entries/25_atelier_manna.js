@@ -18,7 +18,7 @@ The people (Google Reviews) don't lie.
 ***Çılbır: Turkish Poached Eggs***
 
 
-![Eggs](/images/Foodball/atelier_manna/turkish_eggs.JPG "Better than Sex")
+![Eggs](/images/Foodball/atelier_manna/turkish_eggs.JPG "Would Trade my Firstborn for This")
 
 I think I saw the God of cooking in this dish.
 

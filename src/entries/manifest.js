@@ -296,6 +296,18 @@ export const entriesManifest = [
     location: "San Diego",
     tags: ["Brunch", "Eggs Benedict","Leucadian Benedict", "Cherry Matchat", "Leucadia"], 
     published: true
+  },
+  {
+    id: 27,
+    file: '27_ans_dry_cleaning.js',
+    exportName: 'ans_dc',
+    title: 'An\'s Dry Cleaning',
+    date: "1/7/2026", 
+    timestamp: "2026-01-07T00:25:00.000Z",
+    rating: 3.0,
+    location: "San Diego",
+    tags: ["Ice Cream", "Apple Cider", "Dessert", "Downtown"], 
+    published: true
   }
 
 ];

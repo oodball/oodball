@@ -32,18 +32,25 @@ I don't recommend it. Personally it didn't have a strong matcha taste, and I did
 
 ![benedict](/images/Foodball/nectarine_grove/leucadian_benedict.JPG "Benedict Cucumber or Whatever His Name is")
 
+The thing that surprised me most about this dish was the sauce on top of the eggs benedict. It was cheesy, eggy, but also had some mysterious flavor in it that made it complement the eggs better than any other sauce I've had with this dish before. The eggs and sauce flowed well and coated the hash browns with a nice coating before I got to eat them, but they still somehow maintained crunchiness. 
 
+
+I feel like avocado was useless in this dish besides some nice garnish. I don't mind it, but I feel like it was just in the way of the other food, and you had to eat it all if you planned on having leftovers because next-day avocado looks like your dog just ruined your breakfast the next day...
+
+If it played a bigger part in how the dish tasted overall I wouldn't have minded it, but it felt like it was just there to provide some color in a small corner of the dish. 
 
 4/5
 
 
 
 ## OVERALL THOUGHTS
+
+I liked the food here. I tried bites of the chicken an waffles and the chimichurry steak bowl and both of those were very good too. The only thing I don't recommend is buying the drinks. They were overpriced and underdelivered, which was the only setback to this place.
         
         
         
         `,
-        date: "1/1/2026", 
+        date: "1/7/2026", 
         timestamp: "2026-01-01T02:22:00.000Z",
         rating: 3.0,
         location: "San Diego",

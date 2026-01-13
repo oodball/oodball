@@ -4,13 +4,15 @@ export const nectarine_grove = {
     content: `
 ## INTRODUCTION
 
-When Ms. Hong asks if you're free in two days, you have to prepare yourself. 
+When Ms. Hong asks if you're free in two days, you have to prepare yourself to be big.
 
-On figuring out where to eat. Because we're big and have been a bunch of places already.
+She's singlehandedly extending the life of Foodball. Everyone thank Hannah...
 
-The atmosphere was very bright and summery when we got there. It's right along the 101, which means that there isn't parking most of the time, but the place will be cute. It's very hard to find a place along the 101 in Encinitas that isn't all decorated. 
+The atmosphere was very bright and summery when we got there. It's right along the 101, which means that there isn't parking most of the time, but the place will be cute. It's very hard to find a place along the 101 in Encinitas that isn't decorated. 
 
-I was right. Most of the tables are set up outside in this semi-courtyartish setup, and there's a line going out the door since it's a place where you order at the counter before you sit down and find a table.
+I was right. Most of the tables are set up outside in this semi-courtyart/patio setup, and there's a line going out the door since it's a place where you order at the counter before you sit down and find a table.
+
+The illusion of having many customers. Only this place actually had a ton of customers.
 
 For a place that doesn't have a parking lot, this place was packed.
     
@@ -50,10 +52,10 @@ I liked the food here. I tried bites of the chicken an waffles and the chimichur
         
         
         `,
-        date: "1/7/2026", 
-        timestamp: "2026-01-01T02:22:00.000Z",
+        date: "1/13/2026", 
+        timestamp: "2026-01-13T02:00:00.000Z",
         rating: 3.0,
         location: "San Diego",
         tags: ["Brunch", "Eggs Benedict","Leucadian Benedict", "Cherry Matchat", "Leucadia"], 
-        published: false
+        published: true
         };

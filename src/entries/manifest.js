@@ -294,7 +294,7 @@ export const entriesManifest = [
     timestamp: "2026-01-13T02:00:00.000Z",
     rating: 3.0,
     location: "San Diego",
-    tags: ["Brunch", "Eggs Benedict","Leucadian Benedict", "Cherry Matchat", "Leucadia"], 
+    tags: ["Brunch", "Eggs Benedict","Leucadian Benedict", "Cherry Matcha", "Leucadia"], 
     published: true
   },
   {

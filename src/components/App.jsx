@@ -28,20 +28,40 @@ function ScrollToTop() {
   return null;
 }
 
-// Component to handle auth errors in URL hash
+// Component to handle auth errors and recovery tokens in URL hash
 function AuthErrorHandler() {
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check for Supabase auth errors in URL hash
-    if (location.hash) {
+    // Only handle hash on homepage or if we're not already on a password reset page
+    if (location.hash && (location.pathname === '/' || location.pathname === '')) {
       const hashParams = new URLSearchParams(location.hash.substring(1));
       const error = hashParams.get('error');
       const errorCode = hashParams.get('error_code');
       const errorDescription = hashParams.get('error_description');
+      const type = hashParams.get('type');
+      const accessToken = hashParams.get('access_token');
 
+      console.log('=== AuthErrorHandler Debug ===');
+      console.log('Pathname:', location.pathname);
+      console.log('Hash:', location.hash.substring(0, 100) + '...');
+      console.log('Type:', type);
+      console.log('Error:', error);
+      console.log('Error Code:', errorCode);
+      console.log('Has access token:', !!accessToken);
+
+      // Check for password reset recovery tokens first
+      if (type === 'recovery' && accessToken) {
+        console.log('AuthErrorHandler: Found recovery token, redirecting to reset-password-confirm');
+        // Preserve the hash when redirecting
+        navigate(`/reset-password-confirm${location.hash}`, { replace: true });
+        return;
+      }
+
+      // Then check for errors
       if (error && errorCode) {
+        console.log('AuthErrorHandler: Found error, redirecting to appropriate page');
         // If it's a password reset error, redirect to reset password page with error
         if (errorCode === 'otp_expired' || errorCode === 'token_expired' || errorDescription?.includes('expired')) {
           navigate(`/reset-password?error=${encodeURIComponent(errorDescription || 'Link expired. Please request a new password reset link.')}`, { replace: true });
@@ -53,7 +73,7 @@ function AuthErrorHandler() {
         }
       }
     }
-  }, [location.hash, navigate]);
+  }, [location.hash, location.pathname, navigate]);
 
   return null;
 }

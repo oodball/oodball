@@ -12,6 +12,10 @@ function ResetPasswordConfirm() {
   const [session, setSession] = useState(null);
   const navigate = useNavigate();
 
+  // Log immediately when component mounts
+  console.log('🔵 ResetPasswordConfirm component mounted');
+  console.log('🔵 Current URL on mount:', window.location.href);
+
   useEffect(() => {
     let mounted = true;
     let checkInterval = null;

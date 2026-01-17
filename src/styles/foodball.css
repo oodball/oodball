@@ -342,7 +342,7 @@
   position: relative;
   margin: 1rem 0;
   color: #2c1810;
-  min-height: 200px;
+  min-height: 250px;
   box-shadow: 
     inset 2px 2px 0 rgba(255, 255, 255, 0.2),
     inset -2px -2px 0 rgba(0, 0, 0, 0.3);
@@ -643,7 +643,32 @@
 }
 
 .entry-detail {
-  background: linear-gradient(315deg, #d4c4a8 0%, #e8dcc0 50%, #f5f1e8 100%);
+  background: #f5f1e8;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.02) 2px,
+      rgba(139, 69, 19, 0.02) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.02) 2px,
+      rgba(139, 69, 19, 0.02) 4px
+    ),
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(212, 196, 168, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(232, 220, 192, 0.1) 0%,
+      transparent 50%
+    );
   border-radius: 0;
   padding: 2.5rem;
   box-shadow: 
@@ -659,6 +684,267 @@
   touch-action: pan-y; /* Allow vertical scrolling, but handle horizontal swipes */
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
+  /* Torn paper effect - jagged edges on left and right sides only */
+  clip-path: polygon(
+    /* Top edge - straight */
+    0% 0%,
+    100% 0%,
+    /* Right edge - torn */
+    99.5% 2%,
+    98% 4%,
+    99.5% 6%,
+    98.5% 8%,
+    99% 10%,
+    98% 12%,
+    99.5% 14%,
+    98.5% 16%,
+    99% 18%,
+    98% 20%,
+    99.5% 22%,
+    98.5% 24%,
+    99% 26%,
+    98% 28%,
+    99.5% 30%,
+    98.5% 32%,
+    99% 34%,
+    98% 36%,
+    99.5% 38%,
+    98.5% 40%,
+    99% 42%,
+    98% 44%,
+    99.5% 46%,
+    98.5% 48%,
+    99% 50%,
+    98% 52%,
+    99.5% 54%,
+    98.5% 56%,
+    99% 58%,
+    98% 60%,
+    99.5% 62%,
+    98.5% 64%,
+    99% 66%,
+    98% 68%,
+    99.5% 70%,
+    98.5% 72%,
+    99% 74%,
+    98% 76%,
+    99.5% 78%,
+    98.5% 80%,
+    99% 82%,
+    98% 84%,
+    99.5% 86%,
+    98.5% 88%,
+    99% 90%,
+    98% 92%,
+    99.5% 94%,
+    98.5% 96%,
+    100% 98%,
+    /* Bottom edge - straight */
+    100% 100%,
+    0% 100%,
+    /* Left edge - torn */
+    0.5% 98%,
+    2% 96%,
+    0.5% 94%,
+    1.5% 92%,
+    0% 90%,
+    2% 88%,
+    0.5% 86%,
+    1.5% 84%,
+    0% 82%,
+    2% 80%,
+    0.5% 78%,
+    1.5% 76%,
+    0% 74%,
+    2% 72%,
+    0.5% 70%,
+    1.5% 68%,
+    0% 66%,
+    2% 64%,
+    0.5% 62%,
+    1.5% 60%,
+    0% 58%,
+    2% 56%,
+    0.5% 54%,
+    1.5% 52%,
+    0% 50%,
+    2% 48%,
+    0.5% 46%,
+    1.5% 44%,
+    0% 42%,
+    2% 40%,
+    0.5% 38%,
+    1.5% 36%,
+    0% 34%,
+    2% 32%,
+    0.5% 30%,
+    1.5% 28%,
+    0% 26%,
+    2% 24%,
+    0.5% 22%,
+    1.5% 20%,
+    0% 18%,
+    2% 16%,
+    0.5% 14%,
+    1.5% 12%,
+    0% 10%,
+    2% 8%,
+    0.5% 6%,
+    1.5% 4%,
+    0% 2%
+  );
+  -webkit-clip-path: polygon(
+    /* Top edge - straight */
+    0% 0%,
+    100% 0%,
+    /* Right edge - torn */
+    99.5% 2%,
+    98% 4%,
+    99.5% 6%,
+    98.5% 8%,
+    99% 10%,
+    98% 12%,
+    99.5% 14%,
+    98.5% 16%,
+    99% 18%,
+    98% 20%,
+    99.5% 22%,
+    98.5% 24%,
+    99% 26%,
+    98% 28%,
+    99.5% 30%,
+    98.5% 32%,
+    99% 34%,
+    98% 36%,
+    99.5% 38%,
+    98.5% 40%,
+    99% 42%,
+    98% 44%,
+    99.5% 46%,
+    98.5% 48%,
+    99% 50%,
+    98% 52%,
+    99.5% 54%,
+    98.5% 56%,
+    99% 58%,
+    98% 60%,
+    99.5% 62%,
+    98.5% 64%,
+    99% 66%,
+    98% 68%,
+    99.5% 70%,
+    98.5% 72%,
+    99% 74%,
+    98% 76%,
+    99.5% 78%,
+    98.5% 80%,
+    99% 82%,
+    98% 84%,
+    99.5% 86%,
+    98.5% 88%,
+    99% 90%,
+    98% 92%,
+    99.5% 94%,
+    98.5% 96%,
+    100% 98%,
+    /* Bottom edge - straight */
+    100% 100%,
+    0% 100%,
+    /* Left edge - torn */
+    0.5% 98%,
+    2% 96%,
+    0.5% 94%,
+    1.5% 92%,
+    0% 90%,
+    2% 88%,
+    0.5% 86%,
+    1.5% 84%,
+    0% 82%,
+    2% 80%,
+    0.5% 78%,
+    1.5% 76%,
+    0% 74%,
+    2% 72%,
+    0.5% 70%,
+    1.5% 68%,
+    0% 66%,
+    2% 64%,
+    0.5% 62%,
+    1.5% 60%,
+    0% 58%,
+    2% 56%,
+    0.5% 54%,
+    1.5% 52%,
+    0% 50%,
+    2% 48%,
+    0.5% 46%,
+    1.5% 44%,
+    0% 42%,
+    2% 40%,
+    0.5% 38%,
+    1.5% 36%,
+    0% 34%,
+    2% 32%,
+    0.5% 30%,
+    1.5% 28%,
+    0% 26%,
+    2% 24%,
+    0.5% 22%,
+    1.5% 20%,
+    0% 18%,
+    2% 16%,
+    0.5% 14%,
+    1.5% 12%,
+    0% 10%,
+    2% 8%,
+    0.5% 6%,
+    1.5% 4%,
+    0% 2%
+  );
+}
+
+/* Add torn edge shadow and depth effects */
+.entry-detail::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: rgba(139, 69, 19, 0.05);
+  z-index: -1;
+  pointer-events: none;
+  clip-path: inherit;
+  -webkit-clip-path: inherit;
+  filter: blur(2px);
+}
+
+/* Add torn edge texture and paper fibers */
+.entry-detail::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.015) 2px,
+      rgba(139, 69, 19, 0.015) 3px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 3px,
+      rgba(139, 69, 19, 0.01) 3px,
+      rgba(139, 69, 19, 0.01) 4px
+    );
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
 }
 
 /* Page flip animation - slower and more realistic */
@@ -853,6 +1139,11 @@
     transparent 100%);
 }
 
+.entry-header {
+  position: relative;
+  z-index: 1;
+}
+
 .entry-header h1 {
   color: #2d3748;
   font-size: 2rem;
@@ -860,6 +1151,8 @@
 }
 
 .entry-content {
+  position: relative;
+  z-index: 1;
   color: #3d2b1f;
   line-height: 1.8;
   font-size: 1.1rem;
@@ -966,6 +1259,8 @@
 }
 
 .entry-image-container {
+  position: relative;
+  z-index: 1;
   margin: 0.5rem 0;
   text-align: center;
   width: 100%;
@@ -1225,7 +1520,7 @@
     padding: 1rem;
     padding-bottom: 4rem;
     min-width: 0;
-    min-height: 180px;
+    min-height: 220px;
   }
   .entry-tags {
     position: static;

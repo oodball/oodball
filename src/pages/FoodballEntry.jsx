@@ -15,8 +15,6 @@ function FoodballEntry({user}) {
   const [error, setError] = useState(null);
   const [allEntries, setAllEntries] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(-1);
-  const [isFlipping, setIsFlipping] = useState(false);
-  const [flipDirection, setFlipDirection] = useState('');
   
   useEffect(() => {
     const loadEntries = async () => {
@@ -54,11 +52,6 @@ function FoodballEntry({user}) {
         }
         
         setEntry(loadedEntry);
-        
-        // Reset flipping state after a short delay
-        if (isFlipping) {
-          setTimeout(() => setIsFlipping(false), 100);
-        }
       } catch (err) {
         console.error('Error loading entry:', err);
         setError('Failed to load entry');
@@ -68,28 +61,19 @@ function FoodballEntry({user}) {
     };
 
     loadEntries();
-  }, [id, navigate, isFlipping]);
+  }, [id, navigate]);
 
   const navigateToEntry = useCallback((newIndex) => {
-    if (newIndex < 0 || newIndex >= allEntries.length || isFlipping) return;
+    if (newIndex < 0 || newIndex >= allEntries.length) return;
     
-    // Determine flip direction
-    const isNext = newIndex > currentIndex;
-    setFlipDirection(isNext ? 'flipping-next' : 'flipping');
-    
-    setIsFlipping(true);
     const newEntryId = allEntries[newIndex].id;
-    
-    // Navigate after animation completes (1.2s)
-    setTimeout(() => {
-      navigate(`/foodball/${newEntryId}`, { replace: false });
-    }, 1200);
-  }, [allEntries, isFlipping, navigate, currentIndex]);
+    navigate(`/foodball/${newEntryId}`, { replace: false });
+  }, [allEntries, navigate]);
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (isFlipping || loading || !entry) return;
+      if (loading || !entry) return;
       
       if (e.key === 'ArrowLeft' && currentIndex > 0) {
         navigateToEntry(currentIndex - 1);
@@ -100,14 +84,7 @@ function FoodballEntry({user}) {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [currentIndex, allEntries, isFlipping, loading, entry, navigateToEntry]);
-
-  // Determine flip direction based on navigation
-  useEffect(() => {
-    if (!isFlipping) {
-      setFlipDirection('');
-    }
-  }, [isFlipping]);
+  }, [currentIndex, allEntries, loading, entry, navigateToEntry]);
 
   const previousEntry = currentIndex > 0 ? allEntries[currentIndex - 1] : null;
   const nextEntry = currentIndex < allEntries.length - 1 ? allEntries[currentIndex + 1] : null;
@@ -202,7 +179,7 @@ function FoodballEntry({user}) {
   };
 
   return (
-    <div className={`foodball-entry ${flipDirection}`}>
+    <div className="foodball-entry">
       <div className="entry-navigation">
         <Link to="/foodball" className="back-link">
           ← Back to Journal
@@ -212,7 +189,6 @@ function FoodballEntry({user}) {
             <button 
               onClick={() => navigateToEntry(currentIndex - 1)}
               className="page-nav-button prev-button"
-              disabled={isFlipping}
             >
               ← Previous
             </button>
@@ -224,7 +200,6 @@ function FoodballEntry({user}) {
             <button 
               onClick={() => navigateToEntry(currentIndex + 1)}
               className="page-nav-button next-button"
-              disabled={isFlipping}
             >
               Next →
             </button>

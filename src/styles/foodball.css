@@ -415,8 +415,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.25rem;
+  gap: 0.5rem;
   margin-left: 1rem;
+  min-width: 120px;
 }
 
 .entry-thumbnail {
@@ -444,10 +445,7 @@
 .entry-date {
   color: #8b4513;
   font-size: 0.75rem;
-  position: absolute;
-  top: 1rem;
-  right: 2rem;
-  z-index: 10;
+  white-space: nowrap;
 }
 
 .entry-rating {
@@ -678,12 +676,6 @@
   border: none;
   position: relative;
   color: #2c1810;
-  transform-style: preserve-3d;
-  transform-origin: left center;
-  backface-visibility: hidden;
-  touch-action: pan-y; /* Allow vertical scrolling, but handle horizontal swipes */
-  -webkit-transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
   /* Torn paper effect - jagged edges on left and right sides only */
   clip-path: polygon(
     /* Top edge - straight */
@@ -947,162 +939,7 @@
   opacity: 0.6;
 }
 
-/* Page flip animation - slower and more realistic */
-.foodball-entry.flipping .entry-detail {
-  animation: pageFlip 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-}
-
-@keyframes pageFlip {
-  0% {
-    transform: perspective(1500px) rotateY(0deg) translateZ(0);
-    -webkit-transform: perspective(1500px) rotateY(0deg) translateZ(0);
-    box-shadow: 
-      0 10px 30px rgba(139, 69, 19, 0.15),
-      0 0 0 1px rgba(139, 69, 19, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  }
-  25% {
-    transform: perspective(1500px) rotateY(-15deg) translateZ(20px);
-    -webkit-transform: perspective(1500px) rotateY(-15deg) translateZ(20px);
-    box-shadow: 
-      -20px 10px 40px rgba(139, 69, 19, 0.2),
-      0 0 0 1px rgba(139, 69, 19, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  }
-  50% {
-    transform: perspective(1500px) rotateY(-90deg) translateZ(50px) scale(0.92);
-    -webkit-transform: perspective(1500px) rotateY(-90deg) translateZ(50px) scale(0.92);
-    box-shadow: 
-      -50px 20px 60px rgba(139, 69, 19, 0.3),
-      0 0 0 1px rgba(139, 69, 19, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    opacity: 0.6;
-  }
-  75% {
-    transform: perspective(1500px) rotateY(-165deg) translateZ(20px);
-    -webkit-transform: perspective(1500px) rotateY(-165deg) translateZ(20px);
-    box-shadow: 
-      20px 10px 40px rgba(139, 69, 19, 0.2),
-      0 0 0 1px rgba(139, 69, 19, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    opacity: 0.4;
-  }
-  100% {
-    transform: perspective(1500px) rotateY(-180deg) translateZ(0);
-    -webkit-transform: perspective(1500px) rotateY(-180deg) translateZ(0);
-    box-shadow: 
-      0 10px 30px rgba(139, 69, 19, 0.15),
-      0 0 0 1px rgba(139, 69, 19, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    opacity: 0;
-  }
-}
-
-/* Alternative flip direction for next page */
-.foodball-entry.flipping-next .entry-detail {
-  animation: pageFlipNext 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-}
-
-@keyframes pageFlipNext {
-  0% {
-    transform: perspective(1500px) rotateY(0deg) translateZ(0);
-    -webkit-transform: perspective(1500px) rotateY(0deg) translateZ(0);
-    box-shadow: 
-      0 10px 30px rgba(139, 69, 19, 0.15),
-      0 0 0 1px rgba(139, 69, 19, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  }
-  25% {
-    transform: perspective(1500px) rotateY(15deg) translateZ(20px);
-    -webkit-transform: perspective(1500px) rotateY(15deg) translateZ(20px);
-    box-shadow: 
-      20px 10px 40px rgba(139, 69, 19, 0.2),
-      0 0 0 1px rgba(139, 69, 19, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  }
-  50% {
-    transform: perspective(1500px) rotateY(90deg) translateZ(50px) scale(0.92);
-    -webkit-transform: perspective(1500px) rotateY(90deg) translateZ(50px) scale(0.92);
-    box-shadow: 
-      50px 20px 60px rgba(139, 69, 19, 0.3),
-      0 0 0 1px rgba(139, 69, 19, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    opacity: 0.6;
-  }
-  75% {
-    transform: perspective(1500px) rotateY(165deg) translateZ(20px);
-    -webkit-transform: perspective(1500px) rotateY(165deg) translateZ(20px);
-    box-shadow: 
-      -20px 10px 40px rgba(139, 69, 19, 0.2),
-      0 0 0 1px rgba(139, 69, 19, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    opacity: 0.4;
-  }
-  100% {
-    transform: perspective(1500px) rotateY(180deg) translateZ(0);
-    -webkit-transform: perspective(1500px) rotateY(180deg) translateZ(0);
-    box-shadow: 
-      0 10px 30px rgba(139, 69, 19, 0.15),
-      0 0 0 1px rgba(139, 69, 19, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    opacity: 0;
-  }
-}
-
-/* Mobile optimizations */
 @media (max-width: 768px) {
-  .entry-detail {
-    transform-origin: center center; /* Center origin works better on mobile */
-    -webkit-transform-origin: center center;
-  }
-
-  /* Reduce perspective on mobile for better performance */
-  @keyframes pageFlip {
-    0% {
-      transform: perspective(800px) rotateY(0deg) translateZ(0);
-      -webkit-transform: perspective(800px) rotateY(0deg) translateZ(0);
-    }
-    25% {
-      transform: perspective(800px) rotateY(-15deg) translateZ(10px);
-      -webkit-transform: perspective(800px) rotateY(-15deg) translateZ(10px);
-    }
-    50% {
-      transform: perspective(800px) rotateY(-90deg) translateZ(25px) scale(0.95);
-      -webkit-transform: perspective(800px) rotateY(-90deg) translateZ(25px) scale(0.95);
-    }
-    75% {
-      transform: perspective(800px) rotateY(-165deg) translateZ(10px);
-      -webkit-transform: perspective(800px) rotateY(-165deg) translateZ(10px);
-    }
-    100% {
-      transform: perspective(800px) rotateY(-180deg) translateZ(0);
-      -webkit-transform: perspective(800px) rotateY(-180deg) translateZ(0);
-    }
-  }
-
-  @keyframes pageFlipNext {
-    0% {
-      transform: perspective(800px) rotateY(0deg) translateZ(0);
-      -webkit-transform: perspective(800px) rotateY(0deg) translateZ(0);
-    }
-    25% {
-      transform: perspective(800px) rotateY(15deg) translateZ(10px);
-      -webkit-transform: perspective(800px) rotateY(15deg) translateZ(10px);
-    }
-    50% {
-      transform: perspective(800px) rotateY(90deg) translateZ(25px) scale(0.95);
-      -webkit-transform: perspective(800px) rotateY(90deg) translateZ(25px) scale(0.95);
-    }
-    75% {
-      transform: perspective(800px) rotateY(165deg) translateZ(10px);
-      -webkit-transform: perspective(800px) rotateY(165deg) translateZ(10px);
-    }
-    100% {
-      transform: perspective(800px) rotateY(180deg) translateZ(0);
-      -webkit-transform: perspective(800px) rotateY(180deg) translateZ(0);
-    }
-  }
-
   .page-nav-button {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;

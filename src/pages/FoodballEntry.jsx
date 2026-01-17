@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import HeicImage from '../components/HeicImage';
 import CommentSection from '../components/CommentSection';
-import { getEntry } from '../entries';
+import { getEntry, getSortedEntriesMetadata } from '../entries';
 import '../styles/foodball.css';
 
 function FoodballEntry({user}) {
@@ -13,12 +13,33 @@ function FoodballEntry({user}) {
   const [entry, setEntry] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [allEntries, setAllEntries] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(-1);
+  const [isFlipping, setIsFlipping] = useState(false);
+  const [flipDirection, setFlipDirection] = useState('');
   
   useEffect(() => {
-    const loadEntry = async () => {
+    const loadEntries = async () => {
       try {
         setLoading(true);
+        setEntry(null);
         
+        // Load all entries to determine navigation
+        const entries = await getSortedEntriesMetadata('date-high', false);
+        setAllEntries(entries);
+        
+        // Find current entry index
+        const entryId = parseInt(id);
+        const index = entries.findIndex(e => e.id === entryId);
+        
+        if (index === -1) {
+          navigate('/foodball');
+          return;
+        }
+        
+        setCurrentIndex(index);
+        
+        // Load the actual entry
         const loadedEntry = await getEntry(id);
         
         if (!loadedEntry) {
@@ -33,6 +54,11 @@ function FoodballEntry({user}) {
         }
         
         setEntry(loadedEntry);
+        
+        // Reset flipping state after a short delay
+        if (isFlipping) {
+          setTimeout(() => setIsFlipping(false), 100);
+        }
       } catch (err) {
         console.error('Error loading entry:', err);
         setError('Failed to load entry');
@@ -41,8 +67,95 @@ function FoodballEntry({user}) {
       }
     };
 
-    loadEntry();
-  }, [id, navigate]);
+    loadEntries();
+  }, [id, navigate, isFlipping]);
+
+  const navigateToEntry = useCallback((newIndex) => {
+    if (newIndex < 0 || newIndex >= allEntries.length || isFlipping) return;
+    
+    // Determine flip direction
+    const isNext = newIndex > currentIndex;
+    setFlipDirection(isNext ? 'flipping-next' : 'flipping');
+    
+    setIsFlipping(true);
+    const newEntryId = allEntries[newIndex].id;
+    
+    // Navigate after animation completes (1.2s)
+    setTimeout(() => {
+      navigate(`/foodball/${newEntryId}`, { replace: false });
+    }, 1200);
+  }, [allEntries, isFlipping, navigate, currentIndex]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (isFlipping || loading || !entry) return;
+      
+      if (e.key === 'ArrowLeft' && currentIndex > 0) {
+        navigateToEntry(currentIndex - 1);
+      } else if (e.key === 'ArrowRight' && currentIndex < allEntries.length - 1) {
+        navigateToEntry(currentIndex + 1);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [currentIndex, allEntries, isFlipping, loading, entry, navigateToEntry]);
+
+  // Touch/swipe navigation for mobile
+  useEffect(() => {
+    if (!entry || isFlipping || loading) return;
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const handleTouchStart = (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    };
+
+    const handleTouchEnd = (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    };
+
+    const handleSwipe = () => {
+      const swipeThreshold = 50; // Minimum distance for swipe
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0 && currentIndex < allEntries.length - 1) {
+          // Swipe left - next page
+          navigateToEntry(currentIndex + 1);
+        } else if (diff < 0 && currentIndex > 0) {
+          // Swipe right - previous page
+          navigateToEntry(currentIndex - 1);
+        }
+      }
+    };
+
+    const entryElement = document.querySelector('.entry-detail');
+    if (entryElement) {
+      entryElement.addEventListener('touchstart', handleTouchStart, { passive: true });
+      entryElement.addEventListener('touchend', handleTouchEnd, { passive: true });
+    }
+
+    return () => {
+      if (entryElement) {
+        entryElement.removeEventListener('touchstart', handleTouchStart);
+        entryElement.removeEventListener('touchend', handleTouchEnd);
+      }
+    };
+  }, [entry, isFlipping, loading, currentIndex, allEntries, navigateToEntry]);
+
+  // Determine flip direction based on navigation
+  useEffect(() => {
+    if (!isFlipping) {
+      setFlipDirection('');
+    }
+  }, [isFlipping]);
+
+  const previousEntry = currentIndex > 0 ? allEntries[currentIndex - 1] : null;
+  const nextEntry = currentIndex < allEntries.length - 1 ? allEntries[currentIndex + 1] : null;
 
   if (loading) {
     return (
@@ -134,11 +247,34 @@ function FoodballEntry({user}) {
   };
 
   return (
-    <div className="foodball-entry">
+    <div className={`foodball-entry ${flipDirection}`}>
       <div className="entry-navigation">
         <Link to="/foodball" className="back-link">
           ← Back to Journal
         </Link>
+        <div className="page-navigation">
+          {previousEntry && (
+            <button 
+              onClick={() => navigateToEntry(currentIndex - 1)}
+              className="page-nav-button prev-button"
+              disabled={isFlipping}
+            >
+              ← Previous
+            </button>
+          )}
+          <span className="page-counter">
+            {currentIndex + 1} / {allEntries.length}
+          </span>
+          {nextEntry && (
+            <button 
+              onClick={() => navigateToEntry(currentIndex + 1)}
+              className="page-nav-button next-button"
+              disabled={isFlipping}
+            >
+              Next →
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="entry-detail">

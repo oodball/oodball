@@ -3,6 +3,33 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  background: #f5f1e8;
+  min-height: 100vh;
+  position: relative;
+}
+
+.foodball::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.03) 2px,
+      rgba(139, 69, 19, 0.03) 4px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.foodball > * {
+  position: relative;
+  z-index: 1;
 }
 
 .foodball-header {
@@ -415,7 +442,7 @@
 }
 
 .entry-date {
-  color: #718096;
+  color: #8b4513;
   font-size: 0.75rem;
   position: absolute;
   top: 1rem;
@@ -424,7 +451,7 @@
 }
 
 .entry-rating {
-  color: #f0a54a;
+  color: #8b4513;
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -548,6 +575,59 @@
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid rgba(139, 69, 19, 0.2);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.page-navigation {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.page-nav-button {
+  background: #8b4513;
+  color: #f7fafc;
+  padding: 0.5rem 1rem;
+  border: 3px solid #a0522d;
+  border-bottom: 4px solid #5d2e0a;
+  border-right: 4px solid #5d2e0a;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+  border-radius: 0;
+  transition: all 0.2s ease;
+}
+
+.page-nav-button:hover:not(:disabled) {
+  background: #a0522d;
+  transform: translateY(-1px);
+  box-shadow: 
+    inset 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.page-nav-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.page-nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-counter {
+  color: #8b4513;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 0 0.5rem;
 }
 
 .back-link {
@@ -573,6 +653,175 @@
   border: none;
   position: relative;
   color: #2c1810;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  touch-action: pan-y; /* Allow vertical scrolling, but handle horizontal swipes */
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Page flip animation - slower and more realistic */
+.foodball-entry.flipping .entry-detail {
+  animation: pageFlip 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@keyframes pageFlip {
+  0% {
+    transform: perspective(1500px) rotateY(0deg) translateZ(0);
+    -webkit-transform: perspective(1500px) rotateY(0deg) translateZ(0);
+    box-shadow: 
+      0 10px 30px rgba(139, 69, 19, 0.15),
+      0 0 0 1px rgba(139, 69, 19, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  25% {
+    transform: perspective(1500px) rotateY(-15deg) translateZ(20px);
+    -webkit-transform: perspective(1500px) rotateY(-15deg) translateZ(20px);
+    box-shadow: 
+      -20px 10px 40px rgba(139, 69, 19, 0.2),
+      0 0 0 1px rgba(139, 69, 19, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    transform: perspective(1500px) rotateY(-90deg) translateZ(50px) scale(0.92);
+    -webkit-transform: perspective(1500px) rotateY(-90deg) translateZ(50px) scale(0.92);
+    box-shadow: 
+      -50px 20px 60px rgba(139, 69, 19, 0.3),
+      0 0 0 1px rgba(139, 69, 19, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    opacity: 0.6;
+  }
+  75% {
+    transform: perspective(1500px) rotateY(-165deg) translateZ(20px);
+    -webkit-transform: perspective(1500px) rotateY(-165deg) translateZ(20px);
+    box-shadow: 
+      20px 10px 40px rgba(139, 69, 19, 0.2),
+      0 0 0 1px rgba(139, 69, 19, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    opacity: 0.4;
+  }
+  100% {
+    transform: perspective(1500px) rotateY(-180deg) translateZ(0);
+    -webkit-transform: perspective(1500px) rotateY(-180deg) translateZ(0);
+    box-shadow: 
+      0 10px 30px rgba(139, 69, 19, 0.15),
+      0 0 0 1px rgba(139, 69, 19, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    opacity: 0;
+  }
+}
+
+/* Alternative flip direction for next page */
+.foodball-entry.flipping-next .entry-detail {
+  animation: pageFlipNext 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@keyframes pageFlipNext {
+  0% {
+    transform: perspective(1500px) rotateY(0deg) translateZ(0);
+    -webkit-transform: perspective(1500px) rotateY(0deg) translateZ(0);
+    box-shadow: 
+      0 10px 30px rgba(139, 69, 19, 0.15),
+      0 0 0 1px rgba(139, 69, 19, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  25% {
+    transform: perspective(1500px) rotateY(15deg) translateZ(20px);
+    -webkit-transform: perspective(1500px) rotateY(15deg) translateZ(20px);
+    box-shadow: 
+      20px 10px 40px rgba(139, 69, 19, 0.2),
+      0 0 0 1px rgba(139, 69, 19, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    transform: perspective(1500px) rotateY(90deg) translateZ(50px) scale(0.92);
+    -webkit-transform: perspective(1500px) rotateY(90deg) translateZ(50px) scale(0.92);
+    box-shadow: 
+      50px 20px 60px rgba(139, 69, 19, 0.3),
+      0 0 0 1px rgba(139, 69, 19, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    opacity: 0.6;
+  }
+  75% {
+    transform: perspective(1500px) rotateY(165deg) translateZ(20px);
+    -webkit-transform: perspective(1500px) rotateY(165deg) translateZ(20px);
+    box-shadow: 
+      -20px 10px 40px rgba(139, 69, 19, 0.2),
+      0 0 0 1px rgba(139, 69, 19, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    opacity: 0.4;
+  }
+  100% {
+    transform: perspective(1500px) rotateY(180deg) translateZ(0);
+    -webkit-transform: perspective(1500px) rotateY(180deg) translateZ(0);
+    box-shadow: 
+      0 10px 30px rgba(139, 69, 19, 0.15),
+      0 0 0 1px rgba(139, 69, 19, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    opacity: 0;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .entry-detail {
+    transform-origin: center center; /* Center origin works better on mobile */
+    -webkit-transform-origin: center center;
+  }
+
+  /* Reduce perspective on mobile for better performance */
+  @keyframes pageFlip {
+    0% {
+      transform: perspective(800px) rotateY(0deg) translateZ(0);
+      -webkit-transform: perspective(800px) rotateY(0deg) translateZ(0);
+    }
+    25% {
+      transform: perspective(800px) rotateY(-15deg) translateZ(10px);
+      -webkit-transform: perspective(800px) rotateY(-15deg) translateZ(10px);
+    }
+    50% {
+      transform: perspective(800px) rotateY(-90deg) translateZ(25px) scale(0.95);
+      -webkit-transform: perspective(800px) rotateY(-90deg) translateZ(25px) scale(0.95);
+    }
+    75% {
+      transform: perspective(800px) rotateY(-165deg) translateZ(10px);
+      -webkit-transform: perspective(800px) rotateY(-165deg) translateZ(10px);
+    }
+    100% {
+      transform: perspective(800px) rotateY(-180deg) translateZ(0);
+      -webkit-transform: perspective(800px) rotateY(-180deg) translateZ(0);
+    }
+  }
+
+  @keyframes pageFlipNext {
+    0% {
+      transform: perspective(800px) rotateY(0deg) translateZ(0);
+      -webkit-transform: perspective(800px) rotateY(0deg) translateZ(0);
+    }
+    25% {
+      transform: perspective(800px) rotateY(15deg) translateZ(10px);
+      -webkit-transform: perspective(800px) rotateY(15deg) translateZ(10px);
+    }
+    50% {
+      transform: perspective(800px) rotateY(90deg) translateZ(25px) scale(0.95);
+      -webkit-transform: perspective(800px) rotateY(90deg) translateZ(25px) scale(0.95);
+    }
+    75% {
+      transform: perspective(800px) rotateY(165deg) translateZ(10px);
+      -webkit-transform: perspective(800px) rotateY(165deg) translateZ(10px);
+    }
+    100% {
+      transform: perspective(800px) rotateY(180deg) translateZ(0);
+      -webkit-transform: perspective(800px) rotateY(180deg) translateZ(0);
+    }
+  }
+
+  .page-nav-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    min-height: 44px; /* iOS touch target size */
+  }
 }
 
 .entry-detail::before {

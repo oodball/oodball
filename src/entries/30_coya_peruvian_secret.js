@@ -1,5 +1,5 @@
-export const template = {
-    id: 0, 
+export const coya = {
+    id: 30, 
     title: "Coya Peruvian Secret",
     content: `
     ## INTRODUCTION
@@ -14,8 +14,8 @@ export const template = {
         `,
         date: "1/16/2026", 
         timestamp: "2026-01-16T02:02:00.000Z",
-        rating: 2.9,
+        rating: 2.5,
         location: "San Diego",
-        tags: ["Lomo Saltado", "Peruvian", "Torrijas French Toast", "Del Mar"], 
-        published: true
+        tags: ["Peruvian", "Pork Belly", "Lomo Saltado", "Ceviche Clasico", "Half-Roasted Baby Chicken", "Del Mar"], 
+        published: false
         };

@@ -23,10 +23,14 @@
     "web-push": "^3.6.7"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "prebuild": "npm run generate-manifest",
+    "start": "npm run generate-manifest && react-scripts start",
     "build": "react-scripts build",
+    "build:clean": "npm run generate-manifest && rm -rf build && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate-manifest": "node scripts/generate-manifest.js",
+    "watch-manifest": "node scripts/generate-manifest.js watch"
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "chokidar": "^5.0.0"
   }
 }

@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '../supabase_client';
 
 function AuthCallback() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [processing, setProcessing] = useState(true);
 
   useEffect(() => {
     const handleCallback = async () => {
@@ -58,11 +57,9 @@ function AuthCallback() {
       
       // Otherwise, handle normal auth callback
       // Wait for session to be established
-      let sessionFound = false;
       for (let i = 0; i < 10; i++) {
         const { data: { session } } = await supabase.auth.getSession();
         if (session) {
-          sessionFound = true;
           break;
         }
         await new Promise(resolve => setTimeout(resolve, 200));
@@ -73,9 +70,7 @@ function AuthCallback() {
       navigate(from, { replace: true });
     };
     
-    handleCallback().finally(() => {
-      setProcessing(false);
-    });
+    handleCallback();
   }, [navigate, location]);
 
   return <div>Redirecting...</div>;

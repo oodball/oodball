@@ -8,6 +8,9 @@ yarn-error.log
 dist/
 build/
 
+# Auto-generated files
+src/entries/manifest.js
+
 # Environment variables
 .env
 .env.local

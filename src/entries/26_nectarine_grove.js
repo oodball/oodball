@@ -47,7 +47,7 @@ If it played a bigger part in how the dish tasted overall I wouldn't have minded
 
 ## OVERALL THOUGHTS
 
-I liked the food here. I tried bites of the chicken an waffles and the chimichurry steak bowl and both of those were very good too. The only thing I don't recommend is buying the drinks. They were overpriced and underdelivered, which was the only setback to this place.
+I liked the food here. I tried bites of the chicken and waffles and the chimichurri steak bowl and both of those were very good too. The only thing I don't recommend is buying the drinks. They were overpriced and underdelivered, which was the only setback to this place.
         
         
         

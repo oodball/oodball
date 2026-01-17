@@ -9,6 +9,8 @@ import Digiball from '../pages/Digiball';
 import Navbar from './Navbar';
 import Login from '../pages/login';
 import AuthCallback from '../pages/AuthCallback';
+import ResetPassword from '../pages/ResetPassword';
+import ResetPasswordConfirm from '../pages/ResetPasswordConfirm';
 import { supabase } from '../supabase_client';
 import '../styles/main.css';
 import '../styles/filmball.css';
@@ -46,6 +48,8 @@ function App() {
           <Routes>
             <Route path="/auth/callback" element={<AuthCallback />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/reset-password-confirm" element={<ResetPasswordConfirm />} />
             <Route path="/" element={<Home />} />
             <Route path="/foodball" element={<Foodball />} />
             <Route path="/foodball/:id" element={<FoodballEntry user={user} />} />

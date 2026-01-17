@@ -9,9 +9,15 @@
   text-align: center;
   margin-bottom: 3rem;
   padding: 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 15px;
+  background: linear-gradient(135deg, #8b4513 0%, #5d2e0a 100%);
+  border-radius: 0;
   color: white;
+  border: 3px solid #8b4513;
+  border-bottom: 4px solid #5d2e0a;
+  border-right: 4px solid #5d2e0a;
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3);
 }
 
 .foodball-header h1 {
@@ -27,15 +33,144 @@
   margin-bottom: 1.5rem;
 }
 
-/* Ranking Notes Section */
+/* Game Notification Box - Combined notifications and ranking notes */
+.game-notification-box {
+  background: linear-gradient(315deg, #d4c4a8 0%, #e8dcc0 50%, #f5f1e8 100%);
+  border-radius: 0;
+  padding: 0;
+  margin: 1.5rem 0;
+  border: 4px solid #8b4513;
+  border-bottom: 5px solid #5d2e0a;
+  border-right: 5px solid #5d2e0a;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.game-notification-header {
+  background: linear-gradient(135deg, #8b4513 0%, #5d2e0a 100%);
+  padding: 1rem 1.5rem;
+  border-bottom: 3px solid #5d2e0a;
+  text-align: center;
+  position: relative;
+}
+
+.game-notification-header h3 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+.game-notification-entry {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem 1.5rem;
+  border-bottom: 2px solid rgba(139, 69, 19, 0.2);
+  gap: 1rem;
+  background: linear-gradient(315deg, #d4c4a8 0%, #e8dcc0 50%, #f5f1e8 100%);
+  transition: background 0.2s ease;
+}
+
+.game-notification-entry:last-child {
+  border-bottom: none;
+}
+
+.game-notification-entry:hover {
+  background: linear-gradient(315deg, #e8dcc0 0%, #f5f1e8 50%, #faf8f3 100%);
+}
+
+.game-notification-icon {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  background: linear-gradient(315deg, #d4c4a8 0%, #e8dcc0 50%, #f5f1e8 100%);
+  border: 3px solid #8b4513;
+  border-bottom: 4px solid #5d2e0a;
+  border-right: 4px solid #5d2e0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.game-notification-content {
+  flex: 1;
+  color: #2c1810;
+}
+
+.game-notification-content .notification-subscription {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.game-notification-content .notification-header {
+  margin-bottom: 0.5rem;
+}
+
+.game-notification-content .notification-header h3 {
+  font-size: 0.7rem;
+  margin: 0 0 0.3rem 0;
+  color: #2c1810;
+  text-shadow: none;
+}
+
+.game-notification-content .notification-header p {
+  font-size: 0.5rem;
+  margin: 0;
+  color: #2c1810;
+  opacity: 0.8;
+}
+
+.game-notification-content .ranking-notes-header h4 {
+  font-size: 0.7rem;
+  margin: 0 0 0.5rem 0;
+  color: #2c1810;
+  font-weight: normal;
+  text-shadow: none;
+  letter-spacing: 0.5px;
+}
+
+.game-notification-content .ranking-notes-content {
+  margin-top: 0;
+}
+
+.game-notification-content .ranking-notes-content p {
+  font-size: 0.5rem;
+  line-height: 1.6;
+  margin: 0;
+  color: #2c1810;
+  opacity: 0.9;
+  letter-spacing: 0.2px;
+}
+
+/* Ranking Notes Section - Keep for backwards compatibility */
 .ranking-notes-section {
-  background: linear-gradient(135deg, var(--gradient-start, #667eea) 0%, var(--gradient-end, #764ba2) 100%);
-  border-radius: 15px;
+  background: linear-gradient(135deg, #8b4513 0%, #5d2e0a 100%);
+  border-radius: 0;
   padding: 1.5rem;
   margin: 1.5rem 0;
   color: white;
-  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3);
+  border: 3px solid #8b4513;
+  border-bottom: 4px solid #5d2e0a;
+  border-right: 4px solid #5d2e0a;
   font-family: 'Press Start 2P', cursive;
   position: relative;
 }
@@ -44,7 +179,8 @@
   margin-bottom: 1rem;
 }
 
-.ranking-notes-header h3 {
+.ranking-notes-header h3,
+.ranking-notes-header h4 {
   margin: 0;
   font-size: 0.8rem;
   font-weight: normal;
@@ -151,9 +287,15 @@
 .no-entries {
   text-align: center;
   padding: 3rem;
-  background: #f7fafc;
-  border-radius: 15px;
-  color: #718096;
+  background: linear-gradient(315deg, #d4c4a8 0%, #e8dcc0 50%, #f5f1e8 100%);
+  border-radius: 0;
+  color: #2c1810;
+  border: 3px solid #8b4513;
+  border-bottom: 4px solid #5d2e0a;
+  border-right: 4px solid #5d2e0a;
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3);
 }
 
 .entries-list {
@@ -239,7 +381,7 @@
 }
 
 .entry-title-link:hover h3 {
-  color: #667eea;
+  color: #8b4513;
 }
 
 .entry-meta {
@@ -360,7 +502,7 @@
 }
 
 .clickable-tag:hover {
-  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  background: #a0522d;
 }
 
 .clickable-tag.active {
@@ -373,7 +515,7 @@
 }
 
 .read-more-link {
-  color: #667eea;
+  color: #8b4513;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -388,7 +530,7 @@
 }
 
 .read-more-link:hover {
-  color: #5a67d8;
+  color: #5d2e0a;
   text-decoration: underline;
 }
 
@@ -405,18 +547,18 @@
   align-items: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid rgba(139, 69, 19, 0.2);
 }
 
 .back-link {
-  color: #667eea;
+  color: #8b4513;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .back-link:hover {
-  color: #5a67d8;
+  color: #5d2e0a;
   text-decoration: underline;
 }
 
@@ -710,7 +852,32 @@
   .ranking-notes-section {
     padding: 1.2rem;
     margin: 1rem 0;
-    border-radius: 12px;
+    border-radius: 0;
+  }
+
+  .game-notification-box {
+    margin: 1rem 0;
+  }
+
+  .game-notification-header {
+    padding: 0.8rem 1rem;
+  }
+
+  .game-notification-header h3 {
+    font-size: 2rem;
+  }
+
+  .game-notification-entry {
+    padding: 0.8rem 1rem;
+    gap: 0.8rem;
+  }
+
+  .game-notification-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+    font-size: 1rem;
   }
   
   .ranking-notes-header h3 {

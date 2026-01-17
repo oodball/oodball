@@ -58,22 +58,32 @@ function Foodball() {
 
   return (
     <div className="foodball">
-      <div className="foodball-header">
-        <h1>Foodball</h1>
-      </div>
-
-      <NotificationSubscription user={user} />
-
-      <div className="ranking-notes-section">
-        <div className="ranking-notes-header">
-          <h3>Notes on Ranking System</h3>
+      <div className="game-notification-box">
+        <div className="game-notification-header">
+          <h3>Foodball</h3>
         </div>
-        <div className="ranking-notes-content">
-          <p>Every restaurant starts out at a 3/5 rating. For any positive reviews, I raise the rating, and for any negative reviews I'll lower it.
-            <br />
-          <br />
-          Any rating above 3 is a good restaurant.
-          </p>
+        
+        <div className="game-notification-entry">
+          <div className="game-notification-icon">🔔</div>
+          <div className="game-notification-content">
+            <NotificationSubscription user={user} />
+          </div>
+        </div>
+
+        <div className="game-notification-entry">
+          <div className="game-notification-icon">📝</div>
+          <div className="game-notification-content">
+            <div className="ranking-notes-header">
+              <h4>Notes on Ranking System</h4>
+            </div>
+            <div className="ranking-notes-content">
+              <p>Every restaurant starts out at a 3/5 rating. For any positive reviews, I raise the rating, and for any negative reviews I'll lower it.
+                <br />
+              <br />
+              Any rating above 3 is a good restaurant.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

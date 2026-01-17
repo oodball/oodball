@@ -105,11 +105,11 @@
 .author-input:focus,
 .comment-input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #8b4513;
   box-shadow: 
     inset 1px 1px 0 rgba(255, 255, 255, 0.4),
     inset -1px -1px 0 rgba(0, 0, 0, 0.3),
-    0 0 0 2px rgba(102, 126, 234, 0.2);
+    0 0 0 2px rgba(139, 69, 19, 0.2);
 }
 
 .author-input:disabled,

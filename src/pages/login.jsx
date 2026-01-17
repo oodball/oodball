@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { supabase } from '../supabase_client';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
+import '../styles/main.css';
 
 async function signUpWithUsername({ email, password, username, from }) {
   // Log the redirect URL for debugging
@@ -124,86 +125,76 @@ function Login() {
   };
 
   return (
-    <div className="login-page" style={{ maxWidth: 400, margin: '2rem auto', padding: '2rem', background: '#f7fafc', borderRadius: 8, boxShadow: '0 2px 8px #e8dcc0' }}>
-      <h2 style={{ fontFamily: 'Courier New, monospace', color: '#6b3e1d' }}>{mode === 'login' ? 'Login' : 'Sign Up'}</h2>
-      <form onSubmit={handleAuth}>
-        {mode === 'login' ? (
-          <input
-            type="text"
-            placeholder="Email or Username"
-            value={email}
-            required
-            onChange={e => setEmail(e.target.value)}
-            style={{ width: '100%', marginBottom: 12, padding: 8, fontFamily: 'Courier New, monospace' }}
-          />
-        ) : (
-          <>
+    <div className="login-page">
+      <div className="login-card">
+        <h2>{mode === 'login' ? 'Login' : 'Sign Up'}</h2>
+        <form onSubmit={handleAuth}>
+          {mode === 'login' ? (
             <input
-              type="email"
-              placeholder="Email"
+              type="text"
+              placeholder="Email or Username"
               value={email}
               required
               onChange={e => setEmail(e.target.value)}
-              style={{ width: '100%', marginBottom: 12, padding: 8, fontFamily: 'Courier New, monospace' }}
+              className="login-input"
             />
-            <input
-              type="text"
-              placeholder="Username"
-              value={username}
-              required
-              onChange={e => setUsername(e.target.value)}
-              style={{ width: '100%', marginBottom: 12, padding: 8, fontFamily: 'Courier New, monospace' }}
-            />
-          </>
-        )}
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          required
-          onChange={e => setPassword(e.target.value)}
-          style={{ width: '100%', marginBottom: 12, padding: 8, fontFamily: 'Courier New, monospace' }}
-        />
-        <button
-          type="submit"
-          style={{
-            width: '100%',
-            background: '#8b4513',
-            color: '#f7fafc',
-            border: '3px solid #5d2e0a',
-            borderBottom: '4px solid #3d1f06',
-            borderRight: '4px solid #3d1f06',
-            padding: '0.75rem 1.5rem',
-            fontFamily: 'Courier New, monospace',
-            fontWeight: 'bold',
-            textTransform: 'uppercase',
-            letterSpacing: '0.5px',
-            cursor: 'pointer',
-            boxShadow: 'inset 2px 2px 0 rgba(255,255,255,0.2), inset -2px -2px 0 rgba(0,0,0,0.3)',
-            textShadow: '1px 1px 0 rgba(0,0,0,0.6)',
-            marginBottom: 12
-          }}
-        >
-          {mode === 'login' ? 'Login' : 'Sign Up'}
-        </button>
-      </form>
-      <div style={{ textAlign: 'center', marginBottom: 8 }}>
-        <button
-          onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: '#a0522d',
-            fontFamily: 'Courier New, monospace',
-            cursor: 'pointer',
-            textDecoration: 'underline'
-          }}
-        >
-          {mode === 'login' ? 'Sign up' : 'Login'}
-        </button>
+          ) : (
+            <>
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                required
+                onChange={e => setEmail(e.target.value)}
+                className="login-input"
+              />
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                required
+                onChange={e => setUsername(e.target.value)}
+                className="login-input"
+              />
+            </>
+          )}
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            required
+            onChange={e => setPassword(e.target.value)}
+            className="login-input"
+          />
+          <button
+            type="submit"
+            className="login-button"
+          >
+            {mode === 'login' ? 'Login' : 'Sign Up'}
+          </button>
+        </form>
+        <div className="login-links">
+          <button
+            onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
+            className="login-link-button"
+          >
+            {mode === 'login' ? 'Sign up' : 'Login'}
+          </button>
+          {mode === 'login' && (
+            <>
+              <span className="login-link-separator">|</span>
+              <Link
+                to="/reset-password"
+                className="login-link"
+              >
+                Forgot password?
+              </Link>
+            </>
+          )}
+        </div>
+        {error && <div className="login-error">{error}</div>}
+        {message && <div className="login-message">{message}</div>}
       </div>
-      {error && <div style={{ color: '#c53030', fontFamily: 'Courier New, monospace' }}>{error}</div>}
-      {message && <div style={{ color: '#2c7a7b', fontFamily: 'Courier New, monospace' }}>{message}</div>}
     </div>
   );
 }

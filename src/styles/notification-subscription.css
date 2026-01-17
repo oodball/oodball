@@ -1,14 +1,127 @@
 .notification-subscription {
-  background: linear-gradient(135deg, var(--gradient-start, #667eea) 0%, var(--gradient-end, #764ba2) 100%);
-  border-radius: 15px;
+  background: linear-gradient(135deg, #8b4513 0%, #5d2e0a 100%);
+  border-radius: 0;
   padding: 1.5rem;
   margin: 1.5rem 0;
   color: white;
-  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3);
+  border: 3px solid #8b4513;
+  border-bottom: 4px solid #5d2e0a;
+  border-right: 4px solid #5d2e0a;
   font-family: 'Press Start 2P', cursive;
   position: relative;
   transition: all 0.3s ease;
+}
+
+/* When inside game notification box, remove background and borders */
+/* When inside game notification box, remove background and borders */
+.game-notification-content .notification-subscription {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  color: #2c1810;
+}
+
+.game-notification-content .notification-subscription .notification-header h3 {
+  color: #2c1810;
+  text-shadow: none;
+  font-size: 0.7rem;
+}
+
+.game-notification-content .notification-subscription .notification-header p {
+  color: #2c1810;
+  opacity: 0.8;
+  font-size: 0.5rem;
+}
+
+.game-notification-content .notification-subscription .notification-controls,
+.game-notification-content .notification-subscription .notification-loading,
+.game-notification-content .notification-subscription .notification-error,
+.game-notification-content .notification-subscription .notification-success,
+.game-notification-content .notification-subscription .notification-subscribed,
+.game-notification-content .notification-subscription .notification-unsubscribed,
+.game-notification-content .notification-subscription .notification-denied,
+.game-notification-content .notification-subscription .notification-info {
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(139, 69, 19, 0.3);
+  border-bottom: 3px solid rgba(93, 46, 10, 0.3);
+  border-right: 3px solid rgba(93, 46, 10, 0.3);
+  border-radius: 0;
+  color: #2c1810;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  font-size: 0.5rem;
+  box-shadow: 
+    inset 1px 1px 0 rgba(255, 255, 255, 0.2),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.game-notification-content .notification-subscription .notification-loading span,
+.game-notification-content .notification-subscription .notification-error span,
+.game-notification-content .notification-subscription .notification-success span {
+  color: #2c1810;
+  font-size: 0.5rem;
+}
+
+.game-notification-content .notification-subscription .notification-subscribed p,
+.game-notification-content .notification-subscription .notification-unsubscribed p {
+  color: #2c1810;
+  font-size: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.game-notification-content .notification-subscription .notification-denied p,
+.game-notification-content .notification-subscription .notification-denied ol {
+  color: #2c1810;
+  font-size: 0.5rem;
+}
+
+.game-notification-content .notification-subscription .notification-details {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(139, 69, 19, 0.2);
+  border-bottom: 3px solid rgba(93, 46, 10, 0.2);
+  border-right: 3px solid rgba(93, 46, 10, 0.2);
+  border-radius: 0;
+  color: #2c1810;
+  font-size: 0.5rem;
+}
+
+.game-notification-content .notification-subscription .notification-details li {
+  color: #2c1810;
+  font-size: 0.5rem;
+}
+
+.game-notification-content .notification-subscription .notification-info summary {
+  color: #2c1810;
+  font-size: 0.5rem;
+}
+
+.game-notification-content .notification-subscription .notification-btn {
+  background: #8b4513;
+  border: 3px solid #a0522d;
+  border-bottom: 4px solid #5d2e0a;
+  border-right: 4px solid #5d2e0a;
+  color: #f7fafc;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0;
+  font-size: 0.5rem;
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+}
+
+.game-notification-content .notification-subscription .notification-btn:hover {
+  background: #a0522d;
+  transform: translateY(-1px);
+  box-shadow: 
+    inset 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .notification-subscription.collapsed {
@@ -248,7 +361,7 @@
   .notification-subscription {
     padding: 1.2rem;
     margin: 1rem 0;
-    border-radius: 12px;
+    border-radius: 0;
   }
   
   .notification-header h3 {
@@ -319,7 +432,9 @@
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   .notification-subscription {
-    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #5d2e0a 0%, #3d1f06 100%);
+    box-shadow: 
+      inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+      inset -2px -2px 0 rgba(0, 0, 0, 0.3);
   }
 }

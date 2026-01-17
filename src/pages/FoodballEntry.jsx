@@ -102,51 +102,6 @@ function FoodballEntry({user}) {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [currentIndex, allEntries, isFlipping, loading, entry, navigateToEntry]);
 
-  // Touch/swipe navigation for mobile
-  useEffect(() => {
-    if (!entry || isFlipping || loading) return;
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    const handleTouchStart = (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    };
-
-    const handleTouchEnd = (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    };
-
-    const handleSwipe = () => {
-      const swipeThreshold = 50; // Minimum distance for swipe
-      const diff = touchStartX - touchEndX;
-
-      if (Math.abs(diff) > swipeThreshold) {
-        if (diff > 0 && currentIndex < allEntries.length - 1) {
-          // Swipe left - next page
-          navigateToEntry(currentIndex + 1);
-        } else if (diff < 0 && currentIndex > 0) {
-          // Swipe right - previous page
-          navigateToEntry(currentIndex - 1);
-        }
-      }
-    };
-
-    const entryElement = document.querySelector('.entry-detail');
-    if (entryElement) {
-      entryElement.addEventListener('touchstart', handleTouchStart, { passive: true });
-      entryElement.addEventListener('touchend', handleTouchEnd, { passive: true });
-    }
-
-    return () => {
-      if (entryElement) {
-        entryElement.removeEventListener('touchstart', handleTouchStart);
-        entryElement.removeEventListener('touchend', handleTouchEnd);
-      }
-    };
-  }, [entry, isFlipping, loading, currentIndex, allEntries, navigateToEntry]);
-
   // Determine flip direction based on navigation
   useEffect(() => {
     if (!isFlipping) {

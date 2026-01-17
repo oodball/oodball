@@ -67,11 +67,16 @@ function ResetPassword() {
       }
 
       // Ensure we use the correct protocol (https for production)
-      const origin = window.location.origin;
-      const redirectUrl = `${origin}/reset-password-confirm`;
+      // Use the full URL with protocol to ensure it works on both localhost and production
+      const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
+      const protocol = isProduction ? 'https' : window.location.protocol.slice(0, -1);
+      const hostname = window.location.hostname;
+      const port = window.location.port ? `:${window.location.port}` : '';
+      const redirectUrl = `${protocol}://${hostname}${port}/reset-password-confirm`;
       
       console.log('Sending password reset email to:', resetEmail);
       console.log('Redirect URL:', redirectUrl);
+      console.log('Is production:', isProduction);
       
       const { error: resetError } = await supabase.auth.resetPasswordForEmail(resetEmail, {
         redirectTo: redirectUrl,

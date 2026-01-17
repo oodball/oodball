@@ -13,6 +13,9 @@ function ResetPasswordConfirm() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    let mounted = true;
+    let checkInterval = null;
+    
     // Handle Supabase password reset flow
     const handlePasswordReset = async () => {
       console.log('ResetPasswordConfirm: Checking for password reset tokens...');
@@ -40,11 +43,13 @@ function ResetPasswordConfirm() {
       console.log('Token type:', tokenType);
       console.log('Has refresh token:', !!refreshToken);
       
+      // Check if we have tokens in the URL
       if (token && tokenType === 'recovery') {
         console.log('Processing password reset recovery token...');
-        // Set the session using the tokens from the URL
-        try {
-          if (refreshToken) {
+        
+        // Try to set session manually first
+        if (refreshToken) {
+          try {
             const { data, error } = await supabase.auth.setSession({
               access_token: token,
               refresh_token: refreshToken
@@ -52,36 +57,30 @@ function ResetPasswordConfirm() {
             
             if (error) {
               console.error('Error setting session:', error);
-              setError('Invalid or expired reset link. Please request a new password reset.');
+              if (mounted) {
+                setError('Invalid or expired reset link. Please request a new password reset.');
+              }
               return;
             }
             
-            if (data.session) {
+            if (data?.session && mounted) {
+              console.log('Session set manually');
               setSession(data.session);
               // Clear the hash from URL
               window.history.replaceState(null, '', window.location.pathname);
               return;
             }
+          } catch (error) {
+            console.error('Error handling password reset:', error);
           }
-          
-          // Fallback: wait for Supabase to automatically set the session
-          setTimeout(async () => {
-            const { data: { session } } = await supabase.auth.getSession();
-            if (session) {
-              setSession(session);
-              // Clear the hash from URL
-              window.history.replaceState(null, '', window.location.pathname);
-            } else {
-              setError('Invalid or expired reset link. Please request a new password reset.');
-            }
-          }, 1000);
-        } catch (error) {
-          console.error('Error handling password reset:', error);
-          setError('Invalid or expired reset link. Please request a new password reset.');
         }
-      } else {
-        // Check if we already have a session (might have been set by Supabase automatically)
-        console.log('No token found, checking for existing session...');
+      }
+      
+      // Since detectSessionInUrl is true, Supabase should automatically detect and set the session
+      // Let's check for the session with multiple attempts
+      const checkSession = async (attempt = 0) => {
+        if (!mounted) return;
+        
         const { data: { session }, error: sessionError } = await supabase.auth.getSession();
         
         if (sessionError) {
@@ -89,41 +88,68 @@ function ResetPasswordConfirm() {
         }
         
         if (session) {
-          console.log('Found existing session');
-          setSession(session);
+          console.log('Found session (attempt', attempt + 1, ')');
+          if (mounted) {
+            setSession(session);
+            // Clear the hash from URL
+            window.history.replaceState(null, '', window.location.pathname);
+          }
+          if (checkInterval) {
+            clearInterval(checkInterval);
+            checkInterval = null;
+          }
+        } else if (attempt < 10) {
+          // Check again after a short delay (up to 10 times = 5 seconds total)
+          setTimeout(() => checkSession(attempt + 1), 500);
         } else {
-          console.log('No session found');
-          // Wait a bit longer - Supabase might still be processing
-          setTimeout(async () => {
-            const { data: { session: delayedSession } } = await supabase.auth.getSession();
-            if (delayedSession) {
-              console.log('Found session after delay');
-              setSession(delayedSession);
-            } else {
-              console.log('No session found after delay');
-              setError('Invalid or expired reset link. Please request a new password reset.');
-            }
-          }, 2000);
+          console.log('No session found after multiple attempts');
+          if (mounted) {
+            setError('Invalid or expired reset link. Please request a new password reset.');
+          }
         }
-      }
+      };
+      
+      // Start checking for session
+      checkSession();
+      
+      // Also set up interval as backup
+      checkInterval = setInterval(async () => {
+        if (!mounted) {
+          clearInterval(checkInterval);
+          return;
+        }
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session && mounted) {
+          console.log('Session found via interval check');
+          setSession(session);
+          window.history.replaceState(null, '', window.location.pathname);
+          clearInterval(checkInterval);
+        }
+      }, 1000);
     };
     
     handlePasswordReset();
     
-    // Also listen for auth state changes
+    // Listen for auth state changes (this is the most reliable way)
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       console.log('Auth state changed:', event, !!session);
-      if (event === 'PASSWORD_RECOVERY' || event === 'SIGNED_IN') {
-        if (session) {
-          console.log('Session established via auth state change');
-          setSession(session);
-          // Clear the hash from URL
-          window.history.replaceState(null, '', window.location.pathname);
+      if (mounted && session && (event === 'PASSWORD_RECOVERY' || event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED')) {
+        console.log('Session established via auth state change:', event);
+        setSession(session);
+        // Clear the hash from URL
+        window.history.replaceState(null, '', window.location.pathname);
+        if (checkInterval) {
+          clearInterval(checkInterval);
+          checkInterval = null;
         }
       }
     });
     
     return () => {
+      mounted = false;
+      if (checkInterval) {
+        clearInterval(checkInterval);
+      }
       subscription.unsubscribe();
     };
   }, []);

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabase_client';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import '../styles/main.css';
 
 function ResetPasswordConfirm() {
@@ -12,7 +11,6 @@ function ResetPasswordConfirm() {
   const [loading, setLoading] = useState(false);
   const [session, setSession] = useState(null);
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     // Check if we have a valid session from the password reset link

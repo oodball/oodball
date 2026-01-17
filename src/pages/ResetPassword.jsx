@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from '../supabase_client';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../styles/main.css';
 
 function ResetPassword() {
@@ -8,7 +8,6 @@ function ResetPassword() {
   const [error, setError] = useState(null);
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const handleResetPassword = async (e) => {
     e.preventDefault();

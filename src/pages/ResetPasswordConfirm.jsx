@@ -18,10 +18,20 @@ function ResetPasswordConfirm() {
     
     // Handle Supabase password reset flow
     const handlePasswordReset = async () => {
-      console.log('ResetPasswordConfirm: Checking for password reset tokens...');
+      console.log('ResetPasswordConfirm: Checking for password reset...');
       console.log('Current URL:', window.location.href);
       console.log('Hash:', window.location.hash);
       console.log('Search:', window.location.search);
+      
+      // First, check if we already have a session (Supabase might have already processed it)
+      const { data: { session: existingSession } } = await supabase.auth.getSession();
+      if (existingSession && mounted) {
+        console.log('Found existing session immediately');
+        setSession(existingSession);
+        // Clear the hash from URL
+        window.history.replaceState(null, '', window.location.pathname);
+        return;
+      }
       
       // Check URL hash for access token (Supabase puts it in the hash)
       const hashParams = new URLSearchParams(window.location.hash.substring(1));
@@ -47,7 +57,7 @@ function ResetPasswordConfirm() {
       if (token && tokenType === 'recovery') {
         console.log('Processing password reset recovery token...');
         
-        // Try to set session manually first
+        // Try to set session manually
         if (refreshToken) {
           try {
             const { data, error } = await supabase.auth.setSession({
@@ -64,7 +74,7 @@ function ResetPasswordConfirm() {
             }
             
             if (data?.session && mounted) {
-              console.log('Session set manually');
+              console.log('Session set manually from tokens');
               setSession(data.session);
               // Clear the hash from URL
               window.history.replaceState(null, '', window.location.pathname);

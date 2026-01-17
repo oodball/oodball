@@ -23,16 +23,6 @@ function ResetPasswordConfirm() {
       console.log('Hash:', window.location.hash);
       console.log('Search:', window.location.search);
       
-      // First, check if we already have a session (Supabase might have already processed it)
-      const { data: { session: existingSession } } = await supabase.auth.getSession();
-      if (existingSession && mounted) {
-        console.log('Found existing session immediately');
-        setSession(existingSession);
-        // Clear the hash from URL
-        window.history.replaceState(null, '', window.location.pathname);
-        return;
-      }
-      
       // Check URL hash for access token (Supabase puts it in the hash)
       const hashParams = new URLSearchParams(window.location.hash.substring(1));
       const hashAccessToken = hashParams.get('access_token');
@@ -44,6 +34,21 @@ function ResetPasswordConfirm() {
       const searchAccessToken = searchParams.get('access_token');
       const searchType = searchParams.get('type');
       const searchRefreshToken = searchParams.get('refresh_token');
+      
+      // First, check if we already have a session (Supabase might have already processed it)
+      const { data: { session: existingSession } } = await supabase.auth.getSession();
+      if (existingSession && mounted) {
+        console.log('Found existing session immediately');
+        // Verify this is a password recovery session by checking if we have recovery tokens in URL
+        const hasRecoveryToken = hashType === 'recovery' || searchType === 'recovery';
+        if (hasRecoveryToken || existingSession.user) {
+          console.log('Session is valid for password reset');
+          setSession(existingSession);
+          // Clear the hash from URL
+          window.history.replaceState(null, '', window.location.pathname);
+          return;
+        }
+      }
       
       const token = hashAccessToken || searchAccessToken;
       const tokenType = hashType || searchType;
@@ -143,7 +148,8 @@ function ResetPasswordConfirm() {
     // Listen for auth state changes (this is the most reliable way)
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       console.log('Auth state changed:', event, !!session);
-      if (mounted && session && (event === 'PASSWORD_RECOVERY' || event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED')) {
+      if (mounted && session) {
+        // Accept any session - PASSWORD_RECOVERY, SIGNED_IN, TOKEN_REFRESHED, etc.
         console.log('Session established via auth state change:', event);
         setSession(session);
         // Clear the hash from URL
@@ -152,6 +158,9 @@ function ResetPasswordConfirm() {
           clearInterval(checkInterval);
           checkInterval = null;
         }
+      } else if (mounted && event === 'SIGNED_OUT') {
+        console.log('User signed out');
+        setError('Session expired. Please request a new password reset link.');
       }
     });
     

@@ -499,6 +499,40 @@ body {
   color: #5d2e0a;
 }
 
+.reset-password-error,
+.reset-password-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.reset-password-dismiss-btn,
+.reset-password-resend-btn {
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  border: 1px solid currentColor;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+  margin-left: 0.5rem;
+}
+
+.reset-password-dismiss-btn:hover,
+.reset-password-resend-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.reset-password-dismiss-btn:active,
+.reset-password-resend-btn:active {
+  transform: translateY(0);
+}
+
 @media (max-width: 768px) {
   .reset-password-page {
     padding: 1rem;

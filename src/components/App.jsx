@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Home from '../pages/Home';
 import Foodball from '../pages/Foodball';
 import FoodballEntry from '../pages/FoodballEntry';
@@ -28,6 +28,36 @@ function ScrollToTop() {
   return null;
 }
 
+// Component to handle auth errors in URL hash
+function AuthErrorHandler() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check for Supabase auth errors in URL hash
+    if (location.hash) {
+      const hashParams = new URLSearchParams(location.hash.substring(1));
+      const error = hashParams.get('error');
+      const errorCode = hashParams.get('error_code');
+      const errorDescription = hashParams.get('error_description');
+
+      if (error && errorCode) {
+        // If it's a password reset error, redirect to reset password page with error
+        if (errorCode === 'otp_expired' || errorCode === 'token_expired' || errorDescription?.includes('expired')) {
+          navigate(`/reset-password?error=${encodeURIComponent(errorDescription || 'Link expired. Please request a new password reset link.')}`, { replace: true });
+        } else if (errorCode === 'access_denied') {
+          navigate(`/reset-password?error=${encodeURIComponent(errorDescription || 'Access denied. Please request a new password reset link.')}`, { replace: true });
+        } else {
+          // Other auth errors - redirect to login
+          navigate(`/login?error=${encodeURIComponent(errorDescription || error)}`, { replace: true });
+        }
+      }
+    }
+  }, [location.hash, navigate]);
+
+  return null;
+}
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -43,6 +73,7 @@ function App() {
     <Router>
       <div className="app">
         <ScrollToTop />
+        <AuthErrorHandler />
         <Navbar />
         <main className="main-content">
           <Routes>

@@ -13,32 +13,89 @@ function ResetPasswordConfirm() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if we have a valid session from the password reset link
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        setSession(session);
-      } else {
-        // Check URL hash for access token (Supabase sometimes puts it in the hash)
-        const hashParams = new URLSearchParams(window.location.hash.substring(1));
-        const accessToken = hashParams.get('access_token');
-        const type = hashParams.get('type');
-        
-        if (accessToken && type === 'recovery') {
-          // Session will be set automatically by Supabase
-          setTimeout(() => {
-            supabase.auth.getSession().then(({ data: { session } }) => {
-              if (session) {
-                setSession(session);
-              } else {
-                setError('Invalid or expired reset link. Please request a new password reset.');
-              }
+    // Handle Supabase password reset flow
+    const handlePasswordReset = async () => {
+      // Check URL hash for access token (Supabase puts it in the hash)
+      const hashParams = new URLSearchParams(window.location.hash.substring(1));
+      const hashAccessToken = hashParams.get('access_token');
+      const hashType = hashParams.get('type');
+      const hashRefreshToken = hashParams.get('refresh_token');
+      
+      // Check URL search params as well (sometimes Supabase uses query params)
+      const searchParams = new URLSearchParams(window.location.search);
+      const searchAccessToken = searchParams.get('access_token');
+      const searchType = searchParams.get('type');
+      const searchRefreshToken = searchParams.get('refresh_token');
+      
+      const token = hashAccessToken || searchAccessToken;
+      const tokenType = hashType || searchType;
+      const refreshToken = hashRefreshToken || searchRefreshToken;
+      
+      if (token && tokenType === 'recovery') {
+        // Set the session using the tokens from the URL
+        try {
+          if (refreshToken) {
+            const { data, error } = await supabase.auth.setSession({
+              access_token: token,
+              refresh_token: refreshToken
             });
-          }, 500);
+            
+            if (error) {
+              console.error('Error setting session:', error);
+              setError('Invalid or expired reset link. Please request a new password reset.');
+              return;
+            }
+            
+            if (data.session) {
+              setSession(data.session);
+              // Clear the hash from URL
+              window.history.replaceState(null, '', window.location.pathname);
+              return;
+            }
+          }
+          
+          // Fallback: wait for Supabase to automatically set the session
+          setTimeout(async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session) {
+              setSession(session);
+              // Clear the hash from URL
+              window.history.replaceState(null, '', window.location.pathname);
+            } else {
+              setError('Invalid or expired reset link. Please request a new password reset.');
+            }
+          }, 1000);
+        } catch (error) {
+          console.error('Error handling password reset:', error);
+          setError('Invalid or expired reset link. Please request a new password reset.');
+        }
+      } else {
+        // Check if we already have a session
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session) {
+          setSession(session);
         } else {
           setError('Invalid or expired reset link. Please request a new password reset.');
         }
       }
+    };
+    
+    handlePasswordReset();
+    
+    // Also listen for auth state changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'PASSWORD_RECOVERY' || event === 'SIGNED_IN') {
+        if (session) {
+          setSession(session);
+          // Clear the hash from URL
+          window.history.replaceState(null, '', window.location.pathname);
+        }
+      }
     });
+    
+    return () => {
+      subscription.unsubscribe();
+    };
   }, []);
 
   const handleResetPassword = async (e) => {

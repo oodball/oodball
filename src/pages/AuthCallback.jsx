@@ -14,9 +14,12 @@ function AuthCallback() {
       
       const type = hashParams.get('type') || searchParams.get('type');
       
-      console.log('AuthCallback: type =', type);
-      console.log('AuthCallback: hash =', location.hash);
-      console.log('AuthCallback: search =', location.search);
+      console.log('=== AuthCallback Debug ===');
+      console.log('Type:', type);
+      console.log('Hash:', location.hash);
+      console.log('Search:', location.search);
+      console.log('Full URL:', window.location.href);
+      console.log('Pathname:', location.pathname);
       
       if (type === 'recovery') {
         // This is a password reset

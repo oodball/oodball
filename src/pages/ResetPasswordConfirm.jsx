@@ -18,10 +18,12 @@ function ResetPasswordConfirm() {
     
     // Handle Supabase password reset flow
     const handlePasswordReset = async () => {
-      console.log('ResetPasswordConfirm: Checking for password reset...');
+      console.log('=== ResetPasswordConfirm Debug ===');
       console.log('Current URL:', window.location.href);
       console.log('Hash:', window.location.hash);
       console.log('Search:', window.location.search);
+      console.log('Pathname:', window.location.pathname);
+      console.log('Origin:', window.location.origin);
       
       // Check URL hash for access token (Supabase puts it in the hash)
       const hashParams = new URLSearchParams(window.location.hash.substring(1));
@@ -36,11 +38,19 @@ function ResetPasswordConfirm() {
       const searchRefreshToken = searchParams.get('refresh_token');
       
       // First, check if we already have a session (Supabase might have already processed it)
-      const { data: { session: existingSession } } = await supabase.auth.getSession();
+      const { data: { session: existingSession }, error: sessionError } = await supabase.auth.getSession();
+      console.log('Initial session check:', {
+        hasSession: !!existingSession,
+        sessionError: sessionError?.message,
+        userId: existingSession?.user?.id,
+        userEmail: existingSession?.user?.email
+      });
+      
       if (existingSession && mounted) {
         console.log('Found existing session immediately');
         // Verify this is a password recovery session by checking if we have recovery tokens in URL
         const hasRecoveryToken = hashType === 'recovery' || searchType === 'recovery';
+        console.log('Recovery token check:', { hasRecoveryToken, hashType, searchType });
         if (hasRecoveryToken || existingSession.user) {
           console.log('Session is valid for password reset');
           setSession(existingSession);
@@ -54,9 +64,14 @@ function ResetPasswordConfirm() {
       const tokenType = hashType || searchType;
       const refreshToken = hashRefreshToken || searchRefreshToken;
       
-      console.log('Found token:', !!token);
-      console.log('Token type:', tokenType);
-      console.log('Has refresh token:', !!refreshToken);
+      console.log('Token analysis:', {
+        hasToken: !!token,
+        tokenType,
+        hasRefreshToken: !!refreshToken,
+        tokenLength: token?.length,
+        hashHasToken: !!hashAccessToken,
+        searchHasToken: !!searchAccessToken
+      });
       
       // Check if we have tokens in the URL
       if (token && tokenType === 'recovery') {
@@ -98,12 +113,18 @@ function ResetPasswordConfirm() {
         
         const { data: { session }, error: sessionError } = await supabase.auth.getSession();
         
+        console.log(`Session check attempt ${attempt + 1}:`, {
+          hasSession: !!session,
+          error: sessionError?.message,
+          userId: session?.user?.id
+        });
+        
         if (sessionError) {
           console.error('Error getting session:', sessionError);
         }
         
         if (session) {
-          console.log('Found session (attempt', attempt + 1, ')');
+          console.log('✓ Found session (attempt', attempt + 1, ')');
           if (mounted) {
             setSession(session);
             // Clear the hash from URL
@@ -117,7 +138,12 @@ function ResetPasswordConfirm() {
           // Check again after a short delay (up to 10 times = 5 seconds total)
           setTimeout(() => checkSession(attempt + 1), 500);
         } else {
-          console.log('No session found after multiple attempts');
+          console.error('✗ No session found after multiple attempts');
+          console.log('Final state:', {
+            hash: window.location.hash,
+            search: window.location.search,
+            url: window.location.href
+          });
           if (mounted) {
             setError('Invalid or expired reset link. Please request a new password reset.');
           }

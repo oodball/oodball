@@ -743,6 +743,32 @@ body {
   text-align: center;
 }
 
+.login-resend-btn {
+  margin-left: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  border: 1px solid currentColor;
+  color: inherit;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.login-resend-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login-resend-btn:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.login-resend-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
 @media (max-width: 768px) {
   .login-page {
     padding: 1rem;

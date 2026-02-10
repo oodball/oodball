@@ -54,6 +54,7 @@ function Login() {
   const [error, setError] = useState(null);
   const [message, setMessage] = useState(null);
   const [username, setUsername] = useState('');
+  const [resendLoading, setResendLoading] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -65,6 +66,56 @@ function Login() {
   }
   // Log the 'from' value for debugging
   console.log('Login page from value:', from);
+
+  const handleResendSignupEmail = async () => {
+    setError(null);
+    setMessage(null);
+
+    if (!email || !email.includes('@')) {
+      setError('Please enter the email you signed up with first.');
+      return;
+    }
+
+    setResendLoading(true);
+
+    try {
+      // Match the reset-password page behavior: build a redirect URL that works in both dev and prod.
+      const isProduction =
+        window.location.hostname !== 'localhost' &&
+        window.location.hostname !== '127.0.0.1';
+      const protocol = isProduction ? 'https' : window.location.protocol.slice(0, -1);
+      const hostname = window.location.hostname;
+      const port = window.location.port ? `:${window.location.port}` : '';
+      const redirectUrl = `${protocol}://${hostname}${port}/auth/callback?from=${encodeURIComponent(from || '/')}`;
+
+      console.log('Resend signup confirmation emailRedirectTo:', redirectUrl);
+
+      const { error: resendError } = await supabase.auth.resend({
+        type: 'signup',
+        email,
+        options: { emailRedirectTo: redirectUrl }
+      });
+
+      if (resendError) {
+        if (
+          resendError.message.includes('rate limit') ||
+          resendError.message.includes('too many requests') ||
+          resendError.message.includes('429')
+        ) {
+          setError('Please wait a moment before requesting another confirmation email.');
+        } else {
+          setError(resendError.message);
+        }
+      } else {
+        setMessage('Confirmation email sent! Check your inbox and spam folder.');
+      }
+    } catch (err) {
+      console.error('Error resending confirmation email:', err);
+      setError('An error occurred. Please try again.');
+    } finally {
+      setResendLoading(false);
+    }
+  };
 
   const handleAuth = async (e) => {
     e.preventDefault();
@@ -193,7 +244,21 @@ function Login() {
           )}
         </div>
         {error && <div className="login-error">{error}</div>}
-        {message && <div className="login-message">{message}</div>}
+        {message && (
+          <div className="login-message">
+            <span>{message}</span>
+            {mode === 'signup' && (
+              <button
+                type="button"
+                onClick={handleResendSignupEmail}
+                className="login-resend-btn"
+                disabled={resendLoading}
+              >
+                {resendLoading ? 'Sending...' : 'Resend email'}
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

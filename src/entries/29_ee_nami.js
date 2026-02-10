@@ -30,13 +30,19 @@ My only concern is that there was too little. Obviously it's supposed to be an a
 
 4.5/5
 
+![karaage](/images/Foodball/ee_nami/spread.JPG "Rice Illusion Got Me")
+
 ***Curry Katsu***
 
 For a restaurant where katsu is supposed to be one of their main dishes, I was a little dissapointed eating this. The katsu was kind of dry, and the ends were extremely hard to chew. 
 
+I got bamboozled twice. 
+
+There isn't as much rice as the picture seems to show you...
+
 I felt a little silly eating it. 
 
-The flavor of it was fine though, and the outside layer was fried well, but I expected my katsu to be juicier. It couldn't even be combined with too much of the sauce though, because the sauce was also pretty salty. 
+The flavor of it was fine though, and the outside layer was fried well, but I expected my katsu to be juicier. It couldn't even be combined with too much of the sauce though, because the sauce was also pretty salty. Interesting considering the first time I came here, the katsu seemed pretty good. 
 
 It would be perfect if you're drinking, but overall, there was a high sauce to rice ratio, so it was hard to balance out the saltiness. 
 

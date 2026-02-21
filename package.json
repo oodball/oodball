@@ -10,7 +10,6 @@
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "heic-convert": "^2.1.0",
-    "heic2any": "^0.0.4",
     "numpy": "^0.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -23,7 +22,8 @@
     "web-push": "^3.6.7"
   },
   "scripts": {
-    "prebuild": "npm run generate-manifest",
+    "prebuild": "npm run generate-manifest && npm run convert-heic",
+    "convert-heic": "node convert_heic.js",
     "start": "npm run generate-manifest && react-scripts start",
     "build": "react-scripts build",
     "build:clean": "npm run generate-manifest && rm -rf build && react-scripts build",

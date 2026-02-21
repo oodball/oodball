@@ -122,7 +122,7 @@ function FoodballEntry({user}) {
     // Convert ![alt](image.jpg "caption") to entry-image-box HTML
     return content.replace(
       /!\[([^\]]*)\]\(([^)]+)\s+"([^"]+)"\)/g,
-      '<div class="entry-image-box"><img src="$2" alt="$1" class="entry-image" /><div class="entry-image-caption">$3</div></div>'
+      '<div class="entry-image-box"><img src="$2" alt="$1" class="entry-image" loading="lazy" /><div class="entry-image-caption">$3</div></div>'
     );
   };
 

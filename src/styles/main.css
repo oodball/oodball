@@ -27,6 +27,15 @@ body {
   flex-direction: column;
 }
 
+/* Loading fallback for code-split routes */
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1rem;
+  color: #718096;
+  font-family: 'Courier New', monospace;
+}
+
 .navbar {
   background-color: transparent;
   padding: 1rem 2rem;

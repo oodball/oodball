@@ -156,6 +156,7 @@ function Foodball() {
                       src={entry.image} 
                       alt={entry.title}
                       className="entry-thumbnail-img"
+                      loading="lazy"
                       onError={(e) => {
                         e.target.style.display = 'none';
                       }}

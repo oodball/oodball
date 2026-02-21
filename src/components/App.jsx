@@ -1,11 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Home from '../pages/Home';
-import Foodball from '../pages/Foodball';
-import FoodballEntry from '../pages/FoodballEntry';
-import Filmball from '../pages/Filmball';
-import Embroodball from '../pages/Embroodball';
-import Digiball from '../pages/Digiball';
 import Navbar from './Navbar';
 import Login from '../pages/login';
 import AuthCallback from '../pages/AuthCallback';
@@ -16,6 +11,12 @@ import '../styles/main.css';
 import '../styles/filmball.css';
 import '../styles/embroodball.css';
 import '../styles/digiball.css';
+
+const Foodball = lazy(() => import('../pages/Foodball'));
+const FoodballEntry = lazy(() => import('../pages/FoodballEntry'));
+const Filmball = lazy(() => import('../pages/Filmball'));
+const Embroodball = lazy(() => import('../pages/Embroodball'));
+const Digiball = lazy(() => import('../pages/Digiball'));
 
 // ScrollToTop component to handle scrolling to top on route changes
 function ScrollToTop() {
@@ -96,6 +97,7 @@ function App() {
         <AuthErrorHandler />
         <Navbar />
         <main className="main-content">
+          <Suspense fallback={<div className="loading">Loading...</div>}>
           <Routes>
             <Route path="/auth/callback" element={<AuthCallback />} />
             <Route path="/login" element={<Login />} />
@@ -108,6 +110,7 @@ function App() {
             <Route path="/embroodball" element={<Embroodball />} />
             <Route path="/digiball" element={<Digiball />} />
           </Routes>
+          </Suspense>
         </main>
       </div>
     </Router>

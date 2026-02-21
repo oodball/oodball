@@ -59,6 +59,7 @@ function Digiball() {
                   src={item.src} 
                   alt={item.alt}
                   className="gallery-image"
+                  loading="lazy"
                   onClick={() => handleImageClick(item)}
                   style={{ cursor: 'pointer' }}
                 />
@@ -86,6 +87,7 @@ function Digiball() {
               src={selectedImage.src} 
               alt={selectedImage.alt}
               className="lightbox-image"
+              loading="lazy"
             />
             {selectedImage.caption && (
               <div className="lightbox-caption">

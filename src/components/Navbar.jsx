@@ -21,7 +21,6 @@ function Navbar() {
             <div className="dropdown-content">
               <Link to="/" onClick={() => setIsOpen(false)}>Main Menu</Link>
               <Link to="/foodball" onClick={() => setIsOpen(false)}>Foodball</Link>
-              <Link to="/filmball" onClick={() => setIsOpen(false)}>Filmball</Link>
               <Link to="/embroodball" onClick={() => setIsOpen(false)}>Embroodball</Link>
               <Link to="/digiball" onClick={() => setIsOpen(false)}>Digiball</Link>
             </div>

@@ -32,7 +32,7 @@ const shortLocale = {
   }
 };
 
-function CommentSection({ entryId, user }) {
+function CommentSection({ entryId, user, game = 'foodball' }) {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [loading, setLoading] = useState(true);
@@ -44,17 +44,18 @@ function CommentSection({ entryId, user }) {
   useEffect(() => {
     async function fetchComments() {
       setLoading(true);
-      let { data, error } = await supabase
+      const { data, error: fetchError } = await supabase
         .from('comments')
         .select('*')
         .eq('entry_id', entryId)
+        .eq('game', game)
         .order('timestamp', { ascending: true });
-      if (error) setError('Failed to load comments');
+      if (fetchError) setError('Failed to load comments');
       setComments(data || []);
       setLoading(false);
     }
     fetchComments();
-  }, [entryId]);
+  }, [entryId, game]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -75,7 +76,8 @@ function CommentSection({ entryId, user }) {
       username: username,
       content: newComment.trim(),
       user_id: user.id,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      game
     };
 
     try {

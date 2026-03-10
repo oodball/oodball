@@ -4,7 +4,7 @@
 Currently there are 4 main components to oodball.com:
 -  Foodball
     * where I share all of my food adventures plus a restraurant review
-- Filmball
+- Moodball
     * A WIP: Supposed to show my movie reviews, when I watch them
 - Embroodball
     * A digital log of all my embroidery activities

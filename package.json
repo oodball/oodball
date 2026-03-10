@@ -22,14 +22,15 @@
     "web-push": "^3.6.7"
   },
   "scripts": {
-    "prebuild": "npm run generate-manifest && npm run convert-heic",
+    "prebuild": "npm run generate-manifest && npm run generate-moodball-manifest && npm run convert-heic",
     "convert-heic": "node convert_heic.js",
-    "start": "npm run generate-manifest && react-scripts start",
+    "start": "npm run generate-manifest && npm run generate-moodball-manifest && react-scripts start",
     "build": "react-scripts build",
     "build:clean": "npm run generate-manifest && rm -rf build && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate-manifest": "node scripts/generate-manifest.js",
+    "generate-manifest": "node scripts/generate-manifest.js && node scripts/generate-moodball-manifest.js",
+    "generate-moodball-manifest": "node scripts/generate-moodball-manifest.js",
     "watch-manifest": "node scripts/generate-manifest.js watch"
   },
   "eslintConfig": {

@@ -8,13 +8,14 @@ import ResetPassword from '../pages/ResetPassword';
 import ResetPasswordConfirm from '../pages/ResetPasswordConfirm';
 import { supabase } from '../supabase_client';
 import '../styles/main.css';
-import '../styles/filmball.css';
+import '../styles/moodball.css';
 import '../styles/embroodball.css';
 import '../styles/digiball.css';
 
 const Foodball = lazy(() => import('../pages/Foodball'));
 const FoodballEntry = lazy(() => import('../pages/FoodballEntry'));
-const Filmball = lazy(() => import('../pages/Filmball'));
+const Moodball = lazy(() => import('../pages/Moodball'));
+const MoodballEntry = lazy(() => import('../pages/MoodballEntry'));
 const Embroodball = lazy(() => import('../pages/Embroodball'));
 const Digiball = lazy(() => import('../pages/Digiball'));
 
@@ -106,7 +107,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/foodball" element={<Foodball />} />
             <Route path="/foodball/:id" element={<FoodballEntry user={user} />} />
-            <Route path="/filmball" element={<Filmball />} />
+            <Route path="/moodball" element={<Moodball />} />
+            <Route path="/moodball/:id" element={<MoodballEntry user={user} />} />
             <Route path="/embroodball" element={<Embroodball />} />
             <Route path="/digiball" element={<Digiball />} />
           </Routes>

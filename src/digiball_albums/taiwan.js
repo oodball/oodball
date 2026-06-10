@@ -1,6 +1,4 @@
 const photos = [
-  
-  
   {
     "src": "/images/Digiball/taiwan/yubike_mog.JPG",
     "caption": "Mogging on Taiwan"

@@ -13,25 +13,18 @@ function toTitleCase(folder) {
     .join(' ');
 }
 
-// Read existing manifest to preserve captions and other metadata
-function getExistingPhotos(manifestPath) {
-  if (!fs.existsSync(manifestPath)) return {};
+// Read existing manifest to preserve captions, order, and other metadata
+function readExistingPhotos(manifestPath) {
+  if (!fs.existsSync(manifestPath)) return [];
 
   try {
     const content = fs.readFileSync(manifestPath, 'utf8');
     const match = content.match(/const\s+photos\s*=\s*(\[[\s\S]*?\]);/);
-    if (!match) return {};
+    if (!match) return [];
 
-    const photos = JSON.parse(match[1].replace(/,\s*([\]}])/g, '$1'));
-    const map = {};
-    for (const photo of photos) {
-      if (photo.src) {
-        map[photo.src] = photo;
-      }
-    }
-    return map;
+    return JSON.parse(match[1].replace(/,\s*([\]}])/g, '$1'));
   } catch {
-    return {};
+    return [];
   }
 }
 
@@ -61,15 +54,27 @@ function generateAlbumManifests() {
     if (files.length === 0) continue;
 
     const manifestPath = path.join(ALBUMS_DIR, `${folder}.js`);
-    const existing = getExistingPhotos(manifestPath);
+    const existingPhotos = readExistingPhotos(manifestPath);
+    const fileSrcs = new Set(
+      files.map(f => `/images/Digiball/${folder}/${f}`)
+    );
 
-    const photos = files.map(f => {
-      const src = `/images/Digiball/${folder}/${f}`;
-      if (existing[src]) {
-        return existing[src];
+    const photos = [];
+    const listedSrcs = new Set();
+
+    for (const photo of existingPhotos) {
+      if (photo.src && fileSrcs.has(photo.src)) {
+        photos.push(photo);
+        listedSrcs.add(photo.src);
       }
-      return { src };
-    });
+    }
+
+    for (const f of files.sort()) {
+      const src = `/images/Digiball/${folder}/${f}`;
+      if (!listedSrcs.has(src)) {
+        photos.push({ src });
+      }
+    }
 
     const manifestContent = `const photos = ${JSON.stringify(photos, null, 2)};
 

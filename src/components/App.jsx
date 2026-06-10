@@ -18,6 +18,7 @@ const Moodball = lazy(() => import('../pages/Moodball'));
 const MoodballEntry = lazy(() => import('../pages/MoodballEntry'));
 const Embroodball = lazy(() => import('../pages/Embroodball'));
 const Digiball = lazy(() => import('../pages/Digiball'));
+const DigiballAlbum = lazy(() => import('../pages/DigiballAlbum'));
 
 // ScrollToTop component to handle scrolling to top on route changes
 function ScrollToTop() {
@@ -111,6 +112,7 @@ function App() {
             <Route path="/moodball/:id" element={<MoodballEntry user={user} />} />
             <Route path="/embroodball" element={<Embroodball />} />
             <Route path="/digiball" element={<Digiball />} />
+            <Route path="/digiball/:albumId" element={<DigiballAlbum />} />
           </Routes>
           </Suspense>
         </main>

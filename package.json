@@ -22,9 +22,10 @@
     "web-push": "^3.6.7"
   },
   "scripts": {
-    "prebuild": "npm run generate-manifest && npm run generate-moodball-manifest && npm run convert-heic",
+    "prebuild": "npm run generate-manifest && npm run generate-moodball-manifest && npm run generate-digiball-manifests && npm run convert-heic",
     "convert-heic": "node convert_heic.js",
-    "start": "npm run generate-manifest && npm run generate-moodball-manifest && react-scripts start",
+    "start": "npm run generate-manifest && npm run generate-moodball-manifest && npm run generate-digiball-manifests && react-scripts start",
+    "generate-digiball-manifests": "node scripts/generate-digiball-manifests.js",
     "build": "react-scripts build",
     "build:clean": "npm run generate-manifest && rm -rf build && react-scripts build",
     "test": "react-scripts test",

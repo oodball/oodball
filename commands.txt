@@ -1,0 +1,49 @@
+===============================
+OODBALL - AVAILABLE COMMANDS
+===============================
+
+--- DEVELOPMENT ---
+
+npm start
+  Start the dev server. Auto-generates all manifests (foodball, moodball, digiball) before launching.
+
+npm run build
+  Production build. Runs prebuild (manifests + HEIC conversion) then compiles the app.
+
+npm run build:clean
+  Same as build but deletes the build/ folder first for a fresh start.
+
+npm test
+  Run tests.
+
+--- MANIFESTS ---
+
+npm run generate-manifest
+  Regenerate the Foodball entries manifest (src/entries/manifest.js) + Moodball manifest.
+
+npm run generate-moodball-manifest
+  Regenerate just the Moodball entries manifest (src/moodball_entries/manifest.js).
+
+npm run generate-digiball-manifests
+  Scan public/images/Digiball/ folders and regenerate all Digiball album manifests (src/digiball_albums/).
+
+npm run watch-manifest
+  Watch for changes in src/entries/ and auto-regenerate the Foodball manifest.
+
+--- IMAGES ---
+
+npm run convert-heic
+  Convert any .heic files in public/images/Foodball/ to .jpeg. Add --delete flag to remove originals.
+
+--- NOTIFICATIONS ---
+
+node send-notification.js "Entry Title" [entry-id]
+  Send a push notification to all subscribers.
+  Examples:
+    node send-notification.js "MEC" 34
+    node send-notification.js "New Restaurant Review"
+
+--- DEPLOYMENT ---
+
+git add . && git commit -m "message" && git push
+  Commit and push to GitHub (triggers Vercel deploy if connected).

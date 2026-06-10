@@ -4,7 +4,7 @@ const photos = [
     "caption": "Gojo Catoru"
   },
   {
-    "src": "/images/Digiball/home/DSC06279.JPG", 
+    "src": "/images/Digiball/home/DSC06279.JPG",
     "caption": "Prevented the Children from Hogging this one"
   },
   {

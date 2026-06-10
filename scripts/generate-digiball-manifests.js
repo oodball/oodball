@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const vm = require('vm');
 
 const IMAGES_DIR = path.join(__dirname, '../public/images/Digiball');
 const ALBUMS_DIR = path.join(__dirname, '../src/digiball_albums');
@@ -19,12 +18,13 @@ function getExistingPhotos(manifestPath) {
   if (!fs.existsSync(manifestPath)) return {};
 
   try {
-    let content = fs.readFileSync(manifestPath, 'utf8');
-    content = content.replace(/export\s+default\s+photos;?/, '');
-    const sandbox = { photos: [] };
-    vm.runInNewContext(content + '\n', sandbox);
+    const content = fs.readFileSync(manifestPath, 'utf8');
+    const match = content.match(/const\s+photos\s*=\s*(\[[\s\S]*?\]);/);
+    if (!match) return {};
+
+    const photos = JSON.parse(match[1].replace(/,\s*([\]}])/g, '$1'));
     const map = {};
-    for (const photo of sandbox.photos) {
+    for (const photo of photos) {
       if (photo.src) {
         map[photo.src] = photo;
       }

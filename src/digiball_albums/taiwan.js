@@ -1,4 +1,10 @@
 const photos = [
+  
+  
+  {
+    "src": "/images/Digiball/taiwan/yubike_mog.JPG",
+    "caption": "Mogging on Taiwan"
+  },
   {
     "src": "/images/Digiball/taiwan/elevator.JPG",
     "caption": "PSY"
@@ -18,10 +24,6 @@ const photos = [
   {
     "src": "/images/Digiball/taiwan/wallet.JPG",
     "caption": "Wallet Goose Chase"
-  },
-  {
-    "src": "/images/Digiball/taiwan/yubike_mog.JPG",
-    "caption": "Mogging on Taiwan"
   }
 ];
 

@@ -18,6 +18,10 @@ const photos = [
   {
     "src": "/images/Digiball/home/sandman.JPG",
     "caption": "Mr. Sandman"
+  },
+  {
+    "src": "/images/Digiball/home/arguing.JPG",
+    "caption": "Arguing over Oven Doors"
   }
 ];
 

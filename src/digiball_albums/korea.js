@@ -11,7 +11,6 @@ const photos = [
     "src": "/images/Digiball/korea/hongdae.JPG",
     "caption": "Taken on Sony Cybershot Pro Max"
   }
-
 ];
 
 export default photos;

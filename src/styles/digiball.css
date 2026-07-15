@@ -65,6 +65,21 @@
   transform: translateY(0);
 }
 
+.album-card-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(139, 69, 19, 0.95), rgba(139, 69, 19, 0.8));
+  color: #f5f1e8;
+  padding: 1rem;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  border-top: 2px solid #5d2e0a;
+}
+
 /* Lightbox Modal */
 .lightbox-overlay {
   position: fixed;
@@ -283,7 +298,8 @@
     padding: 1rem 0;
   }
   
-  .gallery-caption {
+  .gallery-caption,
+  .album-card-title {
     font-size: 0.9rem;
     padding: 0.75rem;
   }

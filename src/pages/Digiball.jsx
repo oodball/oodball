@@ -26,7 +26,7 @@ function Digiball() {
                 ) : (
                   <div className="album-placeholder" />
                 )}
-                <div className="gallery-caption">
+                <div className="album-card-title">
                   {album.title}
                 </div>
               </div>

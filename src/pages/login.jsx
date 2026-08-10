@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { supabase } from '../supabase_client';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { getAuthRedirectUrl } from '../utils/auth_redirect';
 import '../styles/main.css';
 
 async function signUpWithUsername({ email, password, username, from }) {
-  // Log the redirect URL for debugging
-  const redirectUrl = `https://www.oodball.com/auth/callback?from=${encodeURIComponent(from || '/')}`;
+  const redirectUrl = getAuthRedirectUrl('/auth/callback', { from: from || '/' });
   console.log('Signup emailRedirectTo:', redirectUrl);
   
-  // First, sign up the user
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -22,7 +21,6 @@ async function signUpWithUsername({ email, password, username, from }) {
     return { data, error };
   }
 
-  // If signup successful, store username in a separate table for easy lookup
   if (data.user) {
     try {
       const { error: insertError } = await supabase
@@ -37,7 +35,6 @@ async function signUpWithUsername({ email, password, username, from }) {
 
       if (insertError) {
         console.error('Error storing username:', insertError);
-        // Don't fail the signup if username storage fails
       }
     } catch (err) {
       console.error('Error storing username:', err);
@@ -45,6 +42,17 @@ async function signUpWithUsername({ email, password, username, from }) {
   }
 
   return { data, error };
+}
+
+async function resendSignupConfirmation(email, from) {
+  const redirectUrl = getAuthRedirectUrl('/auth/callback', { from: from || '/' });
+  console.log('Resend signup confirmation emailRedirectTo:', redirectUrl);
+
+  return supabase.auth.resend({
+    type: 'signup',
+    email,
+    options: { emailRedirectTo: redirectUrl }
+  });
 }
 
 function Login() {
@@ -55,6 +63,7 @@ function Login() {
   const [message, setMessage] = useState(null);
   const [username, setUsername] = useState('');
   const [resendLoading, setResendLoading] = useState(false);
+  const [showResend, setShowResend] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -79,22 +88,7 @@ function Login() {
     setResendLoading(true);
 
     try {
-      // Match the reset-password page behavior: build a redirect URL that works in both dev and prod.
-      const isProduction =
-        window.location.hostname !== 'localhost' &&
-        window.location.hostname !== '127.0.0.1';
-      const protocol = isProduction ? 'https' : window.location.protocol.slice(0, -1);
-      const hostname = window.location.hostname;
-      const port = window.location.port ? `:${window.location.port}` : '';
-      const redirectUrl = `${protocol}://${hostname}${port}/auth/callback?from=${encodeURIComponent(from || '/')}`;
-
-      console.log('Resend signup confirmation emailRedirectTo:', redirectUrl);
-
-      const { error: resendError } = await supabase.auth.resend({
-        type: 'signup',
-        email,
-        options: { emailRedirectTo: redirectUrl }
-      });
+      const { error: resendError } = await resendSignupConfirmation(email, from);
 
       if (resendError) {
         if (
@@ -108,6 +102,7 @@ function Login() {
         }
       } else {
         setMessage('Confirmation email sent! Check your inbox and spam folder.');
+        setShowResend(true);
       }
     } catch (err) {
       console.error('Error resending confirmation email:', err);
@@ -121,6 +116,7 @@ function Login() {
     e.preventDefault();
     setError(null);
     setMessage(null);
+    setShowResend(false);
 
     let loginEmail = email;
 
@@ -161,17 +157,37 @@ function Login() {
 
     if (mode === 'login') {
       const { error } = await supabase.auth.signInWithPassword({ email: loginEmail, password });
-      if (error) setError(error.message);
-      else {
+      if (error) {
+        if (error.message.toLowerCase().includes('email not confirmed')) {
+          setError('Please confirm your email before logging in.');
+          setMessage('Need a new confirmation link? Use Resend email below.');
+          setShowResend(true);
+        } else {
+          setError(error.message);
+        }
+      } else {
         setMessage('Logged in.');
         setTimeout(() => {
           navigate(from, { replace: true });
         }, 500);
       }
     } else {
-      const { error } = await signUpWithUsername({ email, password, username, from });
-      if (error) setError(error.message);
-      else setMessage('Signup successful! Check your email for confirmation.');
+      const { data, error } = await signUpWithUsername({ email, password, username, from });
+      if (error) {
+        setError(error.message);
+      } else if (data?.user && data.user.identities?.length === 0) {
+        const { error: resendError } = await resendSignupConfirmation(email, from);
+        if (resendError) {
+          setError('This email is already registered. Try logging in, or wait a few minutes and use Resend email.');
+          setShowResend(true);
+        } else {
+          setMessage('This email is already registered. We sent a new confirmation email — check your inbox and spam folder.');
+          setShowResend(true);
+        }
+      } else {
+        setMessage('Signup successful! Check your email for confirmation.');
+        setShowResend(true);
+      }
     }
   };
 
@@ -226,7 +242,12 @@ function Login() {
         </form>
         <div className="login-links">
           <button
-            onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
+            onClick={() => {
+              setMode(mode === 'login' ? 'signup' : 'login');
+              setError(null);
+              setMessage(null);
+              setShowResend(false);
+            }}
             className="login-link-button"
           >
             {mode === 'login' ? 'Sign up' : 'Login'}
@@ -244,20 +265,16 @@ function Login() {
           )}
         </div>
         {error && <div className="login-error">{error}</div>}
-        {message && (
-          <div className="login-message">
-            <span>{message}</span>
-            {mode === 'signup' && (
-              <button
-                type="button"
-                onClick={handleResendSignupEmail}
-                className="login-resend-btn"
-                disabled={resendLoading}
-              >
-                {resendLoading ? 'Sending...' : 'Resend email'}
-              </button>
-            )}
-          </div>
+        {message && <div className="login-message">{message}</div>}
+        {showResend && (
+          <button
+            type="button"
+            onClick={handleResendSignupEmail}
+            className="login-resend-btn"
+            disabled={resendLoading}
+          >
+            {resendLoading ? 'Sending...' : 'Resend email'}
+          </button>
         )}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import Home from '../pages/Home';
 import Navbar from './Navbar';
 import Login from '../pages/login';
@@ -11,6 +11,7 @@ import '../styles/main.css';
 import '../styles/moodball.css';
 import '../styles/embroodball.css';
 import '../styles/digiball.css';
+import '../styles/beta.css';
 
 const Foodball = lazy(() => import('../pages/Foodball'));
 const FoodballEntry = lazy(() => import('../pages/FoodballEntry'));
@@ -19,6 +20,8 @@ const MoodballEntry = lazy(() => import('../pages/MoodballEntry'));
 const Embroodball = lazy(() => import('../pages/Embroodball'));
 const Digiball = lazy(() => import('../pages/Digiball'));
 const DigiballAlbum = lazy(() => import('../pages/DigiballAlbum'));
+const Beta = lazy(() => import('../pages/Beta'));
+const FoodDiary = lazy(() => import('../pages/FoodDiary'));
 
 // ScrollToTop component to handle scrolling to top on route changes
 function ScrollToTop() {
@@ -113,6 +116,9 @@ function App() {
             <Route path="/embroodball" element={<Embroodball />} />
             <Route path="/digiball" element={<Digiball />} />
             <Route path="/digiball/:albumId" element={<DigiballAlbum />} />
+            <Route path="/beta" element={<Beta />} />
+            <Route path="/beta/food-diary" element={<Navigate to="/beta/food-diary/control" replace />} />
+            <Route path="/beta/food-diary/:variant" element={<FoodDiary />} />
           </Routes>
           </Suspense>
         </main>

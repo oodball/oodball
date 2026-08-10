@@ -63,7 +63,7 @@ const DIARY_SECTIONS_BASE = [
       { id: 'lunch', label: 'Lunch', type: 'lunch', placeholder: 'What did you have for lunch?' },
       { id: 'dinner', label: 'Dinner', type: 'text', placeholder: 'What did you have for dinner?' },
       { id: 'snacks', label: 'Snacks', type: 'items', itemLabel: 'What you ate', quantityPlaceholder: '1, 100 ml, 1 cup, etc.' },
-      { id: 'drinks', label: 'Drinks', type: 'items', itemLabel: 'What you drank', quantityPlaceholder: '1, 100 ml, 1 cup, etc.' },
+      { id: 'drinks', label: 'Drinks', type: 'items', itemLabel: 'What you drank', itemPlaceholder: 'Spezi or Wine', quantityPlaceholder: '100 ml, 1 Glass, 1 Can, 1 Bottle' },
     ],
   },
   {
@@ -311,7 +311,7 @@ function ItemListField({ category, items, onAddItem, onRemoveItem }) {
           <input
             type="text"
             value={name}
-            placeholder="Apple"
+            placeholder={category.itemPlaceholder || 'Apple'}
             onChange={(event) => setName(event.target.value)}
           />
         </label>

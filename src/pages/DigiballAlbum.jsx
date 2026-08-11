@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import albums from '../digiball_albums';
+import DigiballGalleryItem from '../components/DigiballGalleryItem';
 
 function DigiballAlbum() {
   const { albumId } = useParams();
   const [selectedImage, setSelectedImage] = useState(null);
+  const [lightboxPortrait, setLightboxPortrait] = useState(false);
 
   const album = albums[albumId];
   const photos = album ? album.photos : [];
+
+  useEffect(() => {
+    setLightboxPortrait(false);
+  }, [selectedImage]);
 
   useEffect(() => {
     const handleEscape = (e) => {
@@ -67,21 +73,12 @@ function DigiballAlbum() {
 
         <div className="gallery-grid">
           {photos.map((photo, index) => (
-            <div key={index} className="gallery-item">
-              <div className="gallery-image-wrapper">
-                <img
-                  src={photo.src}
-                  alt={photo.caption || album.title}
-                  className="gallery-image"
-                  loading="lazy"
-                  onClick={() => setSelectedImage(photo)}
-                  style={{ cursor: 'pointer' }}
-                />
-                {photo.caption && (
-                  <div className="gallery-caption">{photo.caption}</div>
-                )}
-              </div>
-            </div>
+            <DigiballGalleryItem
+              key={photo.src || index}
+              photo={photo}
+              alt={photo.caption || album.title}
+              onClick={() => setSelectedImage(photo)}
+            />
           ))}
         </div>
 
@@ -113,7 +110,11 @@ function DigiballAlbum() {
             <img
               src={selectedImage.src}
               alt={selectedImage.caption || ''}
-              className="lightbox-image"
+              className={`lightbox-image${lightboxPortrait ? ' lightbox-image-portrait' : ''}`}
+              onLoad={(event) => {
+                const { naturalWidth, naturalHeight } = event.currentTarget;
+                setLightboxPortrait(naturalHeight > naturalWidth);
+              }}
             />
             <button
               className="lightbox-nav lightbox-next"

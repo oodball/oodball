@@ -25,7 +25,7 @@ function Beta() {
       <header className="beta-header">
         <span className="beta-badge">BETA</span>
         <h1>Beta Lab</h1>
-        <p className="beta-subtitle">Experimental features for oodball.com</p>
+        <p className="beta-subtitle">Experimental features</p>
       </header>
 
       <section className="beta-features">

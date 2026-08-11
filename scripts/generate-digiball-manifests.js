@@ -22,7 +22,11 @@ function readExistingPhotos(manifestPath) {
     const match = content.match(/const\s+photos\s*=\s*(\[[\s\S]*?\]);/);
     if (!match) return [];
 
-    return JSON.parse(match[1].replace(/,\s*([\]}])/g, '$1'));
+    return JSON.parse(
+      match[1]
+        .replace(/\/\/.*$/gm, '')
+        .replace(/,\s*([\]}])/g, '$1')
+    );
   } catch {
     return [];
   }
@@ -86,6 +90,20 @@ export default photos;
     console.log(`  ${folder}: ${files.length} photos`);
   }
 
+  // Album display order: Home first, then most recent trips first
+  const ALBUM_ORDER = ['home', 'munich', 'oxford', 'portland', 'korea', 'hong_kong', 'taiwan'];
+
+  albumEntries.sort((a, b) => {
+    const orderA = ALBUM_ORDER.indexOf(a.id);
+    const orderB = ALBUM_ORDER.indexOf(b.id);
+    if (orderA === -1 && orderB === -1) return a.id.localeCompare(b.id);
+    if (orderA === -1) return 1;
+    if (orderB === -1) return -1;
+    return orderA - orderB;
+  });
+
+  const orderExport = `export const ALBUM_ORDER = ${JSON.stringify(ALBUM_ORDER)};\n\n`;
+
   // Generate index.js that exports all albums
   const imports = albumEntries.map(a => `import ${a.id} from './${a.id}';`).join('\n');
   const albumsObj = albumEntries
@@ -94,7 +112,7 @@ export default photos;
 
   const indexContent = `${imports}
 
-const albums = {
+${orderExport}const albums = {
 ${albumsObj}
 };
 

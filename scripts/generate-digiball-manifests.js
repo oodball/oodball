@@ -91,7 +91,7 @@ export default photos;
   }
 
   // Album display order: Home first, then most recent trips first
-  const ALBUM_ORDER = ['home', 'munich', 'oxford', 'portland', 'korea', 'hong_kong', 'taiwan'];
+  const ALBUM_ORDER = ['home', 'vienna', 'munich', 'oxford', 'portland', 'korea', 'hong_kong', 'taiwan'];
 
   albumEntries.sort((a, b) => {
     const orderA = ALBUM_ORDER.indexOf(a.id);

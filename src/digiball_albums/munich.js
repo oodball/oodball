@@ -22,6 +22,14 @@ const photos = [
   {
     "src": "/images/Digiball/munich/birdies.jpeg",
     "caption": "I'm Sure it Has a Nice Personality"
+  },
+  {
+    "src": "/images/Digiball/munich/residence.jpeg",
+    "caption": "I Could Do This"
+  },
+  {
+    "src": "/images/Digiball/munich/tritons.jpeg",
+    "caption": "Go Tritons"
   }
 ];
 

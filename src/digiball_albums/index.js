@@ -7,8 +7,9 @@ import korea from './korea';
 import hong_kong from './hong_kong';
 import taiwan from './taiwan';
 import regensburg from './regensburg';
+import salzburg from './salzburg';
 
-export const ALBUM_ORDER = ["home","regensburg","vienna","munich","oxford","portland","korea","hong_kong","taiwan"];
+export const ALBUM_ORDER = ["home","salzburg","vienna","munich","oxford","portland","korea","hong_kong","taiwan"];
 
 const albums = {
   home: { title: 'Home', photos: home },
@@ -20,6 +21,7 @@ const albums = {
   hong_kong: { title: 'Hong Kong', photos: hong_kong },
   taiwan: { title: 'Taiwan', photos: taiwan },
   regensburg: { title: 'Regensburg', photos: regensburg },
+  salzburg: { title: 'Salzburg', photos: salzburg },
 };
 
 export default albums;

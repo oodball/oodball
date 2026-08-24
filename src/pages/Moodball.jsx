@@ -26,7 +26,7 @@ function Moodball() {
   }, [sortBy]);
 
   const sortedAndFilteredEntries = selectedTag
-    ? entries.filter(entry => entry.location && entry.location === selectedTag)
+    ? entries.filter(entry => entry.tags && entry.tags.includes(selectedTag))
     : entries;
 
   const handleTagClick = (tag) => {
@@ -50,7 +50,7 @@ function Moodball() {
       <div className="entries-section">
         <div className="section-header">
           <h2>
-            {selectedTag ? `Entries in "${selectedTag}"` : 'Entries'}
+            {selectedTag ? `Entries tagged "${selectedTag}"` : 'Entries'}
             ({sortedAndFilteredEntries.length})
           </h2>
           <div className="header-controls">
@@ -68,7 +68,6 @@ function Moodball() {
               >
                 <option value="date-high">Newest</option>
                 <option value="date-low">Oldest</option>
-                <option value="location-a-z">Location</option>
               </select>
             </div>
           </div>
@@ -94,29 +93,17 @@ function Moodball() {
                   </Link>
                   <div className="entry-meta">
                     <span className="entry-date">{entry.date}</span>
-                    {entry.location && (
+                    {entry.tags && entry.tags.map(tag => (
                       <button
-                        onClick={() => handleTagClick(entry.location)}
-                        className={`entry-location clickable-location ${selectedTag === entry.location ? 'active' : ''}`}
+                        key={tag}
+                        onClick={() => handleTagClick(tag)}
+                        className={`entry-location clickable-location ${selectedTag === tag ? 'active' : ''}`}
                       >
-                        📍 {entry.location}
+                        {tag}
                       </button>
-                    )}
+                    ))}
                   </div>
                 </div>
-                {entry.image && (
-                  <div className="entry-thumbnail">
-                    <img
-                      src={entry.image}
-                      alt={entry.title}
-                      className="entry-thumbnail-img"
-                      loading="lazy"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                  </div>
-                )}
                 <Link to={`/moodball/${entry.id}`} className="read-more-link">
                   Read full entry →
                 </Link>

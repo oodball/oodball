@@ -58,12 +58,9 @@ function parseEntryFile(filePath, fileName) {
       id,
       file: fileName,
       exportName,
-      title: entryData.title || 'Untitled',
       date: entryData.date || '',
-      timestamp: entryData.timestamp || '',
-      rating: entryData.rating || 0,
-      location: entryData.location || '',
-      tags: entryData.tags || []
+      tags: entryData.tags || [],
+      published: entryData.published !== false
     };
   } catch (error) {
     return null;
@@ -77,7 +74,6 @@ function generateManifest() {
 export const entriesManifest = [];
 export const getEntryMetadata = (id) => entriesManifest.find(e => e.id === id);
 export const getAllTags = () => [];
-export const getAllLocations = () => [];
 `, 'utf8');
     console.log('✓ Created empty moodball manifest');
     return;
@@ -103,23 +99,15 @@ ${entries.map(e => `  {
     id: ${e.id},
     file: '${e.file}',
     exportName: '${e.exportName}',
-    title: ${JSON.stringify(e.title)},
     date: ${JSON.stringify(e.date)},
-    timestamp: ${JSON.stringify(e.timestamp)},
-    rating: ${e.rating},
-    location: ${JSON.stringify(e.location)},
-    tags: ${JSON.stringify(e.tags)}
+    tags: ${JSON.stringify(e.tags)},
+    published: ${e.published}
   }`).join(',\n')}
 ];
 export const getEntryMetadata = (id) => entriesManifest.find(e => e.id === id);
 export const getAllTags = () => {
   const s = new Set();
   entriesManifest.forEach(e => { (e.tags || []).forEach(t => s.add(t)); });
-  return Array.from(s).sort();
-};
-export const getAllLocations = () => {
-  const s = new Set();
-  entriesManifest.forEach(e => { if (e.location) s.add(e.location); });
   return Array.from(s).sort();
 };
 `;

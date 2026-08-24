@@ -112,7 +112,7 @@ function App() {
             <Route path="/foodball" element={<Foodball />} />
             <Route path="/foodball/:id" element={<FoodballEntry user={user} />} />
             <Route path="/moodball" element={<Moodball />} />
-            <Route path="/moodball/:id" element={<MoodballEntry user={user} />} />
+            <Route path="/moodball/:id" element={<MoodballEntry />} />
             <Route path="/embroodball" element={<Embroodball />} />
             <Route path="/digiball" element={<Digiball />} />
             <Route path="/digiball/:albumId" element={<DigiballAlbum />} />

@@ -3,11 +3,10 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import HeicImage from '../components/HeicImage';
-import CommentSection from '../components/CommentSection';
 import { getEntry, getSortedEntriesMetadata } from '../moodball_entries';
 import '../styles/foodball.css';
 
-function MoodballEntry({ user }) {
+function MoodballEntry() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [entry, setEntry] = useState(null);
@@ -214,8 +213,6 @@ function MoodballEntry({ user }) {
           </ReactMarkdown>
         </div>
       </div>
-
-      <CommentSection entryId={entry.id} user={user} game="moodball" />
     </div>
   );
 }

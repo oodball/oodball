@@ -22,7 +22,7 @@ function Home() {
               <li>#1 in the world in Solitaire at some point on an app</li>
               <li>Instant replier to texts when I feel like it</li>
               <li>Speedrunner in Super Paper Mario: Origami King</li>
-              <li>38,808 hours dating HimeTsai (COMPLETED)</li>
+              {/* <li>38,808 hours dating HimeTsai (COMPLETED)</li> */}
               <li>18/31 achievements in Balatro</li>
             </ul>
           </div>
